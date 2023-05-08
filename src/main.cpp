@@ -10,7 +10,7 @@ void setup() {
 
 float desvio(int v1, int v2) {
     int v_max = max(v1, v2);
-    int v_min = min(v1, v2) + 500;
+    int v_min = min(v1, v2) + 200;
 
     return ((v_max - v_min) / (float)v_min) * 100;
 }
@@ -22,7 +22,7 @@ void loop() {
     for (int i = 0; i < N_SAMPLES; i++) {
         v_apps1 += analogRead(A17);
         v_apps2 += analogRead(A16);
-        delay(10);
+        delay(1);
     }
 
     v_apps1 /= N_SAMPLES;
