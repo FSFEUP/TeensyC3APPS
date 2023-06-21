@@ -47,7 +47,7 @@ bool plausibility(int v_apps1, int v_apps2) {
     return true;
 }
 
-int apps() {
+int read_apps() {
     int v_apps1 = analogRead(A16);
     int v_apps2 = analogRead(A17);
 
