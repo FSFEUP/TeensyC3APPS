@@ -1,6 +1,24 @@
 #include <Arduino.h>
 
-#define N_SAMPLES 10
+#define N_SAMPLES 5
+
+int avgBuffer1[N_SAMPLES] = {0};
+int avgBuffer2[N_SAMPLES] = {0};
+
+int average(int* buffer, int n) {
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += buffer[i];
+    }
+    return sum / n;
+}
+
+void buffer_insert(int* buffer, int n, int value) {
+    for (int i = 0; i < n - 1; i++) {
+        buffer[i] = buffer[i + 1];
+    }
+    buffer[n - 1] = value;
+}
 
 void setup() {
     Serial.begin(9600);
@@ -8,28 +26,21 @@ void setup() {
     pinMode(A16, INPUT);
 }
 
-float desvio(int v1, int v2) {
-    int v_max = max(v1, v2);
-    int v_min = min(v1, v2) + 200;
-
-    return ((v_max - v_min) / (float)v_min) * 100;
-}
-
 void loop() {
     int v_apps1 = 0;
     int v_apps2 = 0;
 
-    for (int i = 0; i < N_SAMPLES; i++) {
-        v_apps1 += analogRead(A17);
-        v_apps2 += analogRead(A16);
-        delay(1);
-    }
+    v_apps1 = analogRead(A16);
+    v_apps2 = analogRead(A17);
 
-    v_apps1 /= N_SAMPLES;
-    v_apps2 /= N_SAMPLES;
+    buffer_insert(avgBuffer1, N_SAMPLES, v_apps1);
+    buffer_insert(avgBuffer2, N_SAMPLES, v_apps2);
 
-    desvio(v_apps1, v_apps2);
+    v_apps1 = average(avgBuffer1, N_SAMPLES);
+    v_apps2 = average(avgBuffer2, N_SAMPLES);
 
-    String output = String(v_apps1, DEC) + "\t" + String(v_apps2, DEC) + "\t" + desvio(v_apps1, v_apps2) + "%";
+    String output = "s1: " + String(v_apps1, DEC) + "\ts2: " + String(v_apps2, DEC);
     Serial.println(output);
+
+    delay(1);
 }
