@@ -11,5 +11,6 @@ typedef enum _r2d_mode {
 } r2d_mode;
 
 int send_to_bamocar(int value_bamo);
+void can_setup();
 
 #endif  // _R2D_H_

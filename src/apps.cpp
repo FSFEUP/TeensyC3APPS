@@ -20,29 +20,31 @@ void buffer_insert(int* buffer, int n, int value) {
 }
 
 // usar valor da em y para calcular x
-float apps1_x_val(int apps1_y) {
-    return 1;
+double apps1_x_val(int apps1_y) {
+    // y == mx + b
+    // x == (y - b) / m
+    return (apps1_y - REG_B1) / REG_M1;
 }
 
 // usar valor da em y para calcular x
-float apps2_x_val(int apps2_y) {
-    return 1;
+double apps2_x_val(int apps2_y) {
+    return (apps2_y - REG_B2) / REG_M2;
 }
 
-float apps_deviation(int apps1_x, int apps2_x) {
-    return (apps1_x - apps2_x) / ((apps1_x + apps2_x) / 2) * 100;
+double apps_deviation(int apps1_x, int apps2_x) {
+    return abs(apps1_x - apps2_x) / ((apps1_x + apps2_x) / 2) * 100;
 }
 
 bool plausibility(int v_apps1, int v_apps2) {
     // plausbility check
-    if (v_apps1 < v_apps2)
-        return false;
+    // if (v_apps1 < v_apps2)
+    //     return false;
 
-    if (v_apps1 >= 1022 || v_apps2 >= 850)
-        return false;
+    // if (v_apps1 >= 1022 || v_apps2 >= 850)
+    //     return false;
 
-    if (v_apps1 <= 35 || v_apps2 <= 10)
-        return false;
+    // if (v_apps1 <= 35 || v_apps2 <= 10)
+    //     return false;
 
     return apps_deviation(apps1_x_val(v_apps1), apps2_x_val(v_apps2)) < 10;
 }
@@ -63,5 +65,5 @@ int read_apps() {
     if (!plausibility(v_apps1, v_apps2))
         return -1;
 
-    return v_apps1 * BAMOCAR_MAX / APPS_1_UPPER_BOUND;
+    return (BAMOCAR_MAX/5) - (v_apps1 * (BAMOCAR_MAX/5) / APPS_1_UPPER_BOUND);
 }

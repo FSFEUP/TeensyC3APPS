@@ -3,24 +3,29 @@
 #include <Arduino.h>
 #include <FlexCAN_T4.h>
 
-FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> canbus;
+FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
 int check_bamocar() {
     return 0;
+}
+
+void can_setup() {
+    can1.begin();
+    can1.setBaudRate(500000);
 }
 
 int send_to_bamocar(int value_bamo) {
     uint8_t byte1 = (value_bamo >> 8) & 0xFF;  // MSB
     uint8_t byte2 = value_bamo & 0xFF;         // LSB
 
-    Serial.print("byte1: ");
-    Serial.print(byte1, HEX);
-    Serial.print("\n byte2: ");
-    Serial.print(byte2, HEX);
+    // Serial.print("byte1: ");
+    // Serial.print(byte1, HEX);
+    // Serial.print("\n byte2: ");
+    // Serial.print(byte2, HEX);
     // definir a mensagem de acordo com o que o BAMOCAR pede
     // speed command value
 
-    Serial.printf("\n Value sent: %d", value_bamo);
+    // Serial.printf("\n Value sent: %d", value_bamo);
 
     CAN_message_t msg;
     msg.id = 0x201;
@@ -29,16 +34,16 @@ int send_to_bamocar(int value_bamo) {
     msg.buf[1] = byte2;
     msg.buf[2] = byte1;
 
-    Serial.print("Sent message with ID 0x");
-    Serial.print(msg.id, HEX);
-    Serial.print(": ");
-    for (int i = 0; i < msg.len; i++) {
-        Serial.print(msg.buf[i]);
-    }
+    // Serial.print("Sent message with ID 0x");
+    // Serial.print(msg.id, HEX);
+    // Serial.print(": ");
+    // for (int i = 0; i < msg.len; i++) {
+    //     Serial.print(msg.buf[i]);
+    // }
 
-    canbus.write(msg);
+    can1.write(msg);
 
-    Serial.println("\n Message sent!");
+    // Serial.println("\n Message sent!");
     return 0;
 }
 
