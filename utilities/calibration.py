@@ -1,7 +1,5 @@
 import serial
-
 import pygame
-import time
 from pygame.locals import *
 
 pygame.init()
