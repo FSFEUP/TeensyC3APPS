@@ -8,7 +8,7 @@ void setup() {
     pinMode(A17, INPUT);
     pinMode(A16, INPUT);
 
-    startup();
+    // startup();
 }
 
 void loop() {
