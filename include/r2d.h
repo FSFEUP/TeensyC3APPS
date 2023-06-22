@@ -10,4 +10,6 @@ typedef enum _r2d_mode {
     R2D_MODE_ERROR
 } r2d_mode;
 
+int send_to_bamocar(int value_bamo);
+
 #endif  // _R2D_H_
