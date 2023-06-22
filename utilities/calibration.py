@@ -64,9 +64,9 @@ def main_loop(data, filename, saved_points, n_saved):
         min(percent_deviation(data, val) for val in saved_points) > 10 and data not in saved_points
     ):
         with open(filename, "a") as f:
-            f.write(str(data) + "\n")
+            f.write(str(data[0]) + " " + str(data[1]) + "\n")
         display("Saved: ", center=(centerpos[0], 300), fontsize=30)
-        display(str(data[0]) + " " + str(data[1]), center=(centerpos[0] + 50, 300), fontsize=30)
+        display(str(data[0]) + " " + str(data[1]), center=(centerpos[0] + 100, 300), fontsize=30)
         saved_points.append(data)
         n_saved += 1
 
