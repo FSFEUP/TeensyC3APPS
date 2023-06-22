@@ -13,10 +13,11 @@ void setup() {
 
 void loop() {
     // int apps_value = read_apps();
-
-    // String output = "s1: " + String(apps_value, DEC) + "\ts2: " + String(apps_value, DEC);
-    // Serial.println(output);
+    int apps_value_1 = analogRead(A17);
+    int apps_value_2 = analogRead(A16);
 
     
 
+    String output = String(apps_value_1, DEC) + "\t" + String(apps_value_2, DEC);
+    Serial.println(output);
 }

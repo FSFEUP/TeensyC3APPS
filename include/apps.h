@@ -12,7 +12,6 @@
 #define BAMOCAR_MAX 32000
 
 int read_apps();
-
 int average(int* buffer, int n);
 void buffer_insert(int* buffer, int n, int value);
 

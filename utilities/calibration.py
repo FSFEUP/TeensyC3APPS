@@ -38,7 +38,7 @@ def percent_deviation(t1, t2):
 
 def main_loop(data, filename, saved_points, n_saved):
     display("Press ESC to exit", center=(centerpos[0], 25))
-    display("Press ENTER to save the current value", center=(centerpos[0], 75))
+    display("Auto-Saving at 10% deviation", center=(centerpos[0], 75))
 
     display("Minimum percent deviation between", center=(centerpos[0] + 100, 150), fontsize=30)
     display("saved and current values:", center=(centerpos[0] + 100, 200), fontsize=30)
@@ -67,23 +67,33 @@ def main_loop(data, filename, saved_points, n_saved):
             f.write(str(data[0]) + " " + str(data[1]) + "\n")
         display("Saved: ", center=(centerpos[0], 300), fontsize=30)
         display(str(data[0]) + " " + str(data[1]), center=(centerpos[0] + 100, 300), fontsize=30)
+        display("Number of saved points: " + str(n_saved + 1), center=(centerpos[0], 350), fontsize=30)
         saved_points.append(data)
         n_saved += 1
 
     return saved_points, n_saved
 
 
-with open("APPS_calib.txt", "r") as f:
-    saved_points = []
-    n_saved = 0
-    for line in f:
-        if done:
-            exit()
-        print(line.split("\t")[0], line.split("\t")[1], n_saved)
-        data = (int(line.split("\t")[0]), int(line.split("\t")[1]))
-        # try:
-        #     ser = serial.Serial("/dev/ttyACM0", 9600)
-        # except:
-        #     print("Error: Could not open serial port")
+# with open("APPS_calib.txt", "r") as f:
+#     saved_points = []
+#     n_saved = 0
+#     for line in f:
+#         if done:
+#             exit()
+#         print(line.split("\t")[0], line.split("\t")[1], n_saved)
+#         data = (int(line.split("\t")[0]), int(line.split("\t")[1]))
 
-        saved_points, n_saved = main_loop(data, "APPS_res.txt", saved_points, n_saved)
+#         saved_points, n_saved = main_loop(data, "APPS_res.txt", saved_points, n_saved)
+
+try:
+    ser = serial.Serial("/dev/ttyACM0", 9600)
+except:
+    print("Error: Could not open serial port")
+
+saved_points = []
+n_saved = 0
+
+while not done:
+    data = ser.readline().decode("utf-8").strip().split("\t")
+    data = (int(data[0]), int(data[1]))
+    saved_points, n_saved = main_loop(data, "APPS_res.txt", saved_points, n_saved)
