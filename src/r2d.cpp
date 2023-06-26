@@ -1,11 +1,61 @@
 #include "r2d.h"
-
 #include <Arduino.h>
 #include <FlexCAN_T4.h>
+
 
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
 int check_bamocar() {
+    CAN_message_t msg;
+    if(can1.read(msg)) {
+        if(msg.buf[0] == 0x8F) {
+            uint32_t data = msg.buf[1] + msg.buf[2];
+            switch (data) { //all possible errors. O que fazer quando são detetados??
+                case 1:
+                    //Parameter damaged 
+                    break;
+                case 2:
+                    //Hardware error
+                    break;
+                case 4:
+                    //Safety circuit faulty (only active with RUN)
+                    break;
+                case 8:
+                    //CAN TimeOut Time exceeded 
+                    break;
+                case 16:
+                    //Bad or wrong encoder signal
+                    break;
+                case 32:
+                    //Power voltage missing
+                    break;
+                case 64:
+                    //Engine temperature too high 
+                    break;
+                case 128:
+                    //Unit temperature too high
+                    break;
+                case 256:
+                    //Overvoltage > 1.8 x UN reached
+                    break;
+                case 512:
+                    //Overcurrent or strong oscillating current detected 
+                    break;
+                case 1024:
+                    //Spinning (without setpoint, wrong direction)
+                    break;
+                case 2048:
+                    //User - Error selection
+                    break;
+                case 16384:
+                    //Current - Measurement error
+                    break;
+                case 32768:
+                    //Ballast circuit overloaded 
+                    break;
+            }
+        }
+    }
     return 0;
 }
 
