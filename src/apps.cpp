@@ -31,7 +31,7 @@ double apps2_x_val(int apps2_y) {
     return (apps2_y - REG_B2) / REG_M2;
 }
 
-double apps_deviation(int apps1_x, int apps2_x) {
+double apps_deviation(double apps1_x, double apps2_x) {
     return abs(apps1_x - apps2_x) / ((apps1_x + apps2_x) / 2) * 100;
 }
 
@@ -46,7 +46,21 @@ bool plausibility(int v_apps1, int v_apps2) {
     // if (v_apps1 <= 35 || v_apps2 <= 10)
     //     return false;
 
-    return apps_deviation(apps1_x_val(v_apps1), apps2_x_val(v_apps2)) < 10;
+    double plausibility_value = apps_deviation(apps1_x_val(v_apps1), apps2_x_val(v_apps2));
+
+    Serial.print("Apps1 (xy): ");
+    // Serial.print(apps1_x_val(v_apps1));
+    // Serial.print(" ");
+    Serial.print(v_apps1);
+    Serial.print("\tApps2 (xy): ");
+    // Serial.print(apps2_x_val(v_apps2));
+    // Serial.print(" ");
+    Serial.println(v_apps2);
+    // Serial.print("\tSensor deviation: ");
+    // Serial.print(plausibility_value);
+    // Serial.println("%");
+
+    return (plausibility_value < 10);
 }
 
 int read_apps() {
@@ -65,5 +79,5 @@ int read_apps() {
     if (!plausibility(v_apps1, v_apps2))
         return -1;
 
-    return (BAMOCAR_MAX/5) - (v_apps1 * (BAMOCAR_MAX/5) / APPS_1_UPPER_BOUND);
+    return (BAMOCAR_MAX / 5) - (v_apps1 * (BAMOCAR_MAX / 5) / APPS_1_UPPER_BOUND);
 }
