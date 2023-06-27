@@ -34,6 +34,7 @@ void control_display() {
     myNex.writeStr("t3.txt", mode);
 
     // Increment speed, temperature, and SOC on page 0
+    /*
     speedInt++;
     if (speedInt == 201) {
       speedInt = 0;
@@ -56,7 +57,8 @@ void control_display() {
       myNex.writeNum("t0.pco", 1032);
       myNex.writeStr("t0.txt", "OK");
     }
-
+    */
+   //Ler os dados da BMS e atualizamos no display
     myNex.writeNum("n0.val", speedInt);
     myNex.writeNum("x1.val", tempInt);
     myNex.writeNum("x0.val", socInt);

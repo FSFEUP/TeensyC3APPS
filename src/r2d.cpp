@@ -68,32 +68,15 @@ int send_to_bamocar(int value_bamo) {
     uint8_t byte1 = (value_bamo >> 8) & 0xFF;  // MSB
     uint8_t byte2 = value_bamo & 0xFF;         // LSB
 
-    // Serial.print("byte1: ");
-    // Serial.print(byte1, HEX);
-    // Serial.print("\n byte2: ");
-    // Serial.print(byte2, HEX);
-    // definir a mensagem de acordo com o que o BAMOCAR pede
-    // speed command value
-
-    // Serial.printf("\n Value sent: %d", value_bamo);
-
     CAN_message_t msg;
     msg.id = 0x201;
     msg.len = 3;
-    msg.buf[0] = 0x31;
+    msg.buf[0] = 0x90;
     msg.buf[1] = byte2;
     msg.buf[2] = byte1;
 
-    // Serial.print("Sent message with ID 0x");
-    // Serial.print(msg.id, HEX);
-    // Serial.print(": ");
-    // for (int i = 0; i < msg.len; i++) {
-    //     Serial.print(msg.buf[i]);
-    // }
-
     can1.write(msg);
 
-    // Serial.println("\n Message sent!");
     return 0;
 }
 
@@ -101,8 +84,8 @@ int check_BMS() {
     return 0;
 }
 
-int play_r2d_sound() {
-    return 0;
+void play_r2d_sound() {
+    return ;
 }
 
 void r2d_state_update(r2d_mode* state) {
@@ -118,7 +101,13 @@ r2d_mode r2d_state_machine(r2d_mode cur_state) {
             break;
         case R2D_MODE_IDLE:
             // check bamo
+            if(check_bamocar()) {
+
+            }
             // check bms
+            if(check_BMS()) {
+
+            }
             // check apps
             // check modo dash
             // check modo volante

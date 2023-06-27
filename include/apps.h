@@ -9,7 +9,7 @@
 #define APPS_2_UPPER_BOUND 850
 #define APPS_2_LOWER_BOUND 10
 
-#define BAMOCAR_MAX 32000
+#define BAMOCAR_MAX 32760
 
 #define REG_M1 0.00124
 #define REG_M2 0.00141
