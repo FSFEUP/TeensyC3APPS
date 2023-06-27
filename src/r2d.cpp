@@ -76,7 +76,6 @@ int send_to_bamocar(int value_bamo) {
     msg.buf[2] = byte1;
 
     can1.write(msg);
-
     return 0;
 }
 
