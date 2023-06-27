@@ -2,12 +2,14 @@
 
 #include "apps.h"
 #include "r2d.h"
+#include "display.h"
 
 void setup() {
     Serial.begin(9600);
     pinMode(A17, INPUT);
     pinMode(A16, INPUT);
     can_setup();
+    setup_display();
 }
 
 void loop() {
