@@ -73,7 +73,7 @@ def __main__():
             output_file.write(
                 "\t".join(str(x) for x in [new_compr_vals[index], new_apps1_vals[index], new_apps2_vals[index]]) + "\n"
             )
-
+  
 
 if __name__ == "__main__":
     __main__()

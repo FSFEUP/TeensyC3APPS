@@ -3,6 +3,9 @@
 
 #define AVG_SAMPLES 5
 
+#define APPS_1_PIN 41
+#define APPS_2_PIN 40
+
 #define APPS_1_UPPER_BOUND 1023
 #define APPS_1_LOWER_BOUND 35
 
