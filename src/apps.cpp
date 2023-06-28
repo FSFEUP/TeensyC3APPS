@@ -67,8 +67,7 @@ int read_apps() {
     int v_apps1 = analogRead(A16);
     int v_apps2 = analogRead(A17);
 
-    if (!plausibility(v_apps1, v_apps2))
-        return false;
+    if (!plausibility(v_apps1, v_apps2)) return false;
 
     buffer_insert(avgBuffer1, AVG_SAMPLES, v_apps1);
     buffer_insert(avgBuffer2, AVG_SAMPLES, v_apps2);
@@ -76,8 +75,7 @@ int read_apps() {
     v_apps1 = average(avgBuffer1, AVG_SAMPLES);
     v_apps2 = average(avgBuffer2, AVG_SAMPLES);
 
-    if (!plausibility(v_apps1, v_apps2))
-        return -1;
+    if (!plausibility(v_apps1, v_apps2)) return -1;
 
     return (BAMOCAR_MAX / 5) - (v_apps1 * (BAMOCAR_MAX / 5) / APPS_1_UPPER_BOUND);
 }

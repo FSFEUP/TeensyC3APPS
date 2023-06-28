@@ -17,10 +17,18 @@ int buzzerPin = 15;
 
 
 int check_bamocar() {
+    CAN_message_t request;
+    request.id = 0x181;
+    request.len = 3;
+    request.buf[0] = 0x30;
+    request.buf[1] = 0x8F;
+    request.buf[2] = 0x00;
+    can1.write(request);
+
     CAN_message_t msg;
     if(can1.read(msg)) {
         if(msg.buf[0] == 0x8F) {
-            uint32_t data = msg.buf[1] + msg.buf[2];
+            uint32_t data = msg.buf[1] + msg.buf[2] + msg.buf[3] + msg.buf[4];
             switch (data) { //all possible errors. O que fazer quando são detetados??
                 case 1:
                     //Parameter damaged 
@@ -112,7 +120,7 @@ void can_setup() {
     pinMode(pin_shutdown_circuit, INPUT);
     pinMode(pin_R2Dbutton, INPUT);
 
-    analogWrite(buzzerPin, 256); 
+    analogWrite(buzzerPin, 0); 
 }
 
 void send_to_bamocar(int value_bamo) {
@@ -134,9 +142,9 @@ int check_BMS() {
 }
 
 void play_r2d_sound() {
-    analogWrite(buzzerPin, 0); // Turn off the buzzer for the other half of the period
+    analogWrite(buzzerPin, 189); // Turn off the buzzer for the other half of the period
     delay(4000);
-    analogWrite(buzzerPin,256);
+    analogWrite(buzzerPin,0);
     delay(4000);
 }
 
@@ -152,8 +160,10 @@ r2d_mode r2d_state_machine(r2d_mode cur_state, int apps_value) {
             next_state = R2D_MODE_IDLE;
             break;
         case R2D_MODE_IDLE:
-            //if(check_bamocar() != 0) return 1;
-            //if(check_BMS()) {}
+            if(check_bamocar() != 0) next_state = R2D_MODE_ERROR;
+            
+            if(check_BMS()) {}
+            
             // check apps
             // check modo dash
             // check modo volante
@@ -173,11 +183,15 @@ r2d_mode r2d_state_machine(r2d_mode cur_state, int apps_value) {
         case R2D_MODE_DRIVE:
             play_r2d_sound();
 
-            //if(check_bamocar())
+            if(check_bamocar() != 0) next_state = R2D_MODE_ERROR;
 
-            //if(check_BMS())
+            //if(check_BMS()) {}
 
-            //ler seletor do volante referente aos modos (para limitar o bamocar)
+            // check apps
+            // check modo dash
+            // check modo volante
+
+            //ler seletor do volante referente aos modos (para limitar o bamocar) -> usar código do Bernardo mas enviamos como parâmetros os valores lidos da BMS
 
             send_to_bamocar(apps_value);
 
@@ -185,7 +199,7 @@ r2d_mode r2d_state_machine(r2d_mode cur_state, int apps_value) {
 
             break;
         case R2D_MODE_ERROR:
-            next_state = R2D_MODE_ERROR;
+            next_state = R2D_MODE_IDLE;
             break;
 
         default:

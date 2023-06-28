@@ -12,7 +12,7 @@ int sensorValue = 0;
 
 void setup_display() {
     myNex.begin(9600);
-    Serial.begin(38400);
+    //Serial.begin(38400);
     pinMode(switchPin, INPUT);
     myNex.writeNum("n0.val", speedInt);
     myNex.writeNum("x1.val", tempInt);
