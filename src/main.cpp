@@ -4,6 +4,8 @@
 #include "r2d.h"
 #include "display.h"
 
+r2d_mode curr_state;
+
 void setup() {
     Serial.begin(9600);
     pinMode(A17, INPUT);
@@ -17,8 +19,11 @@ void loop() {
     // int apps_value_2 = analogRead(A16);
     int apps_value = read_apps();
     if (apps_value > 0) {
-        // Serial.println(apps_value);
-        // send_to_bamocar(apps_value);
+        curr_state = r2d_state_machine(curr_state, apps_value);
+    }
+    else {
+        Serial.print("ERROR: apps_value < 0");
+        delay(1);
     }
     delay(1);
     // else

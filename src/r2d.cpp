@@ -12,6 +12,7 @@ int pin_selector_2 = 23;
 int pin_shutdown_circuit = 9;
 int pin_precharge = 10;
 int pin_R2Dbutton = 11;
+int buzzerPin = 15;
 
 
 
@@ -100,6 +101,9 @@ int check_bamocar() {
 void can_setup() {
     can1.begin();
     can1.setBaudRate(500000);
+
+    pinMode(buzzerPin, OUTPUT);
+
     pinMode(pin_brake_sensor, INPUT);
     pinMode(pin_current_sensor, INPUT);
     pinMode(pin_precharge, INPUT);
@@ -107,6 +111,8 @@ void can_setup() {
     pinMode(pin_selector_2, INPUT);
     pinMode(pin_shutdown_circuit, INPUT);
     pinMode(pin_R2Dbutton, INPUT);
+
+    analogWrite(buzzerPin, 256); 
 }
 
 void send_to_bamocar(int value_bamo) {
@@ -128,14 +134,17 @@ int check_BMS() {
 }
 
 void play_r2d_sound() {
-    return ;
+    analogWrite(buzzerPin, 0); // Turn off the buzzer for the other half of the period
+    delay(4000);
+    analogWrite(buzzerPin,256);
+    delay(4000);
 }
 
 void r2d_state_update(r2d_mode* state) {
-    return;
+    return ;
 }
 
-r2d_mode r2d_state_machine(r2d_mode cur_state) {
+r2d_mode r2d_state_machine(r2d_mode cur_state, int apps_value) {
     r2d_mode next_state = cur_state;
     switch (cur_state) {
         case R2D_MODE_STARTUP:
@@ -143,12 +152,8 @@ r2d_mode r2d_state_machine(r2d_mode cur_state) {
             next_state = R2D_MODE_IDLE;
             break;
         case R2D_MODE_IDLE:
-            // check bamo
-            if(check_bamocar() != 0) return 1;
-            // check bms
-            if(check_BMS()) {
-
-            }
+            //if(check_bamocar() != 0) return 1;
+            //if(check_BMS()) {}
             // check apps
             // check modo dash
             // check modo volante
@@ -166,9 +171,21 @@ r2d_mode r2d_state_machine(r2d_mode cur_state) {
             // update display
             break;
         case R2D_MODE_DRIVE:
+            play_r2d_sound();
+
+            //if(check_bamocar())
+
+            //if(check_BMS())
+
+            //ler seletor do volante referente aos modos (para limitar o bamocar)
+
+            send_to_bamocar(apps_value);
+
+            //if(o carro desligar temos de atualizar o estado para o básico) next_state = R2D_MODE_STARTUP;
 
             break;
         case R2D_MODE_ERROR:
+            next_state = R2D_MODE_ERROR;
             break;
 
         default:
