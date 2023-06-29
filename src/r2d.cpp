@@ -6,17 +6,18 @@
 
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
+//int pin_brake_sensor = 20;
+int pin_current_sensor = 21;
+int pin_selector_1 = 26;
+int pin_selector_2 = 19;
+int pin_shutdown_circuit = 9;
+int pin_precharge = 33;
+int pin_R2Dbutton = 32;
+int buzzerPin = 4;
+bool sound = false;
+
 Bounce pushbutton = Bounce(pin_R2Dbutton, 10);  // 10 ms debounce
 
-int pin_brake_sensor = 20;
-int pin_current_sensor = 21;
-int pin_selector_1 = 22;
-int pin_selector_2 = 23;
-int pin_shutdown_circuit = 9;
-int pin_precharge = 10;
-int pin_R2Dbutton = 11;
-int buzzerPin = 5;
-bool sound = false;
 
 int check_bamocar() {
     can1.write(request_bamo);
@@ -108,7 +109,7 @@ void can_setup() {
 
     pinMode(buzzerPin, OUTPUT);
 
-    pinMode(pin_brake_sensor, INPUT);
+    //pinMode(pin_brake_sensor, INPUT);
     pinMode(pin_current_sensor, INPUT);
     pinMode(pin_precharge, INPUT);
     pinMode(pin_selector_1, INPUT);
@@ -116,7 +117,7 @@ void can_setup() {
     pinMode(pin_shutdown_circuit, INPUT);
     pinMode(pin_R2Dbutton, INPUT_PULLUP);
 
-    analogWrite(buzzerPin, 0);
+    digitalWrite(buzzerPin, LOW);
 }
 
 void send_to_bamocar(int value_bamo) {
@@ -134,10 +135,10 @@ int check_BMS() {
 }
 
 void play_r2d_sound() {
-    analogWrite(buzzerPin, 189);  // Turn off the buzzer for the other half of the period
-    delay(4000);
-    analogWrite(buzzerPin, 0);
-    //delay(4000);
+    digitalWrite(buzzerPin, HIGH);  // Turn off the buzzer for the other half of the period
+    delay(1000);
+    digitalWrite(buzzerPin, LOW);
+    delay(1000);
 }
 
 void r2d_state_update(r2d_mode* state) {
@@ -153,9 +154,11 @@ r2d_mode r2d_state_machine(r2d_mode cur_state, int apps_value) {
             sound = false;
             break;
         case R2D_MODE_IDLE:
-            if(check_bamocar() != 0) next_state = R2D_MODE_ERROR;
+        
+            //if(check_bamocar() != 0) next_state = R2D_MODE_ERROR;
             
-            if(check_BMS()) {}
+            //if(check_BMS()) {}
+            
             // check apps
             // check modo dash
             // check modo volante
@@ -164,11 +167,17 @@ r2d_mode r2d_state_machine(r2d_mode cur_state, int apps_value) {
             // check r2d button
             // check brake
             if (digitalRead(pin_precharge) == LOW && digitalRead(pin_shutdown_circuit) == LOW) {
-                if (pushbutton.update() && analogRead(pin_brake_sensor) > 100) {
-                    if(pushbutton.fallingEdge()) next_state = R2D_MODE_DRIVE;
+                CAN_message_t msg;
+                int val = 0;
+                if(can1.read(msg)){
+                    if(msg.id == 0x123){
+                        val = msg.buf[0];
+                        if (pushbutton.update() && val > 100) {
+                            if(pushbutton.fallingEdge()) next_state = R2D_MODE_DRIVE;
+                        }
+                    }
                 }
             }
-
             // update display
             break;
         case R2D_MODE_DRIVE:
