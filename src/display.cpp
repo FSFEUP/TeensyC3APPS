@@ -1,4 +1,7 @@
+#include "display.h"
+
 #include <EasyNextionLibrary.h>
+
 #define NEXTION_PORT Serial1
 
 EasyNex myNex(NEXTION_PORT);
@@ -12,7 +15,7 @@ int sensorValue = 0;
 
 void setup_display() {
     myNex.begin(9600);
-    //Serial.begin(38400);
+    // Serial.begin(38400);
     pinMode(switchPin, INPUT);
     myNex.writeNum("n0.val", speedInt);
     myNex.writeNum("x1.val", tempInt);
@@ -58,19 +61,19 @@ void control_display() {
       myNex.writeStr("t0.txt", "OK");
     }
     */
-   //Ler os dados da BMS e atualizamos no display
+    // Ler os dados da BMS e atualizamos no display
     myNex.writeNum("n0.val", speedInt);
     myNex.writeNum("x1.val", tempInt);
     myNex.writeNum("x0.val", socInt);
 }
 
 int mapSensorValueToSwitchNumber(int sensorValue) {
-  int rotswitchNumber = 0;
+    int rotswitchNumber = 0;
 
-  float posicao = sensorValue;
+    float posicao = sensorValue;
 
-  posicao /= 93;
+    posicao /= 93;
 
-  rotswitchNumber  = round(posicao);
-  return rotswitchNumber;
+    rotswitchNumber = round(posicao);
+    return rotswitchNumber;
 }
