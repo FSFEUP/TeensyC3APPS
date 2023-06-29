@@ -163,7 +163,6 @@ r2d_mode r2d_state_machine(r2d_mode cur_state, int apps_value) {
             if(check_bamocar() != 0) next_state = R2D_MODE_ERROR;
             
             if(check_BMS()) {}
-            
             // check apps
             // check modo dash
             // check modo volante
