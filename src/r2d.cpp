@@ -1,8 +1,12 @@
 #include "r2d.h"
+#include "messages.h"
+#include "Bounce2.h"
 #include <Arduino.h>
 #include <FlexCAN_T4.h>
 
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
+
+Bounce pushbutton = Bounce(pin_R2Dbutton, 10);  // 10 ms debounce
 
 int pin_brake_sensor = 20;
 int pin_current_sensor = 21;
@@ -11,17 +15,11 @@ int pin_selector_2 = 23;
 int pin_shutdown_circuit = 9;
 int pin_precharge = 10;
 int pin_R2Dbutton = 11;
-int buzzerPin = 15;
+int buzzerPin = 5;
 bool sound = false;
 
 int check_bamocar() {
-    CAN_message_t request;
-    request.id = 0x181;
-    request.len = 3;
-    request.buf[0] = 0x30;
-    request.buf[1] = 0x8F;
-    request.buf[2] = 0x00;
-    can1.write(request);
+    can1.write(request_bamo);
 
     CAN_message_t msg;
     if (can1.read(msg)) {
@@ -116,7 +114,7 @@ void can_setup() {
     pinMode(pin_selector_1, INPUT);
     pinMode(pin_selector_2, INPUT);
     pinMode(pin_shutdown_circuit, INPUT);
-    pinMode(pin_R2Dbutton, INPUT);
+    pinMode(pin_R2Dbutton, INPUT_PULLUP);
 
     analogWrite(buzzerPin, 0);
 }
@@ -125,14 +123,10 @@ void send_to_bamocar(int value_bamo) {
     uint8_t byte1 = (value_bamo >> 8) & 0xFF;  // MSB
     uint8_t byte2 = value_bamo & 0xFF;         // LSB
 
-    CAN_message_t msg;
-    msg.id = 0x201;
-    msg.len = 3;
-    msg.buf[0] = 0x90;
-    msg.buf[1] = byte2;
-    msg.buf[2] = byte1;
+    bamo_apps.buf[1] = byte2;
+    bamo_apps.buf[2] = byte1;
 
-    can1.write(msg);
+    can1.write(bamo_apps);
 }
 
 int check_BMS() {
@@ -143,7 +137,7 @@ void play_r2d_sound() {
     analogWrite(buzzerPin, 189);  // Turn off the buzzer for the other half of the period
     delay(4000);
     analogWrite(buzzerPin, 0);
-    delay(4000);
+    //delay(4000);
 }
 
 void r2d_state_update(r2d_mode* state) {
@@ -169,9 +163,9 @@ r2d_mode r2d_state_machine(r2d_mode cur_state, int apps_value) {
             // check fim precharge
             // check r2d button
             // check brake
-            if (digitalRead(pin_precharge) == HIGH && digitalRead(pin_shutdown_circuit) == HIGH) {
-                if (digitalRead(pin_R2Dbutton) == HIGH && analogRead(pin_brake_sensor) > 100) {
-                    next_state = R2D_MODE_DRIVE;
+            if (digitalRead(pin_precharge) == LOW && digitalRead(pin_shutdown_circuit) == LOW) {
+                if (pushbutton.update() && analogRead(pin_brake_sensor) > 100) {
+                    if(pushbutton.fallingEdge()) next_state = R2D_MODE_DRIVE;
                 }
             }
 

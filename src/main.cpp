@@ -15,6 +15,9 @@ void setup() {
 }
 
 void loop() {
+    play_r2d_sound();
+    delay(4000);
+    /*
     int apps_value = read_apps();
 
     if (apps_value >= 0) {
@@ -23,6 +26,7 @@ void loop() {
         Serial.println("ERROR: apps_implausibility");
     }
     delay(20);
+    */
     // else
     // send_to_bamocar(0);
     // String output = String(apps_value_1, DEC) + "\t" + String(apps_value_2, DEC);
