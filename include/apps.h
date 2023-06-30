@@ -28,7 +28,5 @@
 #define BAMOCAR_ATTENUATION_FACTOR 1
 
 int read_apps();
-int average(int* buffer, int n);
-void buffer_insert(int* buffer, int n, int value);
 
 #endif  // _APPS_H_

@@ -3,17 +3,17 @@
 #include <elapsedMillis.h>
 
 #include "apps.h"
+#include "can.h"
 #include "display.h"
 #include "r2d.h"
-#include "can.h"
 
 #define APPS_1_PIN 41
 #define APPS_2_PIN 40
 
 #define BAMOCAR_ATTENUATION_FACTOR 1
-#define APPS_READ_DELAY_MS 10
+#define APPS_READ_PERIOD_MS 20
 
-elapsedMillis CAN_Timer;
+elapsedMillis APPS_TIMER;
 
 void setup() {
     Serial.begin(9600);
@@ -26,12 +26,14 @@ void setup() {
 void loop() {
     // play_r2d_sound();
 
-    int apps_value = read_apps();
+    if (APPS_TIMER > APPS_READ_PERIOD_MS) {
+        APPS_TIMER = 0;
+        int apps_value = read_apps();
 
-    if (apps_value >= 0) {
-        // curr_state = r2d_state_machine(curr_state, apps_value);
-    } else {
-        Serial.println("ERROR: apps_implausibility");
+        if (apps_value >= 0) {
+            send_msg(apps_value);
+        } else {
+            Serial.println("ERROR: apps_implausibility");
+        }
     }
-    delay(20);
 }
