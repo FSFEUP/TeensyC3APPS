@@ -5,7 +5,7 @@
 #include "apps.h"
 #include "can.h"
 #include "display.h"
-#include "r2d.h"
+// #include "r2d.h"
 
 #define APPS_1_PIN 41
 #define APPS_2_PIN 40
@@ -19,7 +19,7 @@ void setup() {
     Serial.begin(9600);
     pinMode(APPS_1_PIN, INPUT);
     pinMode(APPS_2_PIN, INPUT);
-    // can_setup();
+    canbus_setup();
     // setup_display();
 }
 

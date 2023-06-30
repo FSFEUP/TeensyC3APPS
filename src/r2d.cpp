@@ -1,12 +1,12 @@
 #include "r2d.h"
-#include "can.h"
 #include <Arduino.h>
 #include <FlexCAN_T4.h>
 #include "Bounce2.h"
+#include "can.h"
 
 extern CAN_message_t request_bamo;
 extern CAN_message_t bamo_apps;
-FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
+// FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
 // int pin_brake_sensor = 20;
 int pin_current_sensor = 21;
@@ -19,8 +19,9 @@ int buzzerPin = 4;
 bool sound = false;
 r2d_mode next_state;
 
-Bounce pushbutton = Bounce(pin_R2Dbutton, 10);  // 10 ms debounce
-
+Bounce pushbutton = Bounce(pin_R2Dbutton, 10);
+// 10 ms debounce
+/*
 int check_bamocar() {
     can1.write(request_bamo);
 
@@ -104,24 +105,9 @@ int check_bamocar() {
     }
     return 0;
 }
+*/
 
-void can_setup() {
-    can1.begin();
-    can1.setBaudRate(500000);
-
-    pinMode(buzzerPin, OUTPUT);
-
-    // pinMode(pin_brake_sensor, INPUT);
-    pinMode(pin_current_sensor, INPUT);
-    pinMode(pin_precharge, INPUT);
-    pinMode(pin_selector_1, INPUT);
-    pinMode(pin_selector_2, INPUT);
-    pinMode(pin_shutdown_circuit, INPUT);
-    pinMode(pin_R2Dbutton, INPUT_PULLUP);
-
-    digitalWrite(buzzerPin, LOW);
-}
-
+/*
 void send_to_bamocar(int value_bamo) {
     uint8_t byte1 = (value_bamo >> 8) & 0xFF;  // MSB
     uint8_t byte2 = value_bamo & 0xFF;         // LSB
@@ -135,13 +121,13 @@ void send_to_bamocar(int value_bamo) {
  int check_BMS() {
      return 0;
  }
-
- void play_r2d_sound() {
-     digitalWrite(buzzerPin, HIGH);  // Turn off the buzzer for the other half of the period
-     delay(1000);
-     digitalWrite(buzzerPin, LOW);
-     delay(1000);
- }
+*/
+void play_r2d_sound() {
+    digitalWrite(buzzerPin, HIGH);  // Turn off the buzzer for the other half of the period
+    delay(1000);
+    digitalWrite(buzzerPin, LOW);
+    delay(1000);
+}
 
 void r2d_state_update(r2d_mode* state) {
     return;
@@ -151,72 +137,73 @@ void check_val(const CAN_message_t& msg) {
     if (msg.id == 0x123) {
         int val = msg.buf[0];
         if (pushbutton.update() && val > 100) {
-            if (pushbutton.fallingEdge()) next_state = R2D_MODE_DRIVE;
+            if (pushbutton.fallingEdge())
+                next_state = R2D_MODE_DRIVE;
         }
-    }
-    else return;
+    } else
+        return;
 }
 
- r2d_mode r2d_state_machine(r2d_mode cur_state, int apps_value) {
-     r2d_mode next_state = cur_state;
-     switch (cur_state) {
-         case R2D_MODE_STARTUP:
-             delay(POWER_ON_DELAY_MS);
-             next_state = R2D_MODE_IDLE;
-             sound = false;
-             break;
-         case R2D_MODE_IDLE:
+r2d_mode r2d_state_machine(r2d_mode cur_state, int apps_value) {
+    r2d_mode next_state = cur_state;
+    switch (cur_state) {
+        case R2D_MODE_STARTUP:
+            delay(POWER_ON_DELAY_MS);
+            next_state = R2D_MODE_IDLE;
+            sound = false;
+            break;
+        case R2D_MODE_IDLE:
 
-             // if(check_bamocar() != 0) next_state = R2D_MODE_ERROR;
+            // if(check_bamocar() != 0) next_state = R2D_MODE_ERROR;
 
-             // if(check_BMS()) {}
+            // if(check_BMS()) {}
 
-             // check apps
-             // check modo dash
-             // check modo volante
+            // check apps
+            // check modo dash
+            // check modo volante
 
-             // check fim precharge
-             // check r2d button
-             // check brake
-             if (digitalRead(pin_precharge) == LOW && digitalRead(pin_shutdown_circuit) == LOW) {
-                 CAN_message_t msg;
-                 int val = 0;
-                 can1.onReceive(check_val);
-             }
-             // update display
-             break;
-         case R2D_MODE_DRIVE:
+            // check fim precharge
+            // check r2d button
+            // check brake
+            if (digitalRead(pin_precharge) == LOW && digitalRead(pin_shutdown_circuit) == LOW) {
+                CAN_message_t msg;
+                int val = 0;
+                // can1.onReceive(check_val);
+            }
+            // update display
+            break;
+        case R2D_MODE_DRIVE:
 
-             if (!sound) {
-                 play_r2d_sound();
-                 sound = true;
-             }
+            if (!sound) {
+                play_r2d_sound();
+                sound = true;
+            }
 
-             // if (check_bamocar() != 0){
-             // next_state = R2D_MODE_ERROR;
-             //}
-             // if(check_BMS()) {}
+            // if (check_bamocar() != 0){
+            // next_state = R2D_MODE_ERROR;
+            //}
+            // if(check_BMS()) {}
 
-             // check apps
-             // check modo dash
-             // check modo volante
-             // else {
-             // ler seletor do volante referente aos modos (para limitar o bamocar) -> usar código do Bernardo mas enviamos como parâmetros os valores lidos da BMS
+            // check apps
+            // check modo dash
+            // check modo volante
+            // else {
+            // ler seletor do volante referente aos modos (para limitar o bamocar) -> usar código do Bernardo mas enviamos como parâmetros os valores lidos da BMS
 
-             send_to_bamocar(apps_value);
+            // send_to_bamocar(apps_value);
 
-             // if(o carro desligar temos de atualizar o estado para o básico) next_state = R2D_MODE_STARTUP;
-             //}
-             break;
-         case R2D_MODE_ERROR:
-             next_state = R2D_MODE_IDLE;
-             sound = false;
-             break;
+            // if(o carro desligar temos de atualizar o estado para o básico) next_state = R2D_MODE_STARTUP;
+            //}
+            break;
+        case R2D_MODE_ERROR:
+            next_state = R2D_MODE_IDLE;
+            sound = false;
+            break;
 
-         default:
-             next_state = R2D_MODE_ERROR;
-             sound = false;
-             break;
-     }
-     return next_state;
+        default:
+            next_state = R2D_MODE_ERROR;
+            sound = false;
+            break;
+    }
+    return next_state;
 }
