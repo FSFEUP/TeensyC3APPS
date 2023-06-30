@@ -106,7 +106,7 @@ int check_bamocar() {
 void can_setup() {
     can1.begin();
     can1.setBaudRate(500000);
-
+   
     pinMode(buzzerPin, OUTPUT);
 
     //pinMode(pin_brake_sensor, INPUT);
@@ -118,6 +118,7 @@ void can_setup() {
     pinMode(pin_R2Dbutton, INPUT_PULLUP);
 
     digitalWrite(buzzerPin, LOW);
+    
 }
 
 void send_to_bamocar(int value_bamo) {
@@ -154,7 +155,7 @@ r2d_mode r2d_state_machine(r2d_mode cur_state, int apps_value) {
             sound = false;
             break;
         case R2D_MODE_IDLE:
-        
+
             //if(check_bamocar() != 0) next_state = R2D_MODE_ERROR;
             
             //if(check_BMS()) {}

@@ -4,10 +4,10 @@
 #include <FlexCAN_T4.h>
 
 #define MESSAGE_1_ID 0x181
-#define MESSAGE_2_ID 0x201
+#define MESSAGE_2_ID 0x121
 
-extern CAN_message_t request_bamo;
-extern CAN_message_t bamo_apps;
+CAN_message_t request_bamo;
+CAN_message_t bamo_apps;
 
 // Initialize CAN messages
 void initCanMessages() {
