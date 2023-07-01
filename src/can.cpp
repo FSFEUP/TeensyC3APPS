@@ -1,6 +1,5 @@
 #include "can.h"
 
-
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
 CAN_message_t request_bamo;
@@ -14,13 +13,13 @@ CAN_message_t transmitting_enable;
 CAN_message_t transmitting_ACC_ramp;
 CAN_message_t transmitting_DEC_ramp;
 
+extern elapsedMillis r2d_timer;
+
 // Initialize CAN messages
 /**
  * @brief Initialize CAN messages
  *
  */
-
-
 void init_can_messages() {
     // Message 1
     request_bamo.id = MESSAGE_1_ID;
@@ -70,14 +69,14 @@ void init_can_messages() {
     transmitting_ACC_ramp.id = MESSAGE_2_ID;
     transmitting_ACC_ramp.len = 3;
     transmitting_ACC_ramp.buf[0] = 0x35;
-    transmitting_ACC_ramp.buf[1] = 0xF4; //500ms
+    transmitting_ACC_ramp.buf[1] = 0xF4;  // 500ms
     transmitting_ACC_ramp.buf[2] = 0x01;
 
     transmitting_DEC_ramp.id = MESSAGE_2_ID;
     transmitting_DEC_ramp.len = 3;
     transmitting_DEC_ramp.buf[0] = 0xED;
-    transmitting_DEC_ramp.buf[1] = 0xE8; //1000ms
-    transmitting_DEC_ramp.buf[2] = 0x03;      
+    transmitting_DEC_ramp.buf[1] = 0xE8;  // 1000ms
+    transmitting_DEC_ramp.buf[2] = 0x03;
 
     bamo_apps.id = MESSAGE_2_ID;
     bamo_apps.len = 3;
@@ -98,6 +97,7 @@ void canbus_listener(const CAN_message_t& msg) {
     Serial.println("CAN message received");
     Serial.print("Message ID: ");
     Serial.println(msg.id, HEX);
+    r2d_timer = 0;
 }
 
 void canbus_setup() {

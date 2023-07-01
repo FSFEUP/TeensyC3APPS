@@ -14,8 +14,7 @@ int pin_selector_1 = 26;
 int pin_selector_2 = 19;
 int pin_shutdown_circuit = 9;
 int pin_precharge = 33;
-int pin_R2Dbutton = 32;
-int buzzerPin = 4;
+
 bool sound = false;
 r2d_mode next_state;
 
