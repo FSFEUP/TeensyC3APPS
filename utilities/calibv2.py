@@ -5,7 +5,7 @@ from scipy import interpolate
 
 def import_new_raw_data(in_file, out_file):
     with open(in_file) as data_file:
-        data = [line.strip().split("\t") for line in data_file.readlines()]
+        data = [line.strip().split(";") for line in data_file.readlines()]
         data = [[int(line[0]), int(line[1]), float(line[2])] for line in data]
         data.sort(key=lambda x: x[-1], reverse=True)
         with open(out_file, "w") as output_file:
@@ -112,7 +112,7 @@ def import_and_process_new_data(in_filename, out_filename):
 
 
 def __main__():
-    # import_and_process_new_data("data_files/raw_data.txt", "data_files/new_data.txt")
+    import_and_process_new_data("data_files/raw_data.txt", "data_files/new_data.txt")
 
     apps1_vals, apps2_vals, compr_vals = read_data_from_file("data_files/interpolation_data.txt")
     (
