@@ -3,8 +3,8 @@
 
 #include <FlexCAN_T4.h>
 
-#define MESSAGE_1_ID 0x181
-#define MESSAGE_2_ID 0x201
+#define BAMO_INCOMMING_ID 0x181
+#define BAMO_OUTGOING_ID 0x201
 
 void canbus_setup();
 void canbus_listener(const CAN_message_t& msg);

@@ -21,6 +21,9 @@ extern FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 #define BAMOCAR_ATTENUATION_FACTOR 1
 #define APPS_READ_PERIOD_MS 20
 
+bool BTB_READY = false;
+bool TRANSMISSION_ENABLED = false;
+
 uint8_t buzzerPin = 4;
 
 elapsedMillis APPS_TIMER;
@@ -93,11 +96,12 @@ void loop() {
                 if (apps_value >= 0) {
                     send_msg(apps_value);
                 } else {
+                    send_msg(0);
                     Serial.println("ERROR: apps_implausibility");
                 }
             }
-            send_msg(0);
-            can1.write(transmitting_disable);            
+            // send_msg(0);
+            // can1.write(transmitting_disable);
             break;
 
         default:
