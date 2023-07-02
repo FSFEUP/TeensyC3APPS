@@ -38,6 +38,7 @@ void play_r2d_sound() {
     digitalWrite(buzzerPin, HIGH);  // Turn off the buzzer for the other half of the period
     delay(1000);
     digitalWrite(buzzerPin, LOW);
+    delay(1000);
 }
 
 void setup() {
