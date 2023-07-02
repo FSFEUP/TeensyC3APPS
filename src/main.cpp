@@ -11,6 +11,8 @@
 
 // #include "r2d.h"
 
+extern FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
+
 #define APPS_1_PIN 41
 #define APPS_2_PIN 40
 
@@ -24,6 +26,17 @@ uint8_t buzzerPin = 4;
 elapsedMillis APPS_TIMER;
 
 Bounce r2d_button = Bounce();
+
+extern CAN_message_t request_bamo;
+extern CAN_message_t bamo_apps;
+extern CAN_message_t msg_transmissionRequest_BTB;
+extern CAN_message_t receiving_BTB;
+extern CAN_message_t transmitting_disable;
+extern CAN_message_t transmitting_request_enable;
+extern CAN_message_t receiving_enable;
+extern CAN_message_t transmitting_enable;
+extern CAN_message_t transmitting_ACC_ramp;
+extern CAN_message_t transmitting_DEC_ramp;
 
 enum status {
     IDLE,
@@ -53,6 +66,7 @@ void setup() {
     r2d_button.interval(10);
 
     r2d_status = IDLE;
+    init_can_messages();
     // setup_display();
 }
 
@@ -63,6 +77,7 @@ void loop() {
             if (r2d_button.fell()) {
                 if (r2d_timer < R2D_TIMEOUT) {
                     play_r2d_sound();
+                    prepare_BAMO();
                     r2d_status = DRIVING;
                 } else {
                     Serial.println("ERROR: r2d not available");
@@ -81,6 +96,8 @@ void loop() {
                     Serial.println("ERROR: apps_implausibility");
                 }
             }
+            send_msg(0);
+            can1.write(transmitting_disable);            
             break;
 
         default:

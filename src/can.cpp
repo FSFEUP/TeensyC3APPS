@@ -93,6 +93,18 @@ void send_msg(int value_bamo) {
     can1.write(bamo_apps);
 }
 
+void prepare_BAMO() {
+    can1.write(msg_transmissionRequest_BTB);
+    can1.write(receiving_BTB);
+    can1.write(transmitting_disable);
+    can1.write(transmitting_request_enable);
+    can1.write(receiving_enable);
+    can1.write(transmitting_enable);
+    can1.write(transmitting_ACC_ramp);
+    can1.write(transmitting_DEC_ramp);
+
+}
+
 void canbus_listener(const CAN_message_t& msg) {
     Serial.println("CAN message received");
     Serial.print("Message ID: ");

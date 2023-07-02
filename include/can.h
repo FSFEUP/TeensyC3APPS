@@ -10,5 +10,5 @@ void canbus_setup();
 void canbus_listener(const CAN_message_t& msg);
 void send_msg(int value_bamo);
 void init_can_messages();
-
+void prepare_BAMO();
 #endif
