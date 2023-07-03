@@ -16,6 +16,8 @@ CAN_message_t enable_response;
 CAN_message_t disable;
 CAN_message_t no_disable;
 
+CAN_message_t clear_errors;
+
 extern elapsedMillis r2d_timer;
 
 extern volatile bool BTB_ready;
@@ -83,6 +85,10 @@ void init_can_messages() {
     torque_request.id = BAMO_COMMAND_ID;
     torque_request.len = 3;
     torque_request.buf[0] = 0x90;
+
+    clear_errors.id = BAMO_COMMAND_ID;
+    clear_errors.len = 3;
+    clear_errors.buf[0] = 0x3D; 
 }
 
 void send_msg(int value_bamo) {
