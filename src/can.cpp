@@ -127,7 +127,7 @@ void canbus_listener(const CAN_message_t& msg) {
                 BTB_ready = (msg.buf[0] == BTB_response.buf[0] and msg.buf[1] == BTB_response.buf[1] and msg.buf[2] == BTB_response.buf[2] and msg.buf[3] == BTB_response.buf[3]);
                 if (BTB_ready) Serial.println("BTB ready");
                 else if (msg.buf[0] == 0x30) {
-                    speedInt = msg.buf[1] + msg.buf[2];
+                    speedInt = (msg.buf[1] << 16) | (msg.buf[2] << 8 ) | msg.buf[3];
                 }
 
             }
@@ -139,7 +139,7 @@ void canbus_listener(const CAN_message_t& msg) {
             break;
         case BMS_ID:
             current = msg.buf[0];
-            socInt = msg.buf[1] + msg.buf[2];
+            socInt = (msg.buf[1] << 8) | msg.buf[2];
             tempInt = msg.buf[3];
         default:
             break;
