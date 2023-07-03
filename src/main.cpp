@@ -21,8 +21,10 @@ extern FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 #define BAMOCAR_ATTENUATION_FACTOR 1
 #define APPS_READ_PERIOD_MS 20
 
-bool BTB_READY = false;
-bool TRANSMISSION_ENABLED = false;
+volatile bool BTB_ready = false;
+volatile bool transmission_enabled = false;
+volatile bool disabled = false;
+volatile bool r2d_override = false;
 
 uint8_t buzzerPin = 4;
 
@@ -32,12 +34,12 @@ Bounce r2d_button = Bounce();
 
 extern CAN_message_t request_bamo;
 extern CAN_message_t bamo_apps;
-extern CAN_message_t msg_transmissionRequest_BTB;
-extern CAN_message_t receiving_BTB;
-extern CAN_message_t transmitting_disable;
-extern CAN_message_t transmitting_request_enable;
-extern CAN_message_t receiving_enable;
-extern CAN_message_t transmitting_enable;
+extern CAN_message_t BTB;
+extern CAN_message_t BTB_response;
+extern CAN_message_t disable;
+extern CAN_message_t transmission_request_enable;
+extern CAN_message_t enable_response;
+extern CAN_message_t no_disable;
 extern CAN_message_t transmitting_ACC_ramp;
 extern CAN_message_t transmitting_DEC_ramp;
 
@@ -69,6 +71,7 @@ void setup() {
     r2d_button.interval(10);
 
     r2d_status = IDLE;
+
     init_can_messages();
     // setup_display();
 }
@@ -76,11 +79,13 @@ void setup() {
 void loop() {
     switch (r2d_status) {
         case IDLE:
+            if (r2d_override)
+                r2d_status = DRIVING;
             r2d_button.update();
             if (r2d_button.fell()) {
                 if (r2d_timer < R2D_TIMEOUT) {
                     play_r2d_sound();
-                    prepare_BAMO();
+                    BAMO_init_operation();
                     r2d_status = DRIVING;
                 } else {
                     Serial.println("ERROR: r2d not available");
@@ -100,8 +105,6 @@ void loop() {
                     Serial.println("ERROR: apps_implausibility");
                 }
             }
-            // send_msg(0);
-            // can1.write(transmitting_disable);
             break;
 
         default:
