@@ -2,13 +2,18 @@
 
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
-CAN_message_t request_bamo;
-CAN_message_t bamo_apps;
+CAN_message_t status_request;
+CAN_message_t status_report;
+
+CAN_message_t torque_request;
+
 CAN_message_t BTB;
 CAN_message_t BTB_response;
-CAN_message_t disable;
+
 CAN_message_t transmission_request_enable;
 CAN_message_t enable_response;
+
+CAN_message_t disable;
 CAN_message_t no_disable;
 
 extern elapsedMillis r2d_timer;
@@ -27,12 +32,15 @@ const int CAN_timeout_ms = 100;
  *
  */
 void init_can_messages() {
-    // Message 1
-    request_bamo.id = BAMO_RESPONSE_ID;
-    request_bamo.len = 3;
-    request_bamo.buf[0] = 0x30;
-    request_bamo.buf[1] = 0x8F;
-    request_bamo.buf[2] = 0x00;
+    status_request.id = BAMO_COMMAND_ID;
+    status_request.len = 3;
+    status_request.buf[0] = 0x3D;
+    status_request.buf[1] = 0x40;
+    status_request.buf[2] = 0x00;
+
+    status_report.id = BAMO_RESPONSE_ID;
+    status_report.len = 3;
+    status_report.buf[0] = 0x40;
 
     BTB.id = BAMO_COMMAND_ID;
     BTB.len = 3;
@@ -72,19 +80,19 @@ void init_can_messages() {
     no_disable.buf[1] = 0x00;
     no_disable.buf[2] = 0x00;
 
-    bamo_apps.id = BAMO_COMMAND_ID;
-    bamo_apps.len = 3;
-    bamo_apps.buf[0] = 0x90;
+    torque_request.id = BAMO_COMMAND_ID;
+    torque_request.len = 3;
+    torque_request.buf[0] = 0x90;
 }
 
 void send_msg(int value_bamo) {
     uint8_t byte1 = (value_bamo >> 8) & 0xFF;  // MSB
     uint8_t byte2 = value_bamo & 0xFF;         // LSB
 
-    bamo_apps.buf[1] = byte2;
-    bamo_apps.buf[2] = byte1;
+    torque_request.buf[1] = byte2;
+    torque_request.buf[2] = byte1;
 
-    can1.write(bamo_apps);
+    can1.write(torque_request);
 }
 
 void BAMO_init_operation() {
