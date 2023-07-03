@@ -17,6 +17,8 @@
 #define APPS_1_PIN 41
 #define APPS_2_PIN 40
 
+#define STARTUP_DELAY_MS 5000
+
 #define BAMOCAR_ATTENUATION_FACTOR 1
 #define APPS_READ_PERIOD_MS 20
 
@@ -68,6 +70,8 @@ void setup() {
     r2d_status = IDLE;
 
     init_can_messages();
+
+    delay(STARTUP_DELAY_MS);
 
     can1.write(disable);
     can1.write(status_request);

@@ -102,7 +102,6 @@ void BAMO_init_operation() {
     }
 
     while (not transmission_enabled and CAN_timer > CAN_timeout_ms) {
-        can1.write(disable);
         can1.write(transmission_request_enable);
         CAN_timer = 0;
     }
@@ -114,7 +113,18 @@ void canbus_listener(const CAN_message_t& msg) {
     Serial.println("CAN message received");
     Serial.print("Message ID: ");
     Serial.println(msg.id, HEX);
+    Serial.print("Message length: ");
+    Serial.println(msg.len);
+    Serial.print("Message data: ");
+    for (int i = 0; i < msg.len; i++) {
+        Serial.print(msg.buf[i], HEX);
+        Serial.print(" ");
+    }
+    Serial.println();
     switch (msg.id) {
+        case C3_ID:
+            r2d_timer = 0;
+            break;
         case R2D_ID:
             BAMO_init_operation();
             r2d_override = true;
