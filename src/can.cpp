@@ -87,8 +87,12 @@ void init_can_messages() {
     torque_request.buf[0] = 0x90;
 
     clear_errors.id = BAMO_COMMAND_ID;
-    clear_errors.len = 3;
-    clear_errors.buf[0] = 0x3D; 
+    clear_errors.len = 5;
+    clear_errors.buf[0] = 0x8F;
+    clear_errors.buf[1] = 0x00;
+    clear_errors.buf[2] = 0x00;
+    clear_errors.buf[3] = 0x00;
+    clear_errors.buf[4] = 0x00;
 }
 
 void send_msg(int value_bamo) {
