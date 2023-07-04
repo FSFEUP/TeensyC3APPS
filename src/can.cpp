@@ -115,7 +115,7 @@ void BAMO_init_operation() {
     }
 
     can1.write(no_disable);
-    delay(20);
+    delay(10);
     can1.write(clear_errors);
 }
 

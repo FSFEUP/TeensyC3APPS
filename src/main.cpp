@@ -17,7 +17,7 @@
 #define APPS_1_PIN 41
 #define APPS_2_PIN 40
 
-#define STARTUP_DELAY_MS 5000
+#define STARTUP_DELAY_MS 10000
 
 #define BAMOCAR_ATTENUATION_FACTOR 1
 #define APPS_READ_PERIOD_MS 20
@@ -65,7 +65,7 @@ void setup() {
     canbus_setup();
 
     r2d_button.attach(R2D_PIN, INPUT);
-    r2d_button.interval(10);
+    r2d_button.interval(1);
 
     r2d_status = IDLE;
 
