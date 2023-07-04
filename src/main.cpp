@@ -34,7 +34,7 @@ extern CAN_message_t status_report;
 
 extern CAN_message_t torque_request;
 
-extern CAN_message_t BTB;
+extern CAN_message_t BTB_status;
 extern CAN_message_t BTB_response;
 
 extern CAN_message_t disable;
@@ -75,6 +75,7 @@ void setup() {
 
     can1.write(disable);
     can1.write(status_request);
+
     // setup_display();
 }
 

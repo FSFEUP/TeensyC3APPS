@@ -7,7 +7,7 @@ CAN_message_t status_report;
 
 CAN_message_t torque_request;
 
-CAN_message_t BTB;
+CAN_message_t BTB_status;
 CAN_message_t BTB_response;
 
 CAN_message_t transmission_request_enable;
@@ -44,11 +44,11 @@ void init_can_messages() {
     status_report.len = 3;
     status_report.buf[0] = 0x40;
 
-    BTB.id = BAMO_COMMAND_ID;
-    BTB.len = 3;
-    BTB.buf[0] = 0x3D;
-    BTB.buf[1] = 0xE2;
-    BTB.buf[2] = 0x00;
+    BTB_status.id = BAMO_COMMAND_ID;
+    BTB_status.len = 3;
+    BTB_status.buf[0] = 0x3D;
+    BTB_status.buf[1] = 0xE2;
+    BTB_status.buf[2] = 0x00;
 
     BTB_response.id = BAMO_RESPONSE_ID;
     BTB_response.len = 4;
@@ -87,12 +87,10 @@ void init_can_messages() {
     torque_request.buf[0] = 0x90;
 
     clear_errors.id = BAMO_COMMAND_ID;
-    clear_errors.len = 5;
-    clear_errors.buf[0] = 0x8F;
-    clear_errors.buf[1] = 0x00;
-    clear_errors.buf[2] = 0x00;
-    clear_errors.buf[3] = 0x00;
-    clear_errors.buf[4] = 0x00;
+    clear_errors.len = 3;
+    clear_errors.buf[0] = 0x8E;
+    clear_errors.buf[1] = 0x44;
+    clear_errors.buf[2] = 0x4D;
 }
 
 void send_msg(int value_bamo) {
@@ -107,7 +105,7 @@ void send_msg(int value_bamo) {
 
 void BAMO_init_operation() {
     while (not BTB_ready and CAN_timer > CAN_timeout_ms) {
-        can1.write(BTB);
+        can1.write(BTB_status);
         CAN_timer = 0;
     }
 
@@ -117,6 +115,8 @@ void BAMO_init_operation() {
     }
 
     can1.write(no_disable);
+    delay(20);
+    can1.write(clear_errors);
 }
 
 void canbus_listener(const CAN_message_t& msg) {
