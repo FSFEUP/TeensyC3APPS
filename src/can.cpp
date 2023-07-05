@@ -2,15 +2,22 @@
 
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
-CAN_message_t request_bamo;
-CAN_message_t bamo_apps;
-CAN_message_t BTB;
+CAN_message_t status_request;
+CAN_message_t status_report;
+
+CAN_message_t torque_request;
+
+CAN_message_t BTB_status;
 CAN_message_t BTB_response;
-CAN_message_t disable;
+
 CAN_message_t transmission_request_enable;
 CAN_message_t enable_response;
+
+CAN_message_t disable;
 CAN_message_t no_disable;
 CAN_message_t request_actual_speed;
+
+CAN_message_t clear_errors;
 
 extern elapsedMillis r2d_timer;
 
@@ -33,18 +40,21 @@ const int CAN_timeout_ms = 100;
  *
  */
 void init_can_messages() {
-    // Message 1
-    request_bamo.id = BAMO_RESPONSE_ID;
-    request_bamo.len = 3;
-    request_bamo.buf[0] = 0x30;
-    request_bamo.buf[1] = 0x8F;
-    request_bamo.buf[2] = 0x00;
+    status_request.id = BAMO_COMMAND_ID;
+    status_request.len = 3;
+    status_request.buf[0] = 0x3D;
+    status_request.buf[1] = 0x40;
+    status_request.buf[2] = 0x00;
 
-    BTB.id = BAMO_COMMAND_ID;
-    BTB.len = 3;
-    BTB.buf[0] = 0x3D;
-    BTB.buf[1] = 0xE2;
-    BTB.buf[2] = 0x00;
+    status_report.id = BAMO_RESPONSE_ID;
+    status_report.len = 3;
+    status_report.buf[0] = 0x40;
+
+    BTB_status.id = BAMO_COMMAND_ID;
+    BTB_status.len = 3;
+    BTB_status.buf[0] = 0x3D;
+    BTB_status.buf[1] = 0xE2;
+    BTB_status.buf[2] = 0x00;
 
     BTB_response.id = BAMO_RESPONSE_ID;
     BTB_response.len = 4;
@@ -77,48 +87,67 @@ void init_can_messages() {
     no_disable.buf[0] = 0x51;
     no_disable.buf[1] = 0x00;
     no_disable.buf[2] = 0x00;
+  
+    torque_request.id = BAMO_COMMAND_ID;
+    torque_request.len = 3;
+    torque_request.buf[0] = 0x90;
 
-    bamo_apps.id = BAMO_COMMAND_ID;
-    bamo_apps.len = 3;
-    bamo_apps.buf[0] = 0x90;
+    clear_errors.id = BAMO_COMMAND_ID;
+    clear_errors.len = 3;
+    clear_errors.buf[0] = 0x8E;
+    clear_errors.buf[1] = 0x44;
+    clear_errors.buf[2] = 0x4D;
 
     request_actual_speed.id = BAMO_COMMAND_ID;
     request_actual_speed.len = 3;
     request_actual_speed.buf[0] = 0x3D;
     request_actual_speed.buf[1] = 0x30;
     request_actual_speed.buf[2] = 0x64;
+
 }
 
 void send_msg(int value_bamo) {
     uint8_t byte1 = (value_bamo >> 8) & 0xFF;  // MSB
     uint8_t byte2 = value_bamo & 0xFF;         // LSB
 
-    bamo_apps.buf[1] = byte2;
-    bamo_apps.buf[2] = byte1;
+    torque_request.buf[1] = byte2;
+    torque_request.buf[2] = byte1;
 
-    can1.write(bamo_apps);
+    can1.write(torque_request);
 }
 
 void BAMO_init_operation() {
     while (not BTB_ready and CAN_timer > CAN_timeout_ms) {
-        can1.write(BTB);
+        can1.write(BTB_status);
         CAN_timer = 0;
     }
 
     while (not transmission_enabled and CAN_timer > CAN_timeout_ms) {
-        can1.write(disable);
         can1.write(transmission_request_enable);
         CAN_timer = 0;
     }
 
     can1.write(no_disable);
+    delay(10);
+    can1.write(clear_errors);
 }
 
 void canbus_listener(const CAN_message_t& msg) {
     Serial.println("CAN message received");
     Serial.print("Message ID: ");
     Serial.println(msg.id, HEX);
+    Serial.print("Message length: ");
+    Serial.println(msg.len);
+    Serial.print("Message data: ");
+    for (int i = 0; i < msg.len; i++) {
+        Serial.print(msg.buf[i], HEX);
+        Serial.print(" ");
+    }
+    Serial.println();
     switch (msg.id) {
+        case C3_ID:
+            r2d_timer = 0;
+            break;
         case R2D_ID:
             BAMO_init_operation();
             r2d_override = true;
