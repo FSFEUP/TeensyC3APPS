@@ -45,6 +45,7 @@ extern CAN_message_t transmission_request_enable;
 extern CAN_message_t enable_response;
 
 extern CAN_message_t dc_bus_voltage_request;
+extern CAN_message_t request_actual_speed;
 
 enum status {
     IDLE,    // waiting for r2d && ATS off
@@ -79,6 +80,7 @@ void setup() {
     can1.write(disable);
     can1.write(status_request);
     can1.write(dc_bus_voltage_request);
+    can1.write(request_actual_speed);
 
     setup_display();
 }

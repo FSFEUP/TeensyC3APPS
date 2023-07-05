@@ -32,7 +32,7 @@ extern volatile bool r2d;
 extern int tempInt;
 extern int socInt;
 extern int current;
-extern int speedInt;
+extern double speedInt;
 
 elapsedMillis CAN_timer;
 const int CAN_timeout_ms = 100;
@@ -168,19 +168,22 @@ void canbus_listener(const CAN_message_t& msg) {
             r2d = true;
         case BAMO_RESPONSE_ID:
             if (msg.len == 4) {
+                if (msg.buf[0] == 0x30) {
+                    speedInt = (msg.buf[2] << 8) | msg.buf[1];
+                    speedInt = speedInt / 5.04;
+                    speedInt = speedInt * 0.02394;
+                }
                 if (msg.buf[0] == 0xEB) {
                     long int dc_voltage = (msg.buf[2] << 8) | msg.buf[1];
                     if (dc_voltage <= DC_THRESHOLD)
                         r2d = false;
                     if (dc_voltage >= DC_THRESHOLD)
                         r2d = true;
+                    break;
                 }
                 BTB_ready = (msg.buf[0] == BTB_response.buf[0] and msg.buf[1] == BTB_response.buf[1] and msg.buf[2] == BTB_response.buf[2] and msg.buf[3] == BTB_response.buf[3]);
                 if (BTB_ready)
                     Serial.println("BTB ready");
-                else if (msg.buf[0] == 0x30) {
-                    speedInt = (msg.buf[1] << 16) | (msg.buf[2] << 8) | msg.buf[3];
-                }
             }
             break;
             if (msg.len == 3) {

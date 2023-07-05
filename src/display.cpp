@@ -1,13 +1,13 @@
 #include "display.h"
-#include "apps.h"
-#include <FlexCAN_T4.h>
 #include <EasyNextionLibrary.h>
+#include <FlexCAN_T4.h>
+#include "apps.h"
 
 #define NEXTION_PORT Serial1
 
 EasyNex myNex(NEXTION_PORT);
 
-int speedInt = 0;
+double speedInt = 0;
 int tempInt = 0;
 int socInt = 1002;
 int current_page = 0;
@@ -44,7 +44,7 @@ void control_display() {
 
     can1.write(request_actual_speed);
 
-    speedInt = speedInt*2000/ BAMOCAR_MAX;
+    speedInt = speedInt * 2000 / BAMOCAR_MAX;
 
     myNex.writeNum("n0.val", speedInt);
     myNex.writeNum("x1.val", tempInt);
