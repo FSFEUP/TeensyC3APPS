@@ -76,10 +76,12 @@ void setup() {
     can1.write(disable);
     can1.write(status_request);
 
-    // setup_display();
+    setup_display();
+
 }
 
 void loop() {
+    control_display();
     switch (r2d_status) {
         case IDLE:
             r2d_button.update();

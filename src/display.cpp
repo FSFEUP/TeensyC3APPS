@@ -1,5 +1,6 @@
 #include "display.h"
-
+#include "apps.h"
+#include <FlexCAN_T4.h>
 #include <EasyNextionLibrary.h>
 
 #define NEXTION_PORT Serial1
@@ -12,6 +13,10 @@ int socInt = 1002;
 int current_page = 0;
 int switchPin = 14;
 int sensorValue = 0;
+int current = 0;
+
+extern CAN_message_t request_actual_speed;
+extern FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
 void setup_display() {
     myNex.begin(9600);
@@ -20,6 +25,7 @@ void setup_display() {
     myNex.writeNum("n0.val", speedInt);
     myNex.writeNum("x1.val", tempInt);
     myNex.writeNum("x0.val", socInt);
+    myNex.writeNum("x2.val", current);
 }
 
 void control_display() {
@@ -36,35 +42,14 @@ void control_display() {
 
     myNex.writeStr("t3.txt", mode);
 
-    // Increment speed, temperature, and SOC on page 0
-    /*
-    speedInt++;
-    if (speedInt == 201) {
-      speedInt = 0;
-    }
+    can1.write(request_actual_speed);
 
-    tempInt++;
-    if (tempInt == 1002) {
-      tempInt = 0;
-    }
+    speedInt = speedInt*2000/ BAMOCAR_MAX;
 
-    socInt--;
-    if (socInt == 0) {
-      socInt = 1002;
-    }
-
-    if(speedInt > 40 && speedInt < 90){
-      myNex.writeNum("t0.pco", 63488);
-      myNex.writeStr("t0.txt", "NOK");
-    } else{
-      myNex.writeNum("t0.pco", 1032);
-      myNex.writeStr("t0.txt", "OK");
-    }
-    */
-    // Ler os dados da BMS e atualizamos no display
     myNex.writeNum("n0.val", speedInt);
     myNex.writeNum("x1.val", tempInt);
     myNex.writeNum("x0.val", socInt);
+    myNex.writeNum("x2.val", current);
 }
 
 int mapSensorValueToSwitchNumber(int sensorValue) {
