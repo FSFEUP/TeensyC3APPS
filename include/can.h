@@ -7,6 +7,7 @@
 #define BAMO_COMMAND_ID 0x201
 #define C3_ID 0x123
 #define R2D_ID 0x666
+#define BMS_ID 0x675
 
 void canbus_setup();
 void canbus_listener(const CAN_message_t& msg);

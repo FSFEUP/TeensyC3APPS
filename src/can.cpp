@@ -10,6 +10,7 @@ CAN_message_t disable;
 CAN_message_t transmission_request_enable;
 CAN_message_t enable_response;
 CAN_message_t no_disable;
+CAN_message_t request_actual_speed;
 
 extern elapsedMillis r2d_timer;
 
@@ -17,6 +18,11 @@ extern volatile bool BTB_ready;
 extern volatile bool transmission_enabled;
 extern volatile bool disabled;
 extern volatile bool r2d_override;
+
+extern int tempInt;
+extern int socInt;
+extern int current;
+extern int speedInt;
 
 elapsedMillis CAN_timer;
 const int CAN_timeout_ms = 100;
@@ -75,6 +81,12 @@ void init_can_messages() {
     bamo_apps.id = BAMO_COMMAND_ID;
     bamo_apps.len = 3;
     bamo_apps.buf[0] = 0x90;
+
+    request_actual_speed.id = BAMO_COMMAND_ID;
+    request_actual_speed.len = 3;
+    request_actual_speed.buf[0] = 0x3D;
+    request_actual_speed.buf[1] = 0x30;
+    request_actual_speed.buf[2] = 0x64;
 }
 
 void send_msg(int value_bamo) {
@@ -113,16 +125,22 @@ void canbus_listener(const CAN_message_t& msg) {
         case BAMO_RESPONSE_ID:
             if (msg.len == 4) {
                 BTB_ready = (msg.buf[0] == BTB_response.buf[0] and msg.buf[1] == BTB_response.buf[1] and msg.buf[2] == BTB_response.buf[2] and msg.buf[3] == BTB_response.buf[3]);
-                if (BTB_ready)
-                    Serial.println("BTB ready");
+                if (BTB_ready) Serial.println("BTB ready");
+                else if (msg.buf[0] == 0x30) {
+                    speedInt = (msg.buf[1] << 16) | (msg.buf[2] << 8 ) | msg.buf[3];
+                }
+
             }
             break;
             if (msg.len == 3) {
                 transmission_enabled = (msg.buf[0] == enable_response.buf[0] and msg.buf[1] == enable_response.buf[1] and msg.buf[2] == enable_response.buf[2]);
-                if (transmission_enabled)
-                    Serial.println("Transmission enabled");
+                if (transmission_enabled) Serial.println("Transmission enabled");
             }
             break;
+        case BMS_ID:
+            current = msg.buf[0];
+            socInt = ((msg.buf[1] << 8) | msg.buf[2]) / 2;
+            tempInt = msg.buf[3];
         default:
             break;
     }
@@ -137,7 +155,7 @@ void canbus_setup() {
     can1.setFIFOFilter(0, C3_ID, STD);
     can1.setFIFOFilter(1, BAMO_RESPONSE_ID, STD);
     can1.setFIFOFilter(2, R2D_ID, STD);
-
+    can1.setFIFOFilter(3, BMS_ID, STD);
     can1.onReceive(canbus_listener);
 
     init_can_messages();

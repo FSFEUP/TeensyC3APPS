@@ -73,10 +73,11 @@ void setup() {
     r2d_status = IDLE;
 
     init_can_messages();
-    // setup_display();
+    setup_display();
 }
 
 void loop() {
+    control_display();
     switch (r2d_status) {
         case IDLE:
             if (r2d_override)
