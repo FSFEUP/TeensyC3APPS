@@ -1,4 +1,5 @@
 #include "display.h"
+#include "apps.h"
 #include <FlexCAN_T4.h>
 #include <EasyNextionLibrary.h>
 
@@ -42,6 +43,8 @@ void control_display() {
     myNex.writeStr("t3.txt", mode);
 
     can1.write(request_actual_speed);
+
+    speedInt = speedInt*2000/ BAMOCAR_MAX;
 
     myNex.writeNum("n0.val", speedInt);
     myNex.writeNum("x1.val", tempInt);

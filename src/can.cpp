@@ -139,7 +139,7 @@ void canbus_listener(const CAN_message_t& msg) {
             break;
         case BMS_ID:
             current = msg.buf[0];
-            socInt = (msg.buf[1] << 8) | msg.buf[2];
+            socInt = ((msg.buf[1] << 8) | msg.buf[2]) / 2;
             tempInt = msg.buf[3];
         default:
             break;
