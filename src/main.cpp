@@ -61,58 +61,62 @@ void setup() {
     pinMode(APPS_1_PIN, INPUT);
     pinMode(APPS_2_PIN, INPUT);
 
-    pinMode(buzzerPin, OUTPUT);
-    canbus_setup();
+    // pinMode(buzzerPin, OUTPUT);
+    // canbus_setup();
 
-    r2d_button.attach(R2D_PIN, INPUT);
-    r2d_button.interval(1);
+    // r2d_button.attach(R2D_PIN, INPUT);
+    // r2d_button.interval(1);
 
-    r2d_status = IDLE;
+    // r2d_status = IDLE;
 
-    init_can_messages();
+    // init_can_messages();
 
-    delay(STARTUP_DELAY_MS);
+    // delay(STARTUP_DELAY_MS);
 
-    can1.write(disable);
-    can1.write(status_request);
+    // can1.write(disable);
+    // can1.write(status_request);
 
     // setup_display();
 }
 
 void loop() {
-    switch (r2d_status) {
-        case IDLE:
-            r2d_button.update();
-            if (r2d_override)
-                r2d_status = DRIVING;
-            if (r2d_button.fell()) {
-                if (r2d_timer < R2D_TIMEOUT) {
-                    play_r2d_sound();
-                    BAMO_init_operation();
-                    r2d_status = DRIVING;
-                } else {
-                    Serial.println("ERROR: r2d not available");
-                }
-            }
-            break;
-
-        case DRIVING:
-            if (APPS_TIMER > APPS_READ_PERIOD_MS) {
-                APPS_TIMER = 0;
-                int apps_value = read_apps();
-
-                if (apps_value >= 0) {
-                    send_msg(apps_value);
-                } else {
-                    send_msg(0);
-                    Serial.println("ERROR: apps_implausibility");
-                }
-            }
-            break;
-
-        default:
-            break;
+    if (APPS_TIMER > APPS_READ_PERIOD_MS) {
+        (void)read_apps();
+        APPS_TIMER = 0;
     }
+    // switch (r2d_status) {
+    //     case IDLE:
+    //         r2d_button.update();
+    //         if (r2d_override)
+    //             r2d_status = DRIVING;
+    //         if (r2d_button.fell()) {
+    //             if (r2d_timer < R2D_TIMEOUT) {
+    //                 play_r2d_sound();
+    //                 BAMO_init_operation();
+    //                 r2d_status = DRIVING;
+    //             } else {
+    //                 Serial.println("ERROR: r2d not available");
+    //             }
+    //         }
+    //         break;
+
+    //     case DRIVING:
+    //         if (APPS_TIMER > APPS_READ_PERIOD_MS) {
+    //             APPS_TIMER = 0;
+    //             int apps_value = read_apps();
+
+    //             if (apps_value >= 0) {
+    //                 send_msg(apps_value);
+    //             } else {
+    //                 send_msg(0);
+    //                 Serial.println("ERROR: apps_implausibility");
+    //             }
+    //         }
+    //         break;
+
+    //     default:
+    //         break;
+    // }
 }
 
 void play_r2d_sound() {
