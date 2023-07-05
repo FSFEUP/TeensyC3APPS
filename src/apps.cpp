@@ -1,6 +1,9 @@
 #include "apps.h"
 
 #include <Arduino.h>
+#include <elapsedMillis.h>
+
+elapsedMillis APPS_IMPLAUSIBILITY_TIMER;
 
 int avgBuffer1[AVG_SAMPLES] = {0};
 int avgBuffer2[AVG_SAMPLES] = {0};
@@ -70,20 +73,25 @@ int read_apps() {
     v_apps1 = average(avgBuffer1, AVG_SAMPLES);
     v_apps2 = average(avgBuffer2, AVG_SAMPLES);
 
-    // Serial.print(v_apps1);
-    // Serial.print("\t");
-    // Serial.print(v_apps2);
+    Serial.print(v_apps1);
+    Serial.print("\t");
+    Serial.print(v_apps2);
 
-    if (!plausibility(v_apps1, v_apps2)) {
-        // Serial.println("\tImplausible");
+    bool plausible = plausibility(v_apps1, v_apps2);
+
+    if (!plausible and APPS_IMPLAUSIBILITY_TIMER > APPS_IMPLAUSIBLE_TIMEOUT_MS) {
+        Serial.println("\tImplausible");
         return -1;
     }
 
-    // Serial.print("\tPlausible");
+    if (plausible)
+        APPS_IMPLAUSIBILITY_TIMER = 0;
+
+    Serial.print("\tPlausible");
     int bamocar_value = convert_to_bamocar_scale(v_apps1, v_apps2, BAMOCAR_ATTENUATION_FACTOR);
 
-    // Serial.print("\tBamocar Value: ");
-    // Serial.println(bamocar_value);
+    Serial.print("\tBamocar Value: ");
+    Serial.println(bamocar_value);
 
     return bamocar_value;
 }
