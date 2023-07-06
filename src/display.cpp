@@ -7,7 +7,7 @@
 
 EasyNex myNex(NEXTION_PORT);
 
-double speedInt = 0;
+int speedInt = 0;
 int tempInt = 0;
 int socInt = 1002;
 int current_page = 0;

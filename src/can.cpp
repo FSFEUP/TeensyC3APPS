@@ -32,7 +32,7 @@ extern volatile bool r2d;
 extern int tempInt;
 extern int socInt;
 extern int current;
-extern double speedInt;
+extern int speedInt;
 
 elapsedMillis CAN_timer;
 const int CAN_timeout_ms = 100;
@@ -169,9 +169,10 @@ void canbus_listener(const CAN_message_t& msg) {
         case BAMO_RESPONSE_ID:
             if (msg.len == 4) {
                 if (msg.buf[0] == 0x30) {
-                    speedInt = (msg.buf[2] << 8) | msg.buf[1];
-                    speedInt = speedInt / 5.04;
-                    speedInt = speedInt * 0.02394;
+                    double speed = (msg.buf[2] << 8) | msg.buf[1];
+                    speed = speed / 5.04;
+                    speed = speed * 0.02394;
+                    speedInt = (int)speed;
                 }
                 if (msg.buf[0] == 0xEB) {
                     long int dc_voltage = (msg.buf[2] << 8) | msg.buf[1];
