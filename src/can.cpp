@@ -55,25 +55,25 @@ void init_can_messages() {
     request_rpm.len = 3;
     request_rpm.buf[0] = 0x3D;
     request_rpm.buf[1] = 0xCE;
-    request_rpm.buf[2] = 0x00;
+    request_rpm.buf[2] = 0x64;
 
     request_powerStage_temp.id = BAMO_COMMAND_ID;
     request_powerStage_temp.len = 3;
     request_powerStage_temp.buf[0] = 0x3D;
     request_powerStage_temp.buf[1] = 0x4a;
-    request_powerStage_temp.buf[0] = 0x00;
+    request_powerStage_temp.buf[0] = 0x64;
 
     request_current.id = BAMO_COMMAND_ID;
     request_current.len = 3;
     request_current.buf[0] = 0x3D;
     request_current.buf[1] = 0x20;
-    request_current.buf[2] = 0x00;
+    request_current.buf[2] = 0x64;
 
     request_motor_temp.id = BAMO_COMMAND_ID;
     request_motor_temp.len = 3;
     request_motor_temp.buf[0] = 0x3D;
     request_motor_temp.buf[1] = 0x49;
-    request_motor_temp.buf[2] = 0x00;
+    request_motor_temp.buf[2] = 0x64;
 
     status_request.id = BAMO_COMMAND_ID;
     status_request.len = 3;

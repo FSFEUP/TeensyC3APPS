@@ -15,7 +15,7 @@ int switchPin = 14;
 int sensorValue = 0;
 int current = 0;
 
-extern CAN_message_t request_actual_speed;
+extern CAN_message_t request_actjual_speed;
 extern CAN_message_t request_motor_temp;
 extern CAN_message_t request_current;
 extern CAN_message_t request_powerStage_temp;
@@ -31,6 +31,12 @@ void setup_display() {
     myNex.writeNum("x1.val", tempInt);
     myNex.writeNum("x0.val", socInt);
     myNex.writeNum("x2.val", current);
+
+    can1.write(request_actual_speed);
+    can1.write(request_current);
+    can1.write(request_motor_temp);
+    can1.write(request_powerStage_temp);
+    can1.write(request_rpm);
 }
 
 void control_display() {
@@ -46,12 +52,6 @@ void control_display() {
     sprintf(mode, "MODE %d", switchPosition);
 
     myNex.writeStr("t3.txt", mode);
-
-    can1.write(request_actual_speed);
-    can1.write(request_current);
-    can1.write(request_motor_temp);
-    can1.write(request_powerStage_temp);
-    can1.write(request_rpm);
 
     myNex.writeNum("n0.val", speedInt);
     myNex.writeNum("x1.val", tempInt);
