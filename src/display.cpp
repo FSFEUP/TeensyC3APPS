@@ -16,6 +16,11 @@ int sensorValue = 0;
 int current = 0;
 
 extern CAN_message_t request_actual_speed;
+extern CAN_message_t request_motor_temp;
+extern CAN_message_t request_current;
+extern CAN_message_t request_powerStage_temp;
+extern CAN_message_t request_rpm;
+
 extern FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
 void setup_display() {
@@ -43,6 +48,10 @@ void control_display() {
     myNex.writeStr("t3.txt", mode);
 
     can1.write(request_actual_speed);
+    can1.write(request_current);
+    can1.write(request_motor_temp);
+    can1.write(request_powerStage_temp);
+    can1.write(request_rpm);
 
     myNex.writeNum("n0.val", speedInt);
     myNex.writeNum("x1.val", tempInt);
