@@ -16,6 +16,10 @@ int sensorValue = 0;
 int current = 0;
 int pack_voltage = 0;
 int low_tempInt = 0;
+int power_stage_temp = 0;
+int motor_temp = 0;
+int rpm = 0;
+int ac_current = 0;
 
 extern CAN_message_t request_actual_speed;
 extern CAN_message_t request_motor_temp;
@@ -55,6 +59,10 @@ void control_display() {
     myNex.writeNum("x1.val", high_tempInt * 10);
     myNex.writeNum("x2.val", pack_voltage);
     myNex.writeNum("x3.val", current);
+    myNex.writeNum("x4.val", motor_temp);
+    myNex.writeNum("x5.val", power_stage_temp);
+    myNex.writeNum("x7.val", ac_current);
+    myNex.writeNum("x8.val", rpm);
     myNex.writeNum("x9.val", high_tempInt);
     myNex.writeNum("x10.val", low_tempInt);
 }
