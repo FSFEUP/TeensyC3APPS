@@ -39,6 +39,8 @@ extern int tempInt;
 extern int socInt;
 extern int current;
 extern int speedInt;
+extern int pack_voltage;
+extern int low_tempInt;
 
 elapsedMillis CAN_timer;
 const int CAN_timeout_ms = 100;
@@ -225,10 +227,15 @@ void canbus_listener(const CAN_message_t& msg) {
             break;
         case BMS_ID:
             current = msg.buf[0];
+            current *= 10;
             socInt = msg.buf[1];
             socInt *= 10;
             tempInt = msg.buf[3];
             tempInt *= 10;
+            pack_voltage = msg.buf[4];
+            pack_voltage *= 10;
+            low_tempInt = msg.buf[5];
+            low_tempInt *= 10;
         default:
             break;
     }
