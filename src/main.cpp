@@ -54,7 +54,12 @@ elapsedMillis r2d_timer;
 elapsedMillis APPS_TIMER;
 Bounce r2d_button = Bounce();
 
-void play_r2d_sound();
+void play_r2d_sound() {
+    digitalWrite(buzzerPin, HIGH);  // Turn off the buzzer for the other half of the period
+    delay(1000);
+    digitalWrite(buzzerPin, LOW);
+    delay(1000);
+}
 
 void setup() {
     Serial.begin(9600);
@@ -117,9 +122,3 @@ void loop() {
     }
 }
 
-void play_r2d_sound() {
-    digitalWrite(buzzerPin, HIGH);  // Turn off the buzzer for the other half of the period
-    delay(1000);
-    digitalWrite(buzzerPin, LOW);
-    delay(1000);
-}
