@@ -22,7 +22,6 @@ CAN_message_t clear_errors;
 CAN_message_t dc_bus_voltage_request;
 CAN_message_t dc_bus_voltage_response;
 
-
 CAN_message_t request_motor_temp;
 CAN_message_t request_current;
 CAN_message_t request_powerStage_temp;
@@ -35,7 +34,7 @@ extern volatile bool transmission_enabled;
 extern volatile bool disabled;
 extern volatile bool r2d;
 
-extern int tempInt;
+extern int high_tempInt;
 extern int socInt;
 extern int current;
 extern int speedInt;
@@ -226,16 +225,11 @@ void canbus_listener(const CAN_message_t& msg) {
             }
             break;
         case BMS_ID:
-            current = msg.buf[0];
-            current *= 10;
-            socInt = msg.buf[1];
-            socInt *= 10;
-            tempInt = msg.buf[3];
-            tempInt *= 10;
-            pack_voltage = msg.buf[4];
-            pack_voltage *= 10;
-            low_tempInt = msg.buf[5];
-            low_tempInt *= 10;
+            current = ((msg.buf[1] << 8) | msg.buf[0]) / 10;
+            socInt = msg.buf[2] / 2;
+            low_tempInt = msg.buf[3];
+            high_tempInt = msg.buf[4];
+            pack_voltage = ((msg.buf[6] << 8) | msg.buf[5]) / 10;
         default:
             break;
     }

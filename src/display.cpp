@@ -8,7 +8,7 @@
 EasyNex myNex(NEXTION_PORT);
 
 int speedInt = 0;
-int max_tempInt = 0;
+int high_tempInt = 0;
 int socInt = 1002;
 int current_page = 0;
 int switchPin = 14;
@@ -30,11 +30,11 @@ void setup_display() {
     // Serial.begin(38400);
     pinMode(switchPin, INPUT);
     myNex.writeNum("n0.val", speedInt);
-    myNex.writeNum("x1.val", max_tempInt);
+    myNex.writeNum("x1.val", high_tempInt);
     myNex.writeNum("x0.val", socInt);
     myNex.writeNum("x3.val", current);
     myNex.writeNum("x2.val", pack_voltage);
-    myNex.writeNum("x9.val", max_tempInt);
+    myNex.writeNum("x9.val", high_tempInt);
     myNex.writeNum("x10.val", low_tempInt);
 
     myNex.writeNum("x2.val", current);
@@ -61,11 +61,11 @@ void control_display() {
     myNex.writeStr("t3.txt", mode);
 
     myNex.writeNum("n0.val", speedInt);
-    myNex.writeNum("x1.val", max_tempInt);
+    myNex.writeNum("x1.val", high_tempInt);
     myNex.writeNum("x0.val", socInt);
     myNex.writeNum("x3.val", current);
     myNex.writeNum("x2.val", pack_voltage);
-    myNex.writeNum("x9.val", max_tempInt);
+    myNex.writeNum("x9.val", high_tempInt);
     myNex.writeNum("x10.val", low_tempInt);
 }
 
