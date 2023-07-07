@@ -19,9 +19,6 @@ CAN_message_t request_actual_speed;
 
 CAN_message_t clear_errors;
 
-CAN_message_t dc_bus_voltage_request;
-CAN_message_t dc_bus_voltage_response;
-
 extern elapsedMillis r2d_timer;
 
 extern volatile bool BTB_ready;
@@ -92,7 +89,7 @@ void init_can_messages() {
     no_disable.buf[0] = 0x51;
     no_disable.buf[1] = 0x00;
     no_disable.buf[2] = 0x00;
-
+  
     torque_request.id = BAMO_COMMAND_ID;
     torque_request.len = 3;
     torque_request.buf[0] = 0x90;
@@ -109,15 +106,6 @@ void init_can_messages() {
     request_actual_speed.buf[1] = 0x30;
     request_actual_speed.buf[2] = 0x64;
 
-    dc_bus_voltage_request.id = BAMO_COMMAND_ID;
-    dc_bus_voltage_request.len = 3;
-    dc_bus_voltage_request.buf[0] = 0x3D;
-    dc_bus_voltage_request.buf[1] = 0xEB;
-    dc_bus_voltage_request.buf[2] = 0x64;
-
-    dc_bus_voltage_response.id = BAMO_RESPONSE_ID;
-    dc_bus_voltage_response.len = 4;
-    dc_bus_voltage_response.buf[0] = 0xEB;
 }
 
 void send_msg(int value_bamo) {
@@ -131,40 +119,39 @@ void send_msg(int value_bamo) {
 }
 
 void BAMO_init_operation() {
-    can1.write(clear_errors);
+    while (not BTB_ready and CAN_timer > CAN_timeout_ms) {
+        can1.write(BTB_status);
+        CAN_timer = 0;
+    }
 
     while (not transmission_enabled and CAN_timer > CAN_timeout_ms) {
         can1.write(transmission_request_enable);
         CAN_timer = 0;
     }
 
-    while (not BTB_ready and CAN_timer > CAN_timeout_ms) {
-        can1.write(BTB_status);
-        CAN_timer = 0;
-    }
-
     can1.write(no_disable);
+    delay(10);
+    can1.write(clear_errors);
 }
 
 void canbus_listener(const CAN_message_t& msg) {
-    // Serial.println("CAN message received");
-    // Serial.print("Message ID: ");
-    // Serial.println(msg.id, HEX);
-    // Serial.print("Message length: ");
-    // Serial.println(msg.len);
-    // Serial.print("Message data: ");
-    // for (int i = 0; i < msg.len; i++) {
-    //     Serial.print(msg.buf[i], HEX);
-    //     Serial.print(" ");
-    // }
-    // Serial.println();
+    Serial.println("CAN message received");
+    Serial.print("Message ID: ");
+    Serial.println(msg.id, HEX);
+    Serial.print("Message length: ");
+    Serial.println(msg.len);
+    Serial.print("Message data: ");
+    for (int i = 0; i < msg.len; i++) {
+        Serial.print(msg.buf[i], HEX);
+        Serial.print(" ");
+    }
+    Serial.println();
     switch (msg.id) {
         case C3_ID:
             r2d_timer = 0;
             break;
         case R2D_ID:
             BAMO_init_operation();
-
             r2d = true;
         case BAMO_RESPONSE_ID:
             if (msg.len == 4) {
@@ -187,16 +174,12 @@ void canbus_listener(const CAN_message_t& msg) {
                     Serial.println("BTB ready");
             }
             break;
-            if (msg.len == 3) {
-                transmission_enabled = (msg.buf[0] == enable_response.buf[0] and msg.buf[1] == enable_response.buf[1] and msg.buf[2] == enable_response.buf[2]);
-                if (transmission_enabled)
-                    Serial.println("Transmission enabled");
-            }
-            break;
         case BMS_ID:
             current = msg.buf[0];
-            socInt = ((msg.buf[2] << 8) | msg.buf[1]) / 2;
+            socInt = msg.buf[1];
+            socInt *= 10;
             tempInt = msg.buf[3];
+            tempInt *= 10;
         default:
             break;
     }
@@ -216,5 +199,3 @@ void canbus_setup() {
 
     init_can_messages();
 }
-
-#undef DC_THRESHOLD

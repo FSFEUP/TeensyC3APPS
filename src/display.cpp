@@ -44,8 +44,6 @@ void control_display() {
 
     can1.write(request_actual_speed);
 
-    speedInt = speedInt * 2000 / BAMOCAR_MAX;
-
     myNex.writeNum("n0.val", speedInt);
     myNex.writeNum("x1.val", tempInt);
     myNex.writeNum("x0.val", socInt);
