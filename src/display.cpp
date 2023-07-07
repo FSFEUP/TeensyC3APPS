@@ -29,16 +29,6 @@ void setup_display() {
     myNex.begin(9600);
     // Serial.begin(38400);
     pinMode(switchPin, INPUT);
-    myNex.writeNum("n0.val", speedInt);
-    myNex.writeNum("x1.val", high_tempInt);
-    myNex.writeNum("x0.val", socInt);
-    myNex.writeNum("x3.val", current);
-    myNex.writeNum("x2.val", pack_voltage);
-    myNex.writeNum("x9.val", high_tempInt);
-    myNex.writeNum("x10.val", low_tempInt);
-
-    myNex.writeNum("x2.val", current);
-
     can1.write(request_actual_speed);
     can1.write(request_current);
     can1.write(request_motor_temp);
@@ -61,10 +51,10 @@ void control_display() {
     myNex.writeStr("t3.txt", mode);
 
     myNex.writeNum("n0.val", speedInt);
-    myNex.writeNum("x1.val", high_tempInt);
-    myNex.writeNum("x0.val", socInt);
-    myNex.writeNum("x3.val", current);
+    myNex.writeNum("x0.val", socInt * 10);
+    myNex.writeNum("x1.val", high_tempInt * 10);
     myNex.writeNum("x2.val", pack_voltage);
+    myNex.writeNum("x3.val", current);
     myNex.writeNum("x9.val", high_tempInt);
     myNex.writeNum("x10.val", low_tempInt);
 }
