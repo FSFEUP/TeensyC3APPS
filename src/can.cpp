@@ -33,6 +33,7 @@ extern volatile bool BTB_ready;
 extern volatile bool transmission_enabled;
 extern volatile bool disabled;
 extern volatile bool r2d;
+extern volatile bool r2d_override;
 
 extern int high_tempInt;
 extern int socInt;
@@ -201,7 +202,7 @@ void canbus_listener(const CAN_message_t& msg) {
             break;
         case R2D_ID:
             BAMO_init_operation();
-
+            r2d_override = true;
             r2d = true;
         case BAMO_RESPONSE_ID:
             if (msg.len == 4) {
