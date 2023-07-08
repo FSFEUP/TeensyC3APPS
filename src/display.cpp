@@ -33,7 +33,7 @@ void setup_display() {
     myNex.begin(9600);
     // Serial.begin(38400);
     pinMode(switchPin, INPUT);
-    can1.write(request_actual_speed);
+
     can1.write(request_current);
     can1.write(request_motor_temp);
     can1.write(request_powerStage_temp);

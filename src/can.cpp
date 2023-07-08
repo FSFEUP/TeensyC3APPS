@@ -208,27 +208,28 @@ void canbus_listener(const CAN_message_t& msg) {
                 double speed = 0;
                 long dc_voltage = 0;
                 switch (msg.buf[0]) {
-                    case 0x30:  // speed
+                    case regID_ACTUAL_SPEED:  // speed
                         speed = (msg.buf[2] << 8) | msg.buf[1];
+                        if(speed < 0) speed *= -1;
                         speed = speed / 5.04;
                         speed = speed * 0.02394;
                         speedInt = (int)speed;
                         break;
-                    case 0xEB:  // dc bus voltage
+                    case regID_dc_bus_voltage:  // dc bus voltage
                         dc_voltage = (msg.buf[2] << 8) | msg.buf[1];
                         r2d = (dc_voltage >= DC_THRESHOLD);
                         break;
-                    case 0x4A:
+                    case regID_igbt:
                         power_stage_temp = (msg.buf[2] << 8) | msg.buf[1];
                         power_stage_temp = (int)(power_stage_temp / 103.969 - 16457.48);
                         break;
                     case 0xCE:
                         rpm = (msg.buf[2] << 8) | msg.buf[1];
                         break;
-                    case 0x20:
+                    case regID_ac_Current:
                         ac_current = (msg.buf[2] << 8) | msg.buf[1];
                         break;
-                    case 0x49:
+                    case regID_motor_temp:
                         motor_temp = (msg.buf[2] << 8) | msg.buf[1];
                         break;
                     default:
