@@ -35,7 +35,7 @@ extern volatile bool transmission_enabled;
 extern volatile bool disabled;
 extern volatile bool r2d;
 
-extern int tempInt;
+extern int max_tempInt;
 extern int socInt;
 extern int current;
 extern int speedInt;
@@ -230,8 +230,8 @@ void canbus_listener(const CAN_message_t& msg) {
             current *= 10;
             socInt = msg.buf[1];
             socInt *= 10;
-            tempInt = msg.buf[3];
-            tempInt *= 10;
+            max_tempInt = msg.buf[3];
+            max_tempInt *= 10;
             pack_voltage = msg.buf[4];
             pack_voltage *= 10;
             low_tempInt = msg.buf[5];
