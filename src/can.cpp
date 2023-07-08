@@ -211,8 +211,9 @@ void canbus_listener(const CAN_message_t& msg) {
                     case regID_ACTUAL_SPEED:  // speed
                         speed = (msg.buf[2] << 8) | msg.buf[1];
                         if(speed < 0) speed *= -1;
-                        speed = speed / 5.04;
-                        speed = speed * 0.02394;
+                        rpm = speed;
+                        rpm = (rpm * 6500) / 32760;                        
+                        speed = (speed / 5.04) * 0.02394;
                         speedInt = (int)speed;
                         break;
                     case regID_dc_bus_voltage:  // dc bus voltage
@@ -222,9 +223,6 @@ void canbus_listener(const CAN_message_t& msg) {
                     case regID_igbt:
                         power_stage_temp = (msg.buf[2] << 8) | msg.buf[1];
                         power_stage_temp = (int)(power_stage_temp / 103.969 - 16457.48);
-                        break;
-                    case 0xCE:
-                        rpm = (msg.buf[2] << 8) | msg.buf[1];
                         break;
                     case regID_ac_Current:
                         ac_current = (msg.buf[2] << 8) | msg.buf[1];
