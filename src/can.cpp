@@ -22,7 +22,6 @@ CAN_message_t clear_errors;
 CAN_message_t dc_bus_voltage_request;
 CAN_message_t dc_bus_voltage_response;
 
-
 CAN_message_t request_motor_temp;
 CAN_message_t request_current;
 CAN_message_t request_powerStage_temp;
@@ -35,12 +34,18 @@ extern volatile bool transmission_enabled;
 extern volatile bool disabled;
 extern volatile bool r2d;
 
-extern int max_tempInt;
+extern int high_tempInt;
 extern int socInt;
 extern int current;
 extern int speedInt;
 extern int pack_voltage;
 extern int low_tempInt;
+
+extern int power_stage_temp;
+extern int motor_temp;
+
+extern int rpm;
+extern int ac_current;
 
 elapsedMillis CAN_timer;
 const int CAN_timeout_ms = 100;
@@ -62,7 +67,7 @@ void init_can_messages() {
     request_powerStage_temp.id = BAMO_COMMAND_ID;
     request_powerStage_temp.len = 3;
     request_powerStage_temp.buf[0] = 0x3D;
-    request_powerStage_temp.buf[1] = 0x4a;
+    request_powerStage_temp.buf[1] = 0x4A;
     request_powerStage_temp.buf[0] = 0x64;
 
     request_current.id = BAMO_COMMAND_ID;
@@ -200,20 +205,36 @@ void canbus_listener(const CAN_message_t& msg) {
             r2d = true;
         case BAMO_RESPONSE_ID:
             if (msg.len == 4) {
-                if (msg.buf[0] == 0x30) {
-                    double speed = (msg.buf[2] << 8) | msg.buf[1];
-                    speed = speed / 5.04;
-                    speed = speed * 0.02394;
-                    speedInt = (int)speed;
+                double speed = 0;
+                long dc_voltage = 0;
+                switch (msg.buf[0]) {
+                    case 0x30:  // speed
+                        speed = (msg.buf[2] << 8) | msg.buf[1];
+                        speed = speed / 5.04;
+                        speed = speed * 0.02394;
+                        speedInt = (int)speed;
+                        break;
+                    case 0xEB:  // dc bus voltage
+                        dc_voltage = (msg.buf[2] << 8) | msg.buf[1];
+                        r2d = (dc_voltage >= DC_THRESHOLD);
+                        break;
+                    case 0x4A:
+                        power_stage_temp = (msg.buf[2] << 8) | msg.buf[1];
+                        power_stage_temp = (int)(power_stage_temp / 103.969 - 16457.48);
+                        break;
+                    case 0xCE:
+                        rpm = (msg.buf[2] << 8) | msg.buf[1];
+                        break;
+                    case 0x20:
+                        ac_current = (msg.buf[2] << 8) | msg.buf[1];
+                        break;
+                    case 0x49:
+                        motor_temp = (msg.buf[2] << 8) | msg.buf[1];
+                        break;
+                    default:
+                        break;
                 }
-                if (msg.buf[0] == 0xEB) {
-                    long int dc_voltage = (msg.buf[2] << 8) | msg.buf[1];
-                    if (dc_voltage <= DC_THRESHOLD)
-                        r2d = false;
-                    if (dc_voltage >= DC_THRESHOLD)
-                        r2d = true;
-                    break;
-                }
+
                 BTB_ready = (msg.buf[0] == BTB_response.buf[0] and msg.buf[1] == BTB_response.buf[1] and msg.buf[2] == BTB_response.buf[2] and msg.buf[3] == BTB_response.buf[3]);
                 if (BTB_ready)
                     Serial.println("BTB ready");
@@ -226,16 +247,11 @@ void canbus_listener(const CAN_message_t& msg) {
             }
             break;
         case BMS_ID:
-            current = msg.buf[0];
-            current *= 10;
-            socInt = msg.buf[1];
-            socInt *= 10;
-            max_tempInt = msg.buf[3];
-            max_tempInt *= 10;
-            pack_voltage = msg.buf[4];
-            pack_voltage *= 10;
-            low_tempInt = msg.buf[5];
-            low_tempInt *= 10;
+            current = ((msg.buf[1] << 8) | msg.buf[0]) / 10;
+            socInt = msg.buf[2] / 2;
+            low_tempInt = msg.buf[3];
+            high_tempInt = msg.buf[4];
+            pack_voltage = ((msg.buf[6] << 8) | msg.buf[5]) / 10;
         default:
             break;
     }
