@@ -19,20 +19,38 @@ CAN_message_t request_actual_speed;
 
 CAN_message_t clear_errors;
 
+CAN_message_t dc_bus_voltage_request;
+CAN_message_t dc_bus_voltage_response;
+
+CAN_message_t request_motor_temp;
+CAN_message_t request_current;
+CAN_message_t request_powerStage_temp;
+CAN_message_t request_rpm;
+
 extern elapsedMillis r2d_timer;
 
 extern volatile bool BTB_ready;
 extern volatile bool transmission_enabled;
 extern volatile bool disabled;
-extern volatile bool r2d_override;
+extern volatile bool r2d;
 
-extern int tempInt;
+extern int high_tempInt;
 extern int socInt;
 extern int current;
 extern int speedInt;
+extern int pack_voltage;
+extern int low_tempInt;
+
+extern int power_stage_temp;
+extern int motor_temp;
+
+extern int rpm;
+extern int ac_current;
 
 elapsedMillis CAN_timer;
 const int CAN_timeout_ms = 100;
+
+#define DC_THRESHOLD 4328
 
 // Initialize CAN messages
 /**
@@ -40,6 +58,30 @@ const int CAN_timeout_ms = 100;
  *
  */
 void init_can_messages() {
+    request_rpm.id = BAMO_COMMAND_ID;
+    request_rpm.len = 3;
+    request_rpm.buf[0] = 0x3D;
+    request_rpm.buf[1] = 0xCE;
+    request_rpm.buf[2] = 0x64;
+
+    request_powerStage_temp.id = BAMO_COMMAND_ID;
+    request_powerStage_temp.len = 3;
+    request_powerStage_temp.buf[0] = 0x3D;
+    request_powerStage_temp.buf[1] = 0x4A;
+    request_powerStage_temp.buf[0] = 0x64;
+
+    request_current.id = BAMO_COMMAND_ID;
+    request_current.len = 3;
+    request_current.buf[0] = 0x3D;
+    request_current.buf[1] = 0x20;
+    request_current.buf[2] = 0x64;
+
+    request_motor_temp.id = BAMO_COMMAND_ID;
+    request_motor_temp.len = 3;
+    request_motor_temp.buf[0] = 0x3D;
+    request_motor_temp.buf[1] = 0x49;
+    request_motor_temp.buf[2] = 0x64;
+
     status_request.id = BAMO_COMMAND_ID;
     status_request.len = 3;
     status_request.buf[0] = 0x3D;
@@ -87,7 +129,7 @@ void init_can_messages() {
     no_disable.buf[0] = 0x51;
     no_disable.buf[1] = 0x00;
     no_disable.buf[2] = 0x00;
-  
+
     torque_request.id = BAMO_COMMAND_ID;
     torque_request.len = 3;
     torque_request.buf[0] = 0x90;
@@ -104,6 +146,15 @@ void init_can_messages() {
     request_actual_speed.buf[1] = 0x30;
     request_actual_speed.buf[2] = 0x64;
 
+    dc_bus_voltage_request.id = BAMO_COMMAND_ID;
+    dc_bus_voltage_request.len = 3;
+    dc_bus_voltage_request.buf[0] = 0x3D;
+    dc_bus_voltage_request.buf[1] = 0xEB;
+    dc_bus_voltage_request.buf[2] = 0x64;
+
+    dc_bus_voltage_response.id = BAMO_RESPONSE_ID;
+    dc_bus_voltage_response.len = 4;
+    dc_bus_voltage_response.buf[0] = 0xEB;
 }
 
 void send_msg(int value_bamo) {
@@ -117,61 +168,91 @@ void send_msg(int value_bamo) {
 }
 
 void BAMO_init_operation() {
-    while (not BTB_ready and CAN_timer > CAN_timeout_ms) {
-        can1.write(BTB_status);
-        CAN_timer = 0;
-    }
+    can1.write(clear_errors);
 
     while (not transmission_enabled and CAN_timer > CAN_timeout_ms) {
         can1.write(transmission_request_enable);
         CAN_timer = 0;
     }
 
+    while (not BTB_ready and CAN_timer > CAN_timeout_ms) {
+        can1.write(BTB_status);
+        CAN_timer = 0;
+    }
+
     can1.write(no_disable);
-    delay(10);
-    can1.write(clear_errors);
 }
 
 void canbus_listener(const CAN_message_t& msg) {
-    Serial.println("CAN message received");
-    Serial.print("Message ID: ");
-    Serial.println(msg.id, HEX);
-    Serial.print("Message length: ");
-    Serial.println(msg.len);
-    Serial.print("Message data: ");
-    for (int i = 0; i < msg.len; i++) {
-        Serial.print(msg.buf[i], HEX);
-        Serial.print(" ");
-    }
-    Serial.println();
+    // Serial.println("CAN message received");
+    // Serial.print("Message ID: ");
+    // Serial.println(msg.id, HEX);
+    // Serial.print("Message length: ");
+    // Serial.println(msg.len);
+    // Serial.print("Message data: ");
+    // for (int i = 0; i < msg.len; i++) {
+    //     Serial.print(msg.buf[i], HEX);
+    //     Serial.print(" ");
+    // }
+    // Serial.println();
     switch (msg.id) {
         case C3_ID:
             r2d_timer = 0;
             break;
         case R2D_ID:
             BAMO_init_operation();
-            r2d_override = true;
+
+            r2d = true;
         case BAMO_RESPONSE_ID:
             if (msg.len == 4) {
-                BTB_ready = (msg.buf[0] == BTB_response.buf[0] and msg.buf[1] == BTB_response.buf[1] and msg.buf[2] == BTB_response.buf[2] and msg.buf[3] == BTB_response.buf[3]);
-                if (BTB_ready) Serial.println("BTB ready");
-                else if (msg.buf[0] == 0x30) {
-                    speedInt = (msg.buf[1] << 16) | (msg.buf[2] << 8 ) | msg.buf[3];
+                double speed = 0;
+                long dc_voltage = 0;
+                switch (msg.buf[0]) {
+                    case regID_ACTUAL_SPEED:  // speed
+                        speed = (msg.buf[2] << 8) | msg.buf[1];
+                        if(speed < 0) speed *= -1;
+                        speed = speed / 5.04;
+                        speed = speed * 0.02394;
+                        speedInt = (int)speed;
+                        break;
+                    case regID_dc_bus_voltage:  // dc bus voltage
+                        dc_voltage = (msg.buf[2] << 8) | msg.buf[1];
+                        r2d = (dc_voltage >= DC_THRESHOLD);
+                        break;
+                    case regID_igbt:
+                        power_stage_temp = (msg.buf[2] << 8) | msg.buf[1];
+                        power_stage_temp = (int)(power_stage_temp / 103.969 - 16457.48);
+                        break;
+                    case 0xCE:
+                        rpm = (msg.buf[2] << 8) | msg.buf[1];
+                        break;
+                    case regID_ac_Current:
+                        ac_current = (msg.buf[2] << 8) | msg.buf[1];
+                        break;
+                    case regID_motor_temp:
+                        motor_temp = (msg.buf[2] << 8) | msg.buf[1];
+                        break;
+                    default:
+                        break;
                 }
 
+                BTB_ready = (msg.buf[0] == BTB_response.buf[0] and msg.buf[1] == BTB_response.buf[1] and msg.buf[2] == BTB_response.buf[2] and msg.buf[3] == BTB_response.buf[3]);
+                if (BTB_ready)
+                    Serial.println("BTB ready");
             }
             break;
             if (msg.len == 3) {
                 transmission_enabled = (msg.buf[0] == enable_response.buf[0] and msg.buf[1] == enable_response.buf[1] and msg.buf[2] == enable_response.buf[2]);
-                if (transmission_enabled) Serial.println("Transmission enabled");
+                if (transmission_enabled)
+                    Serial.println("Transmission enabled");
             }
             break;
         case BMS_ID:
-            current = msg.buf[0];
-            socInt = msg.buf[1];
-            socInt *= 10;
-            tempInt = msg.buf[3];
-            tempInt *= 10;
+            current = ((msg.buf[1] << 8) | msg.buf[0]) / 10;
+            socInt = msg.buf[2] / 2;
+            low_tempInt = msg.buf[3];
+            high_tempInt = msg.buf[4];
+            pack_voltage = ((msg.buf[6] << 8) | msg.buf[5]) / 10;
         default:
             break;
     }

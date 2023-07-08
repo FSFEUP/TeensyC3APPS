@@ -25,6 +25,7 @@
 volatile bool BTB_ready = false;
 volatile bool transmission_enabled = false;
 volatile bool disabled = false;
+volatile bool r2d = false;
 volatile bool r2d_override = false;
 
 extern FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
@@ -42,6 +43,9 @@ extern CAN_message_t no_disable;
 
 extern CAN_message_t transmission_request_enable;
 extern CAN_message_t enable_response;
+
+extern CAN_message_t dc_bus_voltage_request;
+extern CAN_message_t request_actual_speed;
 
 enum status {
     IDLE,    // waiting for r2d && ATS off
@@ -80,9 +84,9 @@ void setup() {
 
     can1.write(disable);
     can1.write(status_request);
+    can1.write(dc_bus_voltage_request);
 
     setup_display();
-
 }
 
 void loop() {
@@ -90,9 +94,12 @@ void loop() {
     switch (r2d_status) {
         case IDLE:
             r2d_button.update();
-            if (r2d_override)
+            if (r2d_override) {
                 r2d_status = DRIVING;
-            if (r2d_button.fell()) {
+                r2d = true;
+            }
+
+            if (r2d_button.fell() and r2d) {
                 if (r2d_timer < R2D_TIMEOUT) {
                     play_r2d_sound();
                     BAMO_init_operation();
@@ -104,6 +111,10 @@ void loop() {
             break;
 
         case DRIVING:
+            if (not r2d) {
+                r2d_status = IDLE;
+                can1.write(disable);
+            }
             if (APPS_TIMER > APPS_READ_PERIOD_MS) {
                 APPS_TIMER = 0;
                 int apps_value = read_apps();

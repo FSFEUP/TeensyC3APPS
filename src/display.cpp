@@ -1,31 +1,43 @@
 #include "display.h"
-#include "apps.h"
-#include <FlexCAN_T4.h>
 #include <EasyNextionLibrary.h>
+#include <FlexCAN_T4.h>
+#include "apps.h"
 
 #define NEXTION_PORT Serial1
 
 EasyNex myNex(NEXTION_PORT);
 
 int speedInt = 0;
-int tempInt = 0;
+int high_tempInt = 0;
 int socInt = 1002;
 int current_page = 0;
 int switchPin = 14;
 int sensorValue = 0;
 int current = 0;
+int pack_voltage = 0;
+int low_tempInt = 0;
+int power_stage_temp = 0;
+int motor_temp = 0;
+int rpm = 0;
+int ac_current = 0;
 
 extern CAN_message_t request_actual_speed;
+extern CAN_message_t request_motor_temp;
+extern CAN_message_t request_current;
+extern CAN_message_t request_powerStage_temp;
+extern CAN_message_t request_rpm;
+
 extern FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
 void setup_display() {
     myNex.begin(9600);
     // Serial.begin(38400);
     pinMode(switchPin, INPUT);
-    myNex.writeNum("n0.val", speedInt);
-    myNex.writeNum("x1.val", tempInt);
-    myNex.writeNum("x0.val", socInt);
-    myNex.writeNum("x2.val", current);
+
+    can1.write(request_current);
+    can1.write(request_motor_temp);
+    can1.write(request_powerStage_temp);
+    can1.write(request_rpm);
 }
 
 void control_display() {
@@ -42,14 +54,17 @@ void control_display() {
 
     myNex.writeStr("t3.txt", mode);
 
-    can1.write(request_actual_speed);
-
-    speedInt = speedInt*2000/ BAMOCAR_MAX;
-
     myNex.writeNum("n0.val", speedInt);
-    myNex.writeNum("x1.val", tempInt);
-    myNex.writeNum("x0.val", socInt);
-    myNex.writeNum("x2.val", current);
+    myNex.writeNum("x0.val", socInt * 10);
+    myNex.writeNum("x1.val", high_tempInt * 10);
+    myNex.writeNum("x2.val", pack_voltage);
+    myNex.writeNum("x3.val", current);
+    myNex.writeNum("x4.val", motor_temp);
+    myNex.writeNum("x5.val", power_stage_temp);
+    myNex.writeNum("x7.val", ac_current);
+    myNex.writeNum("x8.val", rpm);
+    myNex.writeNum("x9.val", high_tempInt);
+    myNex.writeNum("x10.val", low_tempInt);
 }
 
 int mapSensorValueToSwitchNumber(int sensorValue) {
