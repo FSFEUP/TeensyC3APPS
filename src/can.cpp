@@ -27,6 +27,19 @@ CAN_message_t request_current;
 CAN_message_t request_powerStage_temp;
 CAN_message_t request_rpm;
 
+CAN_message_t Nact_filtered;
+CAN_message_t Vout;
+CAN_message_t Iq_cmd;
+CAN_message_t Iq_actual;
+CAN_message_t Mout;
+CAN_message_t I_lim_inuse;
+CAN_message_t I_actual_filtered;
+CAN_message_t Tpeak;
+CAN_message_t Imax_peak;
+CAN_message_t I_con_eff;
+CAN_message_t Vbat;
+CAN_message_t Ibat;
+
 extern elapsedMillis r2d_timer;
 
 extern volatile bool BTB_ready;
