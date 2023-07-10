@@ -36,7 +36,7 @@ void setup_display() {
 
     can1.write(request_current);
     can1.write(request_motor_temp);
-    //can1.write(request_powerStage_temp);
+    can1.write(request_powerStage_temp);
     can1.write(request_rpm);
 }
 

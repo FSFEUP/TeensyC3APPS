@@ -13,6 +13,8 @@
 #define regID_igbt 0x4A
 #define regID_ac_Current 0x20
 #define regID_motor_temp 0x49
+#define ADC_max 65536
+#define max_I 250
 
 void canbus_setup();
 void canbus_listener(const CAN_message_t& msg);

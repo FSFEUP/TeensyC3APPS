@@ -227,9 +227,11 @@ void canbus_listener(const CAN_message_t& msg) {
                         break;
                     case regID_ac_Current:
                         ac_current = (msg.buf[2] << 8) | msg.buf[1];
+                        ac_current = (ac_current * max_I) / ADC_max;
                         break;
                     case regID_motor_temp:
                         motor_temp = (msg.buf[2] << 8) | msg.buf[1];
+                        motor_temp = motor_temp*0.0194 - 160;
                         break;
                     default:
                         break;
