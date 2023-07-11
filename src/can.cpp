@@ -216,7 +216,7 @@ void canbus_listener(const CAN_message_t& msg) {
                         break;
                     case 0xEB:  // dc bus voltage
                         dc_voltage = (msg.buf[2] << 8) | msg.buf[1];
-                        if (dc_voltage >= DC_THRESHOLD and not r2d)
+                        if (dc_voltage >= DC_THRESHOLD)
                             r2d = (dc_voltage >= DC_THRESHOLD);
                         break;
                     case 0x4A:
