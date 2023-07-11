@@ -220,7 +220,7 @@ void canbus_listener(const CAN_message_t& msg) {
                         break;
                     case 0x4A:
                         power_stage_temp = (msg.buf[2] << 8) | msg.buf[1];
-                        power_stage_temp = (int)(power_stage_temp / 103.969 - 16457.48);
+                        power_stage_temp = (int)(power_stage_temp / 103.969 - 158.29);
                         break;
                     case 0xCE:
                         rpm = (msg.buf[2] << 8) | msg.buf[1];
