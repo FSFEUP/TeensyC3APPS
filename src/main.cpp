@@ -96,13 +96,13 @@ void loop() {
             }
 
             if (r2d_button.fell() and r2d) {
-                if (r2d_timer < R2D_TIMEOUT) {
                     play_r2d_sound();
                     BAMO_init_operation();
                     r2d_status = DRIVING;
-                } else {
-                    Serial.println("ERROR: r2d not available");
-                }
+                // if (r2d_timer < R2D_TIMEOUT) {
+                // } else {
+                //     Serial.println("ERROR: r2d not available");
+                // }
             }
             break;
 

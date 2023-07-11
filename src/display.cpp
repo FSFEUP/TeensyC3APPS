@@ -9,7 +9,7 @@ EasyNex myNex(NEXTION_PORT);
 
 int speedInt = 0;
 int high_tempInt = 0;
-int socInt = 1002;
+int socInt = 0;
 int current_page = 0;
 int switchPin = 14;
 int sensorValue = 0;
