@@ -5,9 +5,40 @@
 
 #include <SdFat.h>
 #include <CSVFile.h>
+#include "can.h"
+
+extern FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
 SdFat sd;
 CSVFile csv;
+
+extern CAN_message_t Nact_filtered;
+extern CAN_message_t Vout_msg;
+extern CAN_message_t Iq_cmd_msg;
+extern CAN_message_t Iq_actual_msg;
+extern CAN_message_t Mout_msg;
+extern CAN_message_t I_lim_inuse_msg;
+extern CAN_message_t I_actual_filtered_msg;
+extern CAN_message_t Tpeak_msg;
+extern CAN_message_t Imax_peak_msg;
+extern CAN_message_t I_con_eff_msg;
+
+extern int socInt;
+extern int current;
+extern int pack_voltage;
+extern int Nact;
+extern int Vout;
+extern int Iq_cmd;
+extern int Iq_actual;
+extern int Mout;
+extern int I_lim_inuse;
+extern int I_actual_filtered;
+extern int Tpeak;
+extern int Imax_peak;
+extern int I_con_eff;
+extern int motor_temp;
+extern int power_stage_temp;
+
 
 int t = 0;
 
@@ -34,6 +65,17 @@ void setup_csv() {
     Serial.println("SD card begin error");
     return;
   }
+  can1.write(Nact_filtered);
+  can1.write(Vout_msg);
+  can1.write(Iq_cmd_msg);
+  can1.write(Iq_actual_msg);
+  can1.write(Mout_msg);
+  can1.write(I_lim_inuse_msg);
+  can1.write(I_actual_filtered_msg);
+  can1.write(Tpeak_msg);
+  can1.write(Imax_peak_msg);
+  can1.write(I_con_eff_msg);
+
 }
 
 
@@ -84,49 +126,49 @@ void write() {
 
 
   //N act (filt) - 0xA8
-  csv.addField();
+  csv.addField(Nact);
 
-  //Vout - 0x8AL
-  csv.addField();
+  //Vout - 0x8A
+  csv.addField(Vout);
 
   //Iq cmd - 0x26
-  csv.addField();
+  csv.addField(Iq_cmd);
 
   //Iq actual - 0x27
-  csv.addField();
+  csv.addField(Iq_actual);
 
   //M out - 0xA0
-  csv.addField();
+  csv.addField(Mout);
 
   //I lim inuse - 0x48
-  csv.addField();
+  csv.addField(I_lim_inuse);
 
   //I act (filt) - 0x5F
-  csv.addField();
+  csv.addField(I_actual_filtered);
 
   //T-peak - 0xF0
-  csv.addField();
+  csv.addField(Tpeak);
 
   //Imax pk - 0xC4
-  csv.addField();
+  csv.addField(Imax_peak);
 
   //I con eff - 0xC5
-  csv.addField();
+  csv.addField(I_con_eff);
 
   //T-motor - 0x49
-  csv.addField();
+  csv.addField(motor_temp);
 
   //T-igbt - 0x4A
-  csv.addField();
+  csv.addField(power_stage_temp);
 
   //SoC
-  csv.addField();
+  csv.addField(socInt);
 
-  //V bat
-  csv.addField();
+  //V bat 
+  csv.addField(pack_voltage);
 
   //I bat
-  csv.addField();
+  csv.addField(current);
 
   csv.addLine();
 
