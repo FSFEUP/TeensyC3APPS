@@ -15,6 +15,16 @@
 #define regID_motor_temp 0x49
 #define ADC_max 65536
 #define max_I 250
+#define Nact_regID 0xA8
+#define Vout_regID 0x8A
+#define Iq_actual_regID 0x27
+#define Iq_cmd_regID 0x26
+#define Mout_regID 0xA0
+#define I_lim_inuse_regID 0x48
+#define I_act_filtered_regID 0x5F
+#define Tpeak_regID 0xF0
+#define Imax_peak_regID 0xC4
+#define I_con_eff_regID 0xC5
 
 void canbus_setup();
 void canbus_listener(const CAN_message_t& msg);

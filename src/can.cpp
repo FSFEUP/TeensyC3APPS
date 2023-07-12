@@ -27,6 +27,30 @@ CAN_message_t request_current;
 CAN_message_t request_powerStage_temp;
 CAN_message_t request_rpm;
 
+CAN_message_t Nact_filtered;
+CAN_message_t Vout_msg;
+CAN_message_t Iq_cmd_msg;
+CAN_message_t Iq_actual_msg;
+CAN_message_t Mout_msg;
+CAN_message_t I_lim_inuse_msg;
+CAN_message_t I_actual_filtered_msg;
+CAN_message_t Tpeak_msg;
+CAN_message_t Imax_peak_msg;
+CAN_message_t I_con_eff_msg;
+
+int Nact;
+int Vout;
+int Iq_cmd;
+int Iq_actual;
+int Mout;
+int I_lim_inuse;
+int I_actual_filtered;
+int Tpeak;
+int Imax_peak;
+int I_con_eff;
+int Vbat;
+int Ibat;
+
 extern elapsedMillis r2d_timer;
 
 extern volatile bool BTB_ready;
@@ -59,6 +83,66 @@ const int CAN_timeout_ms = 100;
  *
  */
 void init_can_messages() {
+    Nact_filtered.id = BAMO_COMMAND_ID;
+    Nact_filtered.len = 3;
+    Nact_filtered.buf[0] = 0x3D;
+    Nact_filtered.buf[1] = 0xA8;
+    Nact_filtered.buf[2] = 0x64;
+
+    Vout_msg.id = BAMO_COMMAND_ID;
+    Vout_msg.len = 3;
+    Vout_msg.buf[0] = 0x3D;
+    Vout_msg.buf[1] = 0x8A;
+    Vout_msg.buf[2] = 0x64;
+
+    Iq_cmd_msg.id = BAMO_COMMAND_ID;
+    Iq_cmd_msg.len = 3;
+    Iq_cmd_msg.buf[0] = 0x3D;
+    Iq_cmd_msg.buf[1] = 0x26;
+    Iq_cmd_msg.buf[2] = 0x64;
+
+    Iq_actual_msg.id = BAMO_COMMAND_ID;
+    Iq_actual_msg.len = 3;
+    Iq_actual_msg.buf[0] = 0x3D;
+    Iq_actual_msg.buf[1] = 0x27;
+    Iq_actual_msg.buf[2] = 0x64;
+
+    Mout_msg.id = BAMO_COMMAND_ID;
+    Mout_msg.len = 3;
+    Mout_msg.buf[0] = 0x3D;
+    Mout_msg.buf[1] = 0xA0;
+    Mout_msg.buf[2] = 0x64;
+
+    I_lim_inuse_msg.id = BAMO_COMMAND_ID;
+    I_lim_inuse_msg.len = 3;
+    I_lim_inuse_msg.buf[0] = 0x3D;
+    I_lim_inuse_msg.buf[1] = 0x48;
+    I_lim_inuse_msg.buf[2] = 0x64;
+
+    I_actual_filtered_msg.id = BAMO_COMMAND_ID;
+    I_actual_filtered_msg.len = 3;
+    I_actual_filtered_msg.buf[0] = 0x3D;
+    I_actual_filtered_msg.buf[1] = 0x5F;
+    I_actual_filtered_msg.buf[2] = 0x64;
+
+    Tpeak_msg.id = BAMO_COMMAND_ID;
+    Tpeak_msg.len = 3;
+    Tpeak_msg.buf[0] = 0x3D;
+    Tpeak_msg.buf[1] = 0xF0;
+    Tpeak_msg.buf[2] = 0x64;
+
+    Imax_peak_msg.id = BAMO_COMMAND_ID;
+    Imax_peak_msg.len = 3;
+    Imax_peak_msg.buf[0] = 0x3D;
+    Imax_peak_msg.buf[1] = 0xC4;
+    Imax_peak_msg.buf[2] = 0x64;
+
+    I_con_eff_msg.id = BAMO_COMMAND_ID;
+    I_con_eff_msg.len = 3;
+    I_con_eff_msg.buf[0] = 0x3D;
+    I_con_eff_msg.buf[1] = 0xC5;
+    I_con_eff_msg.buf[2] = 0x64;
+
     request_rpm.id = BAMO_COMMAND_ID;
     request_rpm.len = 3;
     request_rpm.buf[0] = 0x3D;
@@ -212,6 +296,36 @@ void canbus_listener(const CAN_message_t& msg) {
                 long dc_voltage = 0;
 
                 switch (msg.buf[0]) {
+                    case Nact_regID:
+                        Nact = (msg.buf[2] << 8 ) | msg.buf[1]; 
+                        break;
+                    case Vout_regID:
+                        Vout = (msg.buf[2] << 8 ) | msg.buf[1];
+                        break;
+                    case Iq_actual_regID:
+                        Iq_actual = (msg.buf[2] << 8 ) | msg.buf[1];
+                        break;
+                    case Iq_cmd_regID:
+                        Iq_cmd = (msg.buf[2] << 8 ) | msg.buf[1];
+                        break;
+                    case Mout_regID:
+                        Mout = (msg.buf[2] << 8 ) | msg.buf[1];
+                        break;
+                    case I_lim_inuse_regID:
+                        I_lim_inuse = (msg.buf[2] << 8 ) | msg.buf[1];
+                        break;
+                    case I_act_filtered_regID:
+                        I_actual_filtered = (msg.buf[2] << 8 ) | msg.buf[1];
+                        break;
+                    case Tpeak_regID:
+                        Tpeak = (msg.buf[2] << 8 ) | msg.buf[1];
+                        break;
+                    case Imax_peak_regID:
+                        Imax_peak = (msg.buf[2] << 8 ) | msg.buf[1];
+                        break;
+                    case I_con_eff_regID:
+                        I_con_eff = (msg.buf[2] << 8 ) | msg.buf[1];
+                        break;
                     case regID_ACTUAL_SPEED:  // speed
                         speed = (msg.buf[2] << 8) | msg.buf[1];
                         if (speed < 0)
@@ -262,10 +376,12 @@ void canbus_listener(const CAN_message_t& msg) {
             break;
         case BMS_ID:
             current = ((msg.buf[1] << 8) | msg.buf[0]) / 10;
+            Ibat = current;
             socInt = msg.buf[2] / 2;
             low_tempInt = msg.buf[3];
             high_tempInt = msg.buf[4];
             pack_voltage = ((msg.buf[6] << 8) | msg.buf[5]) / 10;
+            Vbat = pack_voltage;
             break;
 
         default:
