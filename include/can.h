@@ -8,6 +8,13 @@
 #define C3_ID 0x123
 #define R2D_ID 0x666
 #define BMS_ID 0x675
+#define regID_ACTUAL_SPEED 0x30
+#define regID_dc_bus_voltage 0xEB
+#define regID_igbt 0x4A
+#define regID_ac_Current 0x20
+#define regID_motor_temp 0x49
+#define ADC_max 65536
+#define max_I 250
 
 void canbus_setup();
 void canbus_listener(const CAN_message_t& msg);

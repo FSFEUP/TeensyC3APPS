@@ -61,6 +61,9 @@ int convert_to_bamocar_scale(int apps1, int apps2, int atenuation_factor) {
 
     torque_val = torque_val * BAMOCAR_MAX / torque_max;
     torque_val = (BAMOCAR_MAX - torque_val) * atenuation_factor;
+
+    if(apps1<55) torque_val = BAMOCAR_MAX;
+
     return torque_val >= BAMOCAR_MAX ? BAMOCAR_MAX : torque_val;
 }
 int read_apps() {
