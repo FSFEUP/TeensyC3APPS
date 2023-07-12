@@ -219,11 +219,12 @@ void canbus_listener(const CAN_message_t& msg) {
                         break;
                     case regID_dc_bus_voltage:  // dc bus voltage
                         dc_voltage = (msg.buf[2] << 8) | msg.buf[1];
-                        r2d = (dc_voltage >= DC_THRESHOLD);
+                        if (dc_voltage >= DC_THRESHOLD)
+                            r2d = (dc_voltage >= DC_THRESHOLD);
                         break;
                     case regID_igbt:
                         power_stage_temp = (msg.buf[2] << 8) | msg.buf[1];
-                        power_stage_temp = (int)(power_stage_temp / 103.969 - 16457.48);
+                        power_stage_temp = (int)(power_stage_temp / 103.969 - 158.29);
                         break;
                     case regID_ac_Current:
                         ac_current = (msg.buf[2] << 8) | msg.buf[1];

@@ -9,7 +9,7 @@ EasyNex myNex(NEXTION_PORT);
 
 int speedInt = 0;
 int high_tempInt = 0;
-int socInt = 1002;
+int socInt = 0;
 int current_page = 0;
 int switchPin = 14;
 int sensorValue = 0;
@@ -33,11 +33,11 @@ void setup_display() {
     myNex.begin(9600);
     // Serial.begin(38400);
     pinMode(switchPin, INPUT);
-
-    can1.write(request_current);
-    can1.write(request_motor_temp);
-    can1.write(request_powerStage_temp);
-    can1.write(request_rpm);
+    can1.write(request_actual_speed);
+    // can1.write(request_current);
+    // can1.write(request_motor_temp);
+    // can1.write(request_powerStage_temp);
+    // can1.write(request_rpm);
 }
 
 void control_display() {

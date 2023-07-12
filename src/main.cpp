@@ -55,6 +55,8 @@ enum status {
 status r2d_status;
 elapsedMillis r2d_timer;
 
+elapsedMillis random_timer_aasasa;
+
 elapsedMillis APPS_TIMER;
 Bounce r2d_button = Bounce();
 
@@ -74,7 +76,7 @@ void setup() {
     canbus_setup();
 
     r2d_button.attach(R2D_PIN, INPUT);
-    r2d_button.interval(1);
+    r2d_button.interval(0.01);
 
     r2d_status = IDLE;
 
@@ -101,13 +103,21 @@ void loop() {
             }
 
             if (r2d_button.fell() and r2d) {
-                if (r2d_timer < R2D_TIMEOUT) {
-                    play_r2d_sound();
-                    BAMO_init_operation();
-                    r2d_status = DRIVING;
-                } else {
-                    Serial.println("ERROR: r2d not available");
-                }
+                Serial.print("r2d pressed");
+                play_r2d_sound();
+                BAMO_init_operation();
+                r2d_status = DRIVING;
+                break;
+                // random_timer_aasasa = 0;
+                // Serial.println("r2d pressed");
+                // while (r2d_button.read() == LOW) {
+                //     if (random_timer_aasasa > 1000) {
+                //     }
+                // }
+                // if (r2d_timer < R2D_TIMEOUT) {
+                // } else {
+                //     Serial.println("ERROR: r2d not available");
+                // }
             }
             break;
 
