@@ -41,7 +41,7 @@ CSVFile csv;
 
 int t = 0;
 
-#define PIN_SD_CS 10                  //! Não sei se está certo, coloquei para remover os erros de compilação
+#define PIN_SD_CS 44                  //! Não sei se está certo, coloquei para remover os erros de compilação
 #define SD_CARD_SPEED SD_SCK_MHZ(50)  //! Same aqui, foi o copilot que escreveu
 
 void setup_csv() {
