@@ -60,7 +60,12 @@ elapsedMillis random_timer_aasasa;
 elapsedMillis APPS_TIMER;
 Bounce r2d_button = Bounce();
 
-void play_r2d_sound();
+void play_r2d_sound() {
+    digitalWrite(buzzerPin, HIGH);  // Turn off the buzzer for the other half of the period
+    delay(1000);
+    digitalWrite(buzzerPin, LOW);
+    delay(1000);
+}
 
 void setup() {
     Serial.begin(9600);
@@ -81,8 +86,8 @@ void setup() {
 
     can1.write(disable);
     can1.write(status_request);
-    can1.write(dc_bus_voltage_request);
     can1.write(request_actual_speed);
+    can1.write(dc_bus_voltage_request);
 
     setup_display();
 }
@@ -139,9 +144,3 @@ void loop() {
     }
 }
 
-void play_r2d_sound() {
-    digitalWrite(buzzerPin, HIGH);  // Turn off the buzzer for the other half of the period
-    delay(1000);
-    digitalWrite(buzzerPin, LOW);
-    delay(1000);
-}
