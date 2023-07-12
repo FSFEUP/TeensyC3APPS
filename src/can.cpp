@@ -200,40 +200,49 @@ void canbus_listener(const CAN_message_t& msg) {
         case C3_ID:
             r2d_timer = 0;
             break;
+
         case R2D_ID:
             BAMO_init_operation();
             r2d_override = true;
             break;
+
         case BAMO_RESPONSE_ID:
             if (msg.len == 4) {
                 double speed = 0;
                 long dc_voltage = 0;
+
                 switch (msg.buf[0]) {
                     case regID_ACTUAL_SPEED:  // speed
                         speed = (msg.buf[2] << 8) | msg.buf[1];
-                        if(speed < 0) speed *= -1;
+                        if (speed < 0)
+                            speed *= -1;
                         rpm = speed;
-                        rpm = (rpm * 6500) / 32760;                        
+                        rpm = (rpm * 6500) / 32760;
                         speed = (speed / 5.04) * 0.02394;
                         speedInt = (int)speed;
                         break;
+                
                     case regID_dc_bus_voltage:  // dc bus voltage
                         dc_voltage = (msg.buf[2] << 8) | msg.buf[1];
                         if (dc_voltage >= DC_THRESHOLD)
                             r2d = (dc_voltage >= DC_THRESHOLD);
                         break;
+                
                     case regID_igbt:
                         power_stage_temp = (msg.buf[2] << 8) | msg.buf[1];
                         power_stage_temp = (int)(power_stage_temp / 103.969 - 158.29);
                         break;
+                
                     case regID_ac_Current:
                         ac_current = (msg.buf[2] << 8) | msg.buf[1];
                         ac_current = (ac_current * max_I) / ADC_max;
                         break;
+                
                     case regID_motor_temp:
                         motor_temp = (msg.buf[2] << 8) | msg.buf[1];
-                        motor_temp = motor_temp*0.0194 - 160;
+                        motor_temp = motor_temp * 0.0194 - 160;
                         break;
+                
                     default:
                         break;
                 }
@@ -241,13 +250,15 @@ void canbus_listener(const CAN_message_t& msg) {
                 BTB_ready = (msg.buf[0] == BTB_response.buf[0] and msg.buf[1] == BTB_response.buf[1] and msg.buf[2] == BTB_response.buf[2] and msg.buf[3] == BTB_response.buf[3]);
                 if (BTB_ready)
                     Serial.println("BTB ready");
+                break;
             }
-            break;
             if (msg.len == 3) {
                 transmission_enabled = (msg.buf[0] == enable_response.buf[0] and msg.buf[1] == enable_response.buf[1] and msg.buf[2] == enable_response.buf[2]);
                 if (transmission_enabled)
                     Serial.println("Transmission enabled");
+                break;
             }
+
             break;
         case BMS_ID:
             current = ((msg.buf[1] << 8) | msg.buf[0]) / 10;
@@ -256,7 +267,7 @@ void canbus_listener(const CAN_message_t& msg) {
             high_tempInt = msg.buf[4];
             pack_voltage = ((msg.buf[6] << 8) | msg.buf[5]) / 10;
             break;
-            
+
         default:
             break;
     }
