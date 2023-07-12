@@ -33,6 +33,7 @@ extern volatile bool BTB_ready;
 extern volatile bool transmission_enabled;
 extern volatile bool disabled;
 extern volatile bool r2d;
+extern volatile bool r2d_override;
 
 extern int high_tempInt;
 extern int socInt;
@@ -201,36 +202,37 @@ void canbus_listener(const CAN_message_t& msg) {
             break;
         case R2D_ID:
             BAMO_init_operation();
-            r2d = true;
+            r2d_override = true;
             break;
         case BAMO_RESPONSE_ID:
             if (msg.len == 4) {
                 double speed = 0;
                 long dc_voltage = 0;
                 switch (msg.buf[0]) {
-                    case 0x30:  // speed
+                    case regID_ACTUAL_SPEED:  // speed
                         speed = (msg.buf[2] << 8) | msg.buf[1];
-                        speed = speed / 5.04;
-                        speed = speed * 0.02394;
+                        if(speed < 0) speed *= -1;
+                        rpm = speed;
+                        rpm = (rpm * 6500) / 32760;                        
+                        speed = (speed / 5.04) * 0.02394;
                         speedInt = (int)speed;
                         break;
-                    case 0xEB:  // dc bus voltage
+                    case regID_dc_bus_voltage:  // dc bus voltage
                         dc_voltage = (msg.buf[2] << 8) | msg.buf[1];
                         if (dc_voltage >= DC_THRESHOLD)
                             r2d = (dc_voltage >= DC_THRESHOLD);
                         break;
-                    case 0x4A:
+                    case regID_igbt:
                         power_stage_temp = (msg.buf[2] << 8) | msg.buf[1];
                         power_stage_temp = (int)(power_stage_temp / 103.969 - 158.29);
                         break;
-                    case 0xCE:
-                        rpm = (msg.buf[2] << 8) | msg.buf[1];
-                        break;
-                    case 0x20:
+                    case regID_ac_Current:
                         ac_current = (msg.buf[2] << 8) | msg.buf[1];
+                        ac_current = (ac_current * max_I) / ADC_max;
                         break;
-                    case 0x49:
+                    case regID_motor_temp:
                         motor_temp = (msg.buf[2] << 8) | msg.buf[1];
+                        motor_temp = motor_temp*0.0194 - 160;
                         break;
                     default:
                         break;
