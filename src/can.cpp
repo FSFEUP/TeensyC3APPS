@@ -201,8 +201,8 @@ void canbus_listener(const CAN_message_t& msg) {
             break;
         case R2D_ID:
             BAMO_init_operation();
-
             r2d = true;
+            break;
         case BAMO_RESPONSE_ID:
             if (msg.len == 4) {
                 double speed = 0;
@@ -253,6 +253,8 @@ void canbus_listener(const CAN_message_t& msg) {
             low_tempInt = msg.buf[3];
             high_tempInt = msg.buf[4];
             pack_voltage = ((msg.buf[6] << 8) | msg.buf[5]) / 10;
+            break;
+            
         default:
             break;
     }
