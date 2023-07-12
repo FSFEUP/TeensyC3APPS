@@ -1,4 +1,5 @@
 #include "can.h"
+#include "debug.h"
 
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
@@ -82,7 +83,7 @@ const int CAN_timeout_ms = 100;
  * @brief Initialize CAN messages
  *
  */
-void init_can_messages() {
+void initCanMessages() {
     Nact_filtered.id = BAMO_COMMAND_ID;
     Nact_filtered.len = 3;
     Nact_filtered.buf[0] = 0x3D;
@@ -252,7 +253,7 @@ void send_msg(int value_bamo) {
     can1.write(torque_request);
 }
 
-void BAMO_init_operation() {
+void initBamocarD3() {
     can1.write(clear_errors);
 
     while (not transmission_enabled and CAN_timer > CAN_timeout_ms) {
@@ -268,99 +269,109 @@ void BAMO_init_operation() {
     can1.write(no_disable);
 }
 
-void canbus_listener(const CAN_message_t& msg) {
-    // Serial.println("CAN message received");
-    // Serial.print("Message ID: ");
-    // Serial.println(msg.id, HEX);
-    // Serial.print("Message length: ");
-    // Serial.println(msg.len);
-    // Serial.print("Message data: ");
-    // for (int i = 0; i < msg.len; i++) {
-    //     Serial.print(msg.buf[i], HEX);
-    //     Serial.print(" ");
-    // }
-    // Serial.println();
+void REGIDHandler(const CAN_message_t& msg) {
+    switch (msg.buf[0]) {
+        case REGID_NACT:
+            Nact = (msg.buf[2] << 8) | msg.buf[1];
+            break;
+
+        case REGID_VOUT:
+            Vout = (msg.buf[2] << 8) | msg.buf[1];
+            break;
+
+        case REGID_ACTUAL_IQ:
+            Iq_actual = (msg.buf[2] << 8) | msg.buf[1];
+            break;
+
+        case REGID_CMD_IQ:
+            Iq_cmd = (msg.buf[2] << 8) | msg.buf[1];
+            break;
+
+        case Mout_regID:
+            Mout = (msg.buf[2] << 8) | msg.buf[1];
+            break;
+
+        case REGID_I_LIM_INUSE:
+            I_lim_inuse = (msg.buf[2] << 8) | msg.buf[1];
+            break;
+
+        case REGID_I_ACT_FILTERED:
+            I_actual_filtered = (msg.buf[2] << 8) | msg.buf[1];
+            break;
+
+        case REGID_T_PEAK:
+            Tpeak = (msg.buf[2] << 8) | msg.buf[1];
+            break;
+
+        case REGID_I_MAX_PEAK:
+            Imax_peak = (msg.buf[2] << 8) | msg.buf[1];
+            break;
+
+        case REGID_I_CON_EFF:
+            I_con_eff = (msg.buf[2] << 8) | msg.buf[1];
+            break;
+
+        case REGID_ACTUAL_SPEED: {
+            double speed = 0;
+            speed = (msg.buf[2] << 8) | msg.buf[1];
+            if (speed < 0)
+                speed *= -1;
+            rpm = speed;
+            rpm = (rpm * 6500) / 32760;
+            speed = (speed / 5.04) * 0.02394;
+            speedInt = (int)speed;
+            break;
+        }
+
+        case REGID_DC_VOLTAGE: {
+            long dc_voltage = 0;
+            dc_voltage = (msg.buf[2] << 8) | msg.buf[1];
+            r2d = (dc_voltage >= DC_THRESHOLD);
+            break;
+        }
+
+        case REGID_IGBT:
+            power_stage_temp = (msg.buf[2] << 8) | msg.buf[1];
+            power_stage_temp = (int)(power_stage_temp / 103.969 - 158.29);
+            break;
+
+        case REGID_AC_CURRENT:
+            ac_current = (msg.buf[2] << 8) | msg.buf[1];
+            ac_current = (ac_current * MAX_I) / ADC_MAX;
+            break;
+
+        case REGID_MOTOR_TEMP:
+            motor_temp = (msg.buf[2] << 8) | msg.buf[1];
+            motor_temp = motor_temp * 0.0194 - 160;
+            break;
+
+        default:
+            break;
+    }
+}
+
+void canSniffer(const CAN_message_t& msg) {
+#ifdef CAN_DEBUG
+    LOG("CAN message received\n");
+    INFO("Message ID: %x\n", msg.id);
+    INFO("Message length: %d\n", msg.len);
+    INFO("Message data: ");
+    for (int i = 0; i < msg.len; i++)
+        Serial.printf("%x ", msg.buf[i]);
+    Serial.println();
+#endif  // CAN_DEBUG
+
     switch (msg.id) {
         case C3_ID:
             r2d_timer = 0;
             break;
 
         case R2D_ID:
-            BAMO_init_operation();
             r2d_override = true;
             break;
 
         case BAMO_RESPONSE_ID:
             if (msg.len == 4) {
-                double speed = 0;
-                long dc_voltage = 0;
-
-                switch (msg.buf[0]) {
-                    case Nact_regID:
-                        Nact = (msg.buf[2] << 8 ) | msg.buf[1]; 
-                        break;
-                    case Vout_regID:
-                        Vout = (msg.buf[2] << 8 ) | msg.buf[1];
-                        break;
-                    case Iq_actual_regID:
-                        Iq_actual = (msg.buf[2] << 8 ) | msg.buf[1];
-                        break;
-                    case Iq_cmd_regID:
-                        Iq_cmd = (msg.buf[2] << 8 ) | msg.buf[1];
-                        break;
-                    case Mout_regID:
-                        Mout = (msg.buf[2] << 8 ) | msg.buf[1];
-                        break;
-                    case I_lim_inuse_regID:
-                        I_lim_inuse = (msg.buf[2] << 8 ) | msg.buf[1];
-                        break;
-                    case I_act_filtered_regID:
-                        I_actual_filtered = (msg.buf[2] << 8 ) | msg.buf[1];
-                        break;
-                    case Tpeak_regID:
-                        Tpeak = (msg.buf[2] << 8 ) | msg.buf[1];
-                        break;
-                    case Imax_peak_regID:
-                        Imax_peak = (msg.buf[2] << 8 ) | msg.buf[1];
-                        break;
-                    case I_con_eff_regID:
-                        I_con_eff = (msg.buf[2] << 8 ) | msg.buf[1];
-                        break;
-                    case regID_ACTUAL_SPEED:  // speed
-                        speed = (msg.buf[2] << 8) | msg.buf[1];
-                        if (speed < 0)
-                            speed *= -1;
-                        rpm = speed;
-                        rpm = (rpm * 6500) / 32760;
-                        speed = (speed / 5.04) * 0.02394;
-                        speedInt = (int)speed;
-                        break;
-                
-                    case regID_dc_bus_voltage:  // dc bus voltage
-                        dc_voltage = (msg.buf[2] << 8) | msg.buf[1];
-                        if (dc_voltage >= DC_THRESHOLD)
-                            r2d = (dc_voltage >= DC_THRESHOLD);
-                        break;
-                
-                    case regID_igbt:
-                        power_stage_temp = (msg.buf[2] << 8) | msg.buf[1];
-                        power_stage_temp = (int)(power_stage_temp / 103.969 - 158.29);
-                        break;
-                
-                    case regID_ac_Current:
-                        ac_current = (msg.buf[2] << 8) | msg.buf[1];
-                        ac_current = (ac_current * max_I) / ADC_max;
-                        break;
-                
-                    case regID_motor_temp:
-                        motor_temp = (msg.buf[2] << 8) | msg.buf[1];
-                        motor_temp = motor_temp * 0.0194 - 160;
-                        break;
-                
-                    default:
-                        break;
-                }
-
                 BTB_ready = (msg.buf[0] == BTB_response.buf[0] and msg.buf[1] == BTB_response.buf[1] and msg.buf[2] == BTB_response.buf[2] and msg.buf[3] == BTB_response.buf[3]);
                 if (BTB_ready)
                     Serial.println("BTB ready");
@@ -387,6 +398,8 @@ void canbus_listener(const CAN_message_t& msg) {
         default:
             break;
     }
+
+    REGIDHandler(msg);
 }
 
 void canbus_setup() {
@@ -399,7 +412,7 @@ void canbus_setup() {
     can1.setFIFOFilter(1, BAMO_RESPONSE_ID, STD);
     can1.setFIFOFilter(2, R2D_ID, STD);
     can1.setFIFOFilter(3, BMS_ID, STD);
-    can1.onReceive(canbus_listener);
+    can1.onReceive(canSniffer);
 
-    init_can_messages();
+    initCanMessages();
 }

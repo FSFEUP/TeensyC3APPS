@@ -7,6 +7,7 @@
 
 #include "apps.h"
 #include "can.h"
+#include "debug.h"
 #include "display.h"
 
 #define buzzerPin 4
@@ -19,30 +20,21 @@
 
 #define STARTUP_DELAY_MS 10000
 
-#define BAMOCAR_ATTENUATION_FACTOR 1
 #define APPS_READ_PERIOD_MS 20
+#define BAMOCAR_ATTENUATION_FACTOR 1
 
+volatile bool disabled = false;
 volatile bool BTB_ready = false;
 volatile bool transmission_enabled = false;
-volatile bool disabled = false;
+
 volatile bool r2d = false;
 volatile bool r2d_override = false;
 
 extern FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
 extern CAN_message_t status_request;
-extern CAN_message_t status_report;
-
-extern CAN_message_t torque_request;
-
-extern CAN_message_t BTB_status;
-extern CAN_message_t BTB_response;
 
 extern CAN_message_t disable;
-extern CAN_message_t no_disable;
-
-extern CAN_message_t transmission_request_enable;
-extern CAN_message_t enable_response;
 
 extern CAN_message_t dc_bus_voltage_request;
 extern CAN_message_t request_actual_speed;
@@ -55,16 +47,13 @@ enum status {
 status r2d_status;
 elapsedMillis r2d_timer;
 
-elapsedMillis random_timer_aasasa;
-
 elapsedMillis APPS_TIMER;
 Bounce r2d_button = Bounce();
 
 void play_r2d_sound() {
-    digitalWrite(buzzerPin, HIGH);  // Turn off the buzzer for the other half of the period
+    digitalWrite(buzzerPin, HIGH);
     delay(1000);
     digitalWrite(buzzerPin, LOW);
-    delay(1000);
 }
 
 void setup() {
@@ -76,11 +65,9 @@ void setup() {
     canbus_setup();
 
     r2d_button.attach(R2D_PIN, INPUT);
-    r2d_button.interval(0.01);
+    r2d_button.interval(0.1);
 
     r2d_status = IDLE;
-
-    init_can_messages();
 
     delay(STARTUP_DELAY_MS);
 
@@ -89,30 +76,24 @@ void setup() {
     can1.write(request_actual_speed);
     can1.write(dc_bus_voltage_request);
 
-    setup_display();
+    displaySetup();
 }
 
 void loop() {
-    control_display();
+    displayControl();
     switch (r2d_status) {
         case IDLE:
             r2d_button.update();
-            if (r2d_override) {
-                r2d_status = DRIVING;
-                r2d = true;
-                break;
-            }
-
-            if (r2d_button.fell() and r2d) {
+            if ((r2d_button.fell() and r2d) or r2d_override) {
                 play_r2d_sound();
-                BAMO_init_operation();
+                initBamocarD3();
                 r2d_status = DRIVING;
                 break;
             }
-
             break;
+
         case DRIVING:
-            if (not r2d) {
+            if (not r2d and not r2d_override) {
                 r2d_status = IDLE;
                 can1.write(disable);
                 break;
@@ -120,21 +101,18 @@ void loop() {
 
             if (APPS_TIMER > APPS_READ_PERIOD_MS) {
                 APPS_TIMER = 0;
-                int apps_value = read_apps();
+                int apps_value = readApps();
 
-                if (apps_value >= 0) {
+                if (apps_value >= 0)
                     send_msg(apps_value);
-                } else {
+                else
                     send_msg(0);
-                    Serial.println("ERROR: apps_implausibility");
-                }
                 break;
             }
-
             break;
 
         default:
+            ERROR("Invalid r2d_status");
             break;
     }
 }
-

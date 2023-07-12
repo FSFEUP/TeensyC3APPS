@@ -29,6 +29,6 @@
 #define BAMOCAR_MAX 32760
 #define BAMOCAR_ATTENUATION_FACTOR 1
 
-int read_apps();
+int readApps();
 
 #endif  // _APPS_H_
