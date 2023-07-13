@@ -51,7 +51,7 @@ Bounce r2dButton = Bounce();
 
 void playR2DSound() {
   digitalWrite(buzzerPin, HIGH);
-  delay(1000);
+  delay(2000);
   digitalWrite(buzzerPin, LOW);
 }
 
