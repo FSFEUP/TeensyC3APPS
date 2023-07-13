@@ -1,5 +1,5 @@
-#ifndef _WRITE_DATA_H
-#define _WRITE_DATA_H
+#ifndef _WRITE_DATA_H_
+#define _WRITE_DATA_H_
 
 // =*= CONFIG =*=
 // SPI pinout
@@ -19,4 +19,4 @@
 void setup_csv();
 void write();
 
-#endif _WRITE_DATA_H
+#endif  // WRITE_DATA_H

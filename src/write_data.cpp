@@ -78,7 +78,7 @@ void setup_csv() {
     can1.write(I_con_eff_msg);
 }
 
-void initSdFile(char* filename = "data.csv") {
+void initSdFile(char* filename) {
     if (sd.exists(filename) && !sd.remove(filename)) {
         Serial.println("Failed init remove file");
         return;
@@ -108,7 +108,7 @@ void write() {
     // You should use flag O_RDWR for initialize CSV File even if you use CSV File
     // only for writting.
 
-    initSdFile();
+    initSdFile("dataLogging.csv");
 
     // At the begin of file we don't need
     // add new line.
