@@ -1,12 +1,11 @@
 #include <Arduino.h>
-#include <FlexCAN_T4.h>
-
 #include <Bounce2.h>
-
+#include <FlexCAN_T4.h>
 #include <elapsedMillis.h>
 
 #include "apps.h"
 #include "can.h"
+#include "debug.h"
 #include "display.h"
 
 #define buzzerPin 4
@@ -19,52 +18,42 @@
 
 #define STARTUP_DELAY_MS 10000
 
-#define BAMOCAR_ATTENUATION_FACTOR 1
 #define APPS_READ_PERIOD_MS 20
+#define BAMOCAR_ATTENUATION_FACTOR 1
 
-volatile bool BTB_ready = false;
-volatile bool transmission_enabled = false;
 volatile bool disabled = false;
-volatile bool r2d = false;
-volatile bool r2d_override = false;
+volatile bool BTBReady = false;
+volatile bool transmissionEnabled = false;
+
+volatile bool R2D = false;
+volatile bool R2DOverride = false;
 
 extern FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
-extern CAN_message_t status_request;
-extern CAN_message_t status_report;
-
-extern CAN_message_t torque_request;
-
-extern CAN_message_t BTB_status;
-extern CAN_message_t BTB_response;
+extern CAN_message_t statusRequest;
 
 extern CAN_message_t disable;
-extern CAN_message_t no_disable;
 
-extern CAN_message_t transmission_request_enable;
-extern CAN_message_t enable_response;
-
-extern CAN_message_t dc_bus_voltage_request;
-extern CAN_message_t request_actual_speed;
+extern CAN_message_t DCVoltageRequest;
+extern CAN_message_t actualSpeedRequest;
 
 enum status {
     IDLE,    // waiting for r2d && ATS off
     DRIVING  // r2d pressed && ATS on
 };
 
-status r2d_status;
-elapsedMillis r2d_timer;
+status R2DStatus;
+Bounce r2dButton = Bounce();
 
-elapsedMillis random_timer_aasasa;
+elapsedMillis R2DTimer;
+elapsedMillis APPSTimer;
 
-elapsedMillis APPS_TIMER;
-Bounce r2d_button = Bounce();
+elapsedMicros mainLoopPeriod;
 
-void play_r2d_sound() {
-    digitalWrite(buzzerPin, HIGH);  // Turn off the buzzer for the other half of the period
+void playR2DSound() {
+    digitalWrite(buzzerPin, HIGH);
     delay(1000);
     digitalWrite(buzzerPin, LOW);
-    delay(1000);
 }
 
 void setup() {
@@ -73,68 +62,82 @@ void setup() {
     pinMode(APPS_2_PIN, INPUT);
 
     pinMode(buzzerPin, OUTPUT);
-    canbus_setup();
+    canSetup();
 
-    r2d_button.attach(R2D_PIN, INPUT);
-    r2d_button.interval(0.01);
+    r2dButton.attach(R2D_PIN, INPUT);
+    r2dButton.interval(0.1);
 
-    r2d_status = IDLE;
-
-    init_can_messages();
+    R2DStatus = IDLE;
+    R2DTimer = 0;
 
     delay(STARTUP_DELAY_MS);
 
     can1.write(disable);
-    can1.write(status_request);
-    can1.write(request_actual_speed);
-    can1.write(dc_bus_voltage_request);
+    can1.write(statusRequest);
+    can1.write(actualSpeedRequest);
+    can1.write(DCVoltageRequest);
 
-    setup_display();
+    displaySetup();
+
+#ifdef MAIN_DEBUG
+    LOG("Setup complete, Waiting for R2D\n");
+#endif
 }
 
 void loop() {
-    control_display();
-    switch (r2d_status) {
+    if (mainLoopPeriod < 10)
+        return;
+
+#ifdef DATA_LOGGING
+    write()
+#endif
+
+#if DATA_DISPLAY > 0
+        displayUpdate();
+#endif
+
+    switch (R2DStatus) {
         case IDLE:
-            r2d_button.update();
-            if (r2d_override) {
-                r2d_status = DRIVING;
-                r2d = true;
+            r2dButton.update();
+
+#ifdef R2D_DEBUG
+            LOG("R2D Button: %d\tR2D: %s", r2dButton.read(), R2D ? "MAINS OK" : "MAINS OFF");
+            Serial.print("\tR2D Timer: ");
+            Serial.println(R2DTimer);
+#endif
+
+            if ((r2dButton.fell() and R2D and R2DTimer < R2D_TIMEOUT) or R2DOverride) {
+#ifdef R2D_DEBUG
+                LOG("R2D OK, Switching to drive mode\n");
+#endif
+                playR2DSound();
+                initBamocarD3();
+                R2DStatus = DRIVING;
                 break;
             }
-
-            if (r2d_button.fell() and r2d) {
-                play_r2d_sound();
-                BAMO_init_operation();
-                r2d_status = DRIVING;
-                break;
-            }
-
             break;
+
         case DRIVING:
-            if (not r2d) {
-                r2d_status = IDLE;
+            if (not R2D and not R2DOverride) {
+                R2DStatus = IDLE;
                 can1.write(disable);
                 break;
             }
 
-            if (APPS_TIMER > APPS_READ_PERIOD_MS) {
-                APPS_TIMER = 0;
-                int apps_value = read_apps();
+            if (APPSTimer > APPS_READ_PERIOD_MS) {
+                APPSTimer = 0;
+                int apps_value = readApps();
 
-                if (apps_value >= 0) {
-                    send_msg(apps_value);
-                } else {
-                    send_msg(0);
-                    Serial.println("ERROR: apps_implausibility");
-                }
+                if (apps_value >= 0)
+                    sendMsg(apps_value);
+                else
+                    sendMsg(0);
                 break;
             }
-
             break;
 
         default:
+            ERROR("Invalid r2d_status");
             break;
     }
 }
-
