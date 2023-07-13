@@ -7,10 +7,10 @@
 #define R2D_ID 0x666
 #define BMS_ID 0x675
 
-#define BAMO_RESPONSE_ID 0x181
 #define BAMO_COMMAND_ID 0x201
+#define BAMO_RESPONSE_ID 0x181
 
-#define Mout_regID 0xA0
+#define REGID_MOUT 0xA0
 #define REGID_IGBT 0x4A
 #define REGID_NACT 0xA8
 #define REGID_VOUT 0x8A
@@ -26,12 +26,12 @@
 #define REGID_ACTUAL_SPEED 0x30
 #define REGID_I_ACT_FILTERED 0x5F
 
-#define ADC_MAX 65536
 #define MAX_I 250
+#define ADC_MAX 65536
 
-void canbus_setup();
+void canSetup();
 void canSniffer(const CAN_message_t& msg);
-void send_msg(int value_bamo);
+void sendMsg(int value_bamo);
 void initBamocarD3();
 
 #endif

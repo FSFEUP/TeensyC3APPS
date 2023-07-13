@@ -1,7 +1,6 @@
 #ifndef _WRITE_DATA_H
 #define _WRITE_DATA_H
 
-
 // =*= CONFIG =*=
 // SPI pinout
 #define PIN_SPI_CLK 45
@@ -14,15 +13,10 @@
 #define PIN_OTHER_DEVICE_CS -1
 // Change this value if you have problems with SD card
 // Available values: SPI_QUARTER_SPEED //SPI_HALF_SPEED
-//It is enum from SdFat
+// It is enum from SdFat
 #define SD_CARD_SPEED SPI_FULL_SPEED
 
-#define FILENAME "data.csv"
-
-
 void setup_csv();
-void initSdFile();
 void write();
-
 
 #endif _WRITE_DATA_H

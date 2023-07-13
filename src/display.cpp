@@ -9,18 +9,18 @@
 EasyNex myNex(NEXTION_PORT);
 
 int rpm = 0;
-int socInt = 0;
+int soc = 0;
 int current = 0;
 int speedInt = 0;
 int switchPin = 14;
-int ac_current = 0;
-int motor_temp = 0;
-int low_tempInt = 0;
+int ACCurrent = 0;
+int motorTemp = 0;
+int lowTemp = 0;
 int sensorValue = 0;
-int high_tempInt = 0;
-int current_page = 0;
-int pack_voltage = 0;
-int power_stage_temp = 0;
+int highTemp = 0;
+int currentPage = 0;
+int packVoltage = 0;
+int powerStageTemp = 0;
 
 int mapSensorValueToSwitchNumber(int sensorValue) {
     int rotswitchNumber = 0;
@@ -38,7 +38,7 @@ void displaySetup() {
     pinMode(switchPin, INPUT);
 }
 
-void displayControl() {
+void displayUpdate() {
     myNex.NextionListen();
 
     int sensorValue = analogRead(switchPin);
@@ -53,14 +53,14 @@ void displayControl() {
     myNex.writeStr("t3.txt", mode);
 
     myNex.writeNum("n0.val", speedInt);
-    myNex.writeNum("x0.val", socInt * 10);
-    myNex.writeNum("x1.val", high_tempInt * 10);
-    myNex.writeNum("x2.val", pack_voltage);
+    myNex.writeNum("x0.val", soc * 10);
+    myNex.writeNum("x1.val", highTemp * 10);
+    myNex.writeNum("x2.val", packVoltage);
     myNex.writeNum("x3.val", current);
-    myNex.writeNum("x4.val", motor_temp);
-    myNex.writeNum("x5.val", power_stage_temp);
-    myNex.writeNum("x7.val", ac_current);
+    myNex.writeNum("x4.val", motorTemp);
+    myNex.writeNum("x5.val", powerStageTemp);
+    myNex.writeNum("x7.val", ACCurrent);
     myNex.writeNum("x8.val", rpm);
-    myNex.writeNum("x9.val", high_tempInt);
-    myNex.writeNum("x10.val", low_tempInt);
+    myNex.writeNum("x9.val", highTemp);
+    myNex.writeNum("x10.val", lowTemp);
 }

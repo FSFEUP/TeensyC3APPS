@@ -2,6 +2,6 @@
 #define _DISPLAY_H
 
 void displaySetup();
-void displayControl();
+void displayUpdate();
 
 #endif

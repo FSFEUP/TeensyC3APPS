@@ -5,7 +5,9 @@
 
 #include <CSVFile.h>
 #include <SdFat.h>
+
 #include "can.h"
+#include "write_data.h"
 
 extern FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
@@ -20,9 +22,9 @@ extern CAN_message_t Tpeak_msg;
 extern CAN_message_t Imax_peak_msg;
 extern CAN_message_t I_con_eff_msg;
 
-extern int socInt;
+extern int soc;
 extern int current;
-extern int pack_voltage;
+extern int packVoltage;
 extern int Nact;
 extern int Vout;
 extern int Iq_cmd;
@@ -33,16 +35,13 @@ extern int I_actual_filtered;
 extern int Tpeak;
 extern int Imax_peak;
 extern int I_con_eff;
-extern int motor_temp;
-extern int power_stage_temp;
+extern int motorTemp;
+extern int powerStageTemp;
 
 SdFat sd;
 CSVFile csv;
 
 int t = 0;
-
-#define PIN_SD_CS 44                  //! Não sei se está certo, coloquei para remover os erros de compilação
-#define SD_CARD_SPEED SD_SCK_MHZ(50)  //! Same aqui, foi o copilot que escreveu
 
 void setup_csv() {
     // Setup pinout
@@ -79,15 +78,15 @@ void setup_csv() {
     can1.write(I_con_eff_msg);
 }
 
-void initSdFile(char* FILENAME = "data.csv") {
-    if (sd.exists(FILENAME) && !sd.remove(FILENAME)) {
+void initSdFile(char* filename = "data.csv") {
+    if (sd.exists(filename) && !sd.remove(filename)) {
         Serial.println("Failed init remove file");
         return;
     }
     // Important note!
     // You should use flag O_RDWR even if you use CSV File
     // only for writting.
-    if (!csv.open(FILENAME, O_RDWR | O_CREAT)) {
+    if (!csv.open(filename, O_RDWR | O_CREAT)) {
         Serial.println("Failed open file");
     }
 }
@@ -154,16 +153,16 @@ void write() {
     csv.addField(I_con_eff);
 
     // T-motor - 0x49
-    csv.addField(motor_temp);
+    csv.addField(motorTemp);
 
     // T-igbt - 0x4A
-    csv.addField(power_stage_temp);
+    csv.addField(powerStageTemp);
 
     // SoC
-    csv.addField(socInt);
+    csv.addField(soc);
 
     // V bat
-    csv.addField(pack_voltage);
+    csv.addField(packVoltage);
 
     // I bat
     csv.addField(current);
