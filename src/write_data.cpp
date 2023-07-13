@@ -7,6 +7,8 @@
 #include <SdFat.h>
 
 #include "can.h"
+#include "debug.h"
+#include "elapsedMillis.h"
 #include "write_data.h"
 
 extern FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
@@ -66,6 +68,7 @@ void setup_csv() {
         Serial.println("SD card begin error");
         return;
     }
+
     can1.write(Nact_filtered);
     can1.write(Vout_msg);
     can1.write(Iq_cmd_msg);
@@ -86,7 +89,7 @@ void initSdFile(char* filename) {
     // Important note!
     // You should use flag O_RDWR even if you use CSV File
     // only for writting.
-    if (!csv.open(filename, O_RDWR | O_CREAT)) {
+    if (!csv.open(filename, O_WRONLY | O_APPEND | O_CREAT)) {
         Serial.println("Failed open file");
     }
 }
@@ -182,6 +185,4 @@ void write() {
 
     /*0;65535;3444\n
      */
-
-    delay(100);
 }

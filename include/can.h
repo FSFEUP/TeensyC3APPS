@@ -30,7 +30,6 @@
 #define ADC_MAX 65536
 
 void canSetup();
-void canSniffer(const CAN_message_t& msg);
 void sendMsg(int value_bamo);
 void initBamocarD3();
 

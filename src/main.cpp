@@ -39,8 +39,8 @@ extern CAN_message_t DCVoltageRequest;
 extern CAN_message_t actualSpeedRequest;
 
 enum status {
-  IDLE,    // waiting for r2d && ATS off
-  DRIVING  // r2d pressed && ATS on
+    IDLE,    // waiting for r2d && ATS off
+    DRIVING  // r2d pressed && ATS on
 };
 
 status R2DStatus;
@@ -50,73 +50,79 @@ elapsedMillis APPSTimer;
 Bounce r2dButton = Bounce();
 
 void playR2DSound() {
-  digitalWrite(buzzerPin, HIGH);
-  delay(1000);
-  digitalWrite(buzzerPin, LOW);
+    digitalWrite(buzzerPin, HIGH);
+    delay(1000);
+    digitalWrite(buzzerPin, LOW);
 }
 
 void setup() {
-  Serial.begin(9600);
-  pinMode(APPS_1_PIN, INPUT);
-  pinMode(APPS_2_PIN, INPUT);
+    Serial.begin(9600);
+    pinMode(APPS_1_PIN, INPUT);
+    pinMode(APPS_2_PIN, INPUT);
 
-  pinMode(buzzerPin, OUTPUT);
-  canSetup();
+    pinMode(buzzerPin, OUTPUT);
+    canSetup();
 
-  r2dButton.attach(R2D_PIN, INPUT);
-  r2dButton.interval(0.1);
+    r2dButton.attach(R2D_PIN, INPUT);
+    r2dButton.interval(0.1);
 
-  R2DStatus = IDLE;
+    R2DStatus = IDLE;
 
-  delay(STARTUP_DELAY_MS);
+    delay(STARTUP_DELAY_MS);
 
-  can1.write(disable);
-  can1.write(statusRequest);
-  can1.write(actualSpeedRequest);
-  can1.write(DCVoltageRequest);
+    can1.write(disable);
+    can1.write(statusRequest);
+    can1.write(actualSpeedRequest);
+    can1.write(DCVoltageRequest);
 
-  displaySetup();
-  setup_csv();
+    displaySetup();
+    setup_csv();
 #ifdef MAIN_DEBUG
-  LOG("Setup complete, Waiting for R2D\n");
+    LOG("Setup complete, Waiting for R2D\n");
 #endif
 }
 
 void loop() {
-  displayUpdate();
-  write();
-  switch (R2DStatus) {
-    case IDLE:
-      r2dButton.update();
-      if ((r2dButton.fell() and R2D) or R2DOverride) {
-        playR2DSound();
-        initBamocarD3();
-        R2DStatus = DRIVING;
-        break;
-      }
-      break;
+#ifdef DATA_LOGGING
+    write();
+#endif
 
-    case DRIVING:
-      if (not R2D and not R2DOverride) {
-        R2DStatus = IDLE;
-        can1.write(disable);
-        break;
-      }
+#if DATA_DISPLAY > 0
+    displayUpdate();
+#endif
 
-      if (APPSTimer > APPS_READ_PERIOD_MS) {
-        APPSTimer = 0;
-        int apps_value = readApps();
+    switch (R2DStatus) {
+        case IDLE:
+            r2dButton.update();
+            if ((r2dButton.fell() and R2D) or R2DOverride) {
+                playR2DSound();
+                initBamocarD3();
+                R2DStatus = DRIVING;
+                break;
+            }
+            break;
 
-        if (apps_value >= 0)
-          sendMsg(apps_value);
-        else
-          sendMsg(0);
-        break;
-      }
-      break;
+        case DRIVING:
+            if (not R2D and not R2DOverride) {
+                R2DStatus = IDLE;
+                can1.write(disable);
+                break;
+            }
 
-    default:
-      ERROR("Invalid r2d_status");
-      break;
-  }
+            if (APPSTimer > APPS_READ_PERIOD_MS) {
+                APPSTimer = 0;
+                int apps_value = readApps();
+
+                if (apps_value >= 0)
+                    sendMsg(apps_value);
+                else
+                    sendMsg(0);
+                break;
+            }
+            break;
+
+        default:
+            ERROR("Invalid r2d_status");
+            break;
+    }
 }
