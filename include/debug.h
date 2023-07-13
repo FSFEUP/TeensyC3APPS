@@ -41,7 +41,7 @@
 // #define MAIN_DEBUG
 
 // uncomment these lines to enable aditional data display and data logging
-#define DATA_DISPLAY 1
+#define DATA_DISPLAY 0
 // #define DATA_LOGGING
 
 #endif  // _LOG_H_

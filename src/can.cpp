@@ -7,20 +7,15 @@ CAN_message_t disable;
 CAN_message_t statusRequest;
 CAN_message_t actualSpeedRequest;
 CAN_message_t DCVoltageRequest;
-
-#if DATA_DISPLAY > 0
-
-CAN_message_t torqueRequest;
-
-CAN_message_t BTBStatus;
 CAN_message_t BTBResponse;
-
+CAN_message_t clearErrors;
+CAN_message_t noDisable;
 CAN_message_t transmissionRequestEnable;
 CAN_message_t enableResponse;
+CAN_message_t torqueRequest;
+CAN_message_t BTBStatus;
 
-CAN_message_t noDisable;
-
-CAN_message_t clearErrors;
+#if DATA_DISPLAY > 0
 
 CAN_message_t DCVoltageResponse;
 
@@ -86,6 +81,7 @@ const int CANTimeoutMS = 100;
  *
  */
 void initCanMessages() {
+#if DATA_DISPLAY > 0
     Nact_filtered.id = BAMO_COMMAND_ID;
     Nact_filtered.len = 3;
     Nact_filtered.buf[0] = 0x3D;
@@ -170,12 +166,6 @@ void initCanMessages() {
     motorTempRequest.buf[1] = 0x49;
     motorTempRequest.buf[2] = 0x64;
 
-    statusRequest.id = BAMO_COMMAND_ID;
-    statusRequest.len = 3;
-    statusRequest.buf[0] = 0x3D;
-    statusRequest.buf[1] = 0x40;
-    statusRequest.buf[2] = 0x00;
-
     BTBStatus.id = BAMO_COMMAND_ID;
     BTBStatus.len = 3;
     BTBStatus.buf[0] = 0x3D;
@@ -188,12 +178,6 @@ void initCanMessages() {
     BTBResponse.buf[1] = 0x01;
     BTBResponse.buf[2] = 0x00;
     BTBResponse.buf[3] = 0x00;
-
-    disable.id = BAMO_COMMAND_ID;
-    disable.len = 3;
-    disable.buf[0] = 0x51;
-    disable.buf[1] = 0x04;
-    disable.buf[2] = 0x00;
 
     transmissionRequestEnable.id = BAMO_COMMAND_ID;
     transmissionRequestEnable.len = 3;
@@ -224,6 +208,23 @@ void initCanMessages() {
     clearErrors.buf[1] = 0x44;
     clearErrors.buf[2] = 0x4D;
 
+    DCVoltageResponse.id = BAMO_RESPONSE_ID;
+    DCVoltageResponse.len = 4;
+    DCVoltageResponse.buf[0] = 0xEB;
+#endif
+
+    statusRequest.id = BAMO_COMMAND_ID;
+    statusRequest.len = 3;
+    statusRequest.buf[0] = 0x3D;
+    statusRequest.buf[1] = 0x40;
+    statusRequest.buf[2] = 0x00;
+
+    disable.id = BAMO_COMMAND_ID;
+    disable.len = 3;
+    disable.buf[0] = 0x51;
+    disable.buf[1] = 0x04;
+    disable.buf[2] = 0x00;
+
     actualSpeedRequest.id = BAMO_COMMAND_ID;
     actualSpeedRequest.len = 3;
     actualSpeedRequest.buf[0] = 0x3D;
@@ -235,10 +236,6 @@ void initCanMessages() {
     DCVoltageRequest.buf[0] = 0x3D;
     DCVoltageRequest.buf[1] = 0xEB;
     DCVoltageRequest.buf[2] = 0x64;
-
-    DCVoltageResponse.id = BAMO_RESPONSE_ID;
-    DCVoltageResponse.len = 4;
-    DCVoltageResponse.buf[0] = 0xEB;
 }
 
 void sendMsg(int value_bamo) {
