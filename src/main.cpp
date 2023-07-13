@@ -43,10 +43,12 @@ enum status {
 };
 
 status R2DStatus;
-elapsedMillis R2DTimer;
-
-elapsedMillis APPSTimer;
 Bounce r2dButton = Bounce();
+
+elapsedMillis R2DTimer;
+elapsedMillis APPSTimer;
+
+elapsedMicros mainLoopPeriod;
 
 void playR2DSound() {
     digitalWrite(buzzerPin, HIGH);
@@ -66,6 +68,7 @@ void setup() {
     r2dButton.interval(0.1);
 
     R2DStatus = IDLE;
+    R2DTimer = 0;
 
     delay(STARTUP_DELAY_MS);
 
@@ -82,18 +85,31 @@ void setup() {
 }
 
 void loop() {
+    if (mainLoopPeriod < 10)
+        return;
+
 #ifdef DATA_LOGGING
-    write();
+    write()
 #endif
 
 #if DATA_DISPLAY > 0
-    displayUpdate();
+        displayUpdate();
 #endif
 
     switch (R2DStatus) {
         case IDLE:
             r2dButton.update();
-            if ((r2dButton.fell() and R2D) or R2DOverride) {
+
+#ifdef R2D_DEBUG
+            LOG("R2D Button: %d\tR2D: %s", r2dButton.read(), R2D ? "MAINS OK" : "MAINS OFF");
+            Serial.print("\tR2D Timer: ");
+            Serial.println(R2DTimer);
+#endif
+
+            if ((r2dButton.fell() and R2D and R2DTimer < R2D_TIMEOUT) or R2DOverride) {
+#ifdef R2D_DEBUG
+                LOG("R2D OK, Switching to drive mode\n");
+#endif
                 playR2DSound();
                 initBamocarD3();
                 R2DStatus = DRIVING;
