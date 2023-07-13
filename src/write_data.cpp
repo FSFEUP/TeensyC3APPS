@@ -5,9 +5,7 @@
 
 #include <CSVFile.h>
 #include <SdFat.h>
-
 #include "can.h"
-#include "write_data.h"
 
 extern FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
@@ -42,6 +40,9 @@ SdFat sd;
 CSVFile csv;
 
 int t = 0;
+
+#define PIN_SD_CS 44                  //! Não sei se está certo, coloquei para remover os erros de compilação
+#define SD_CARD_SPEED SD_SCK_MHZ(50)  //! Same aqui, foi o copilot que escreveu
 
 void setup_csv() {
     // Setup pinout
@@ -78,15 +79,15 @@ void setup_csv() {
     can1.write(I_con_eff_msg);
 }
 
-void initSdFile(char* filename) {
-    if (sd.exists(filename) && !sd.remove(filename)) {
+void initSdFile(const char *FILENAME = "data.csv") {
+    if (sd.exists(FILENAME) && !sd.remove(FILENAME)) {
         Serial.println("Failed init remove file");
         return;
     }
     // Important note!
     // You should use flag O_RDWR even if you use CSV File
     // only for writting.
-    if (!csv.open(filename, O_RDWR | O_CREAT)) {
+    if (!csv.open(FILENAME, O_RDWR | O_CREAT)) {
         Serial.println("Failed open file");
     }
 }
@@ -108,7 +109,7 @@ void write() {
     // You should use flag O_RDWR for initialize CSV File even if you use CSV File
     // only for writting.
 
-    initSdFile("dataLogging.csv");
+    initSdFile();
 
     // At the begin of file we don't need
     // add new line.

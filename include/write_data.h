@@ -17,7 +17,7 @@
 #define SD_CARD_SPEED SPI_FULL_SPEED
 
 void setup_csv();
-void initSdFile(char* filename);
+void initSdFile(const char *filename);
 void write();
 
 #endif  // WRITE_DATA_H

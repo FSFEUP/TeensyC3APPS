@@ -3,5 +3,6 @@
 
 void displaySetup();
 void displayUpdate();
+int mapSensorValueToSwitchNumber(int sensorValue);
 
 #endif
