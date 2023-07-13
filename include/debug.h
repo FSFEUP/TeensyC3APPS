@@ -38,7 +38,7 @@
 #define APPS_DEBUG
 // #define CAN_DEBUG
 // #define DISPLAY_DEBUG
-// #define MAIN_DEBUG
+#define MAIN_DEBUG
 
 // uncomment these lines to enable aditional data display and data logging
 #define DATA_DISPLAY 0

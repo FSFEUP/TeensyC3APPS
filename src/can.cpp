@@ -4,16 +4,16 @@
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
 CAN_message_t disable;
-CAN_message_t statusRequest;
-CAN_message_t actualSpeedRequest;
-CAN_message_t DCVoltageRequest;
-CAN_message_t BTBResponse;
-CAN_message_t clearErrors;
-CAN_message_t noDisable;
-CAN_message_t transmissionRequestEnable;
-CAN_message_t enableResponse;
-CAN_message_t torqueRequest;
 CAN_message_t BTBStatus;
+CAN_message_t noDisable;
+CAN_message_t clearErrors;
+CAN_message_t BTBResponse;
+CAN_message_t statusRequest;
+CAN_message_t torqueRequest;
+CAN_message_t enableResponse;
+CAN_message_t DCVoltageRequest;
+CAN_message_t actualSpeedRequest;
+CAN_message_t transmissionRequestEnable;
 
 #if DATA_DISPLAY > 0
 

@@ -7,7 +7,6 @@
 #include "can.h"
 #include "debug.h"
 #include "display.h"
-#include "write_data.h"
 
 #define buzzerPin 4
 
@@ -76,7 +75,7 @@ void setup() {
     can1.write(DCVoltageRequest);
 
     displaySetup();
-    setup_csv();
+
 #ifdef MAIN_DEBUG
     LOG("Setup complete, Waiting for R2D\n");
 #endif
