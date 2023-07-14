@@ -66,6 +66,7 @@ extern int current;
 extern int speedInt;
 extern int packVoltage;
 extern int lowTemp;
+extern int avgTemp;
 
 extern int powerStageTemp;
 extern int motorTemp;
@@ -393,6 +394,7 @@ void canSniffer(const CAN_message_t& msg) {
             highTemp = msg.buf[4];
             packVoltage = ((msg.buf[6] << 8) | msg.buf[5]) / 10;
             Vbat = packVoltage;
+            //avgTemp = msg.buf[7];
             break;
 
         default:

@@ -21,6 +21,7 @@ int highTemp = 0;
 int currentPage = 0;
 int packVoltage = 0;
 int powerStageTemp = 0;
+int avgTemp = 0;
 
 int mapSensorValueToSwitchNumber(int sensorValue) {
     int rotswitchNumber = 0;
@@ -63,4 +64,5 @@ void displayUpdate() {
     myNex.writeNum("x8.val", rpm);
     myNex.writeNum("x9.val", highTemp);
     myNex.writeNum("x10.val", lowTemp);
+    myNex.writeNum("x11.val", avgTemp);
 }
