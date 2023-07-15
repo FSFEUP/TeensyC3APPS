@@ -76,7 +76,7 @@ void setup() {
   can1.write(DCVoltageRequest);
 
   displaySetup();
-  setup_csv();
+  //setup_csv();
 #ifdef MAIN_DEBUG
   LOG("Setup complete, Waiting for R2D\n");
 #endif
@@ -84,7 +84,7 @@ void setup() {
 
 void loop() {
   displayUpdate();
-  write();
+  //write();
   switch (R2DStatus) {
     case IDLE:
       r2dButton.update();
