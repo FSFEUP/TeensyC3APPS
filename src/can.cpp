@@ -3,30 +3,27 @@
 
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
-CAN_message_t statusRequest;
-CAN_message_t status_report;
-
-CAN_message_t torque_request;
-
-CAN_message_t BTB_status;
-CAN_message_t BTB_response;
-
-CAN_message_t transmission_request_enable;
-CAN_message_t enable_response;
 
 CAN_message_t disable;
-CAN_message_t no_disable;
-CAN_message_t actualSpeedRequest;
-
-CAN_message_t clear_errors;
-
+CAN_message_t BTBStatus;
+CAN_message_t noDisable;
+CAN_message_t clearErrors;
+CAN_message_t BTBResponse;
+CAN_message_t statusRequest;
+CAN_message_t torqueRequest;
+CAN_message_t enableResponse;
 CAN_message_t DCVoltageRequest;
-CAN_message_t dc_bus_voltage_response;
+CAN_message_t actualSpeedRequest;
+CAN_message_t transmissionRequestEnable;
 
-CAN_message_t request_motor_temp;
-CAN_message_t request_current;
-CAN_message_t request_powerStage_temp;
-CAN_message_t request_rpm;
+#if DATA_DISPLAY > 0
+
+CAN_message_t DCVoltageResponse;
+
+CAN_message_t motorTempRequest;
+CAN_message_t currentRequest;
+CAN_message_t powerStageTempRequest;
+CAN_message_t rpmRequest;
 
 CAN_message_t Nact_filtered;
 CAN_message_t Vout_msg;
@@ -39,20 +36,20 @@ CAN_message_t Tpeak_msg;
 CAN_message_t Imax_peak_msg;
 CAN_message_t I_con_eff_msg;
 
+#endif
+
+int Ibat;
+int Vbat;
+int Mout;
 int Nact;
 int Vout;
-int Iq_cmd;
-int Iq_actual;
-int Mout;
-int I_lim_inuse;
-int I_actual_filtered;
 int Tpeak;
+int Iq_cmd;
 int Imax_peak;
 int I_con_eff;
-int Vbat;
-int Ibat;
-
-extern elapsedMillis R2DTimer;
+int Iq_actual;
+int I_lim_inuse;
+int I_actual_filtered;
 
 extern volatile bool BTBReady;
 extern volatile bool transmissionEnabled;
@@ -68,16 +65,20 @@ extern int packVoltage;
 extern int lowTemp;
 extern int avgTemp;
 
+
 extern int powerStageTemp;
 extern int motorTemp;
 
 extern int rpm;
 extern int ACCurrent;
 
-elapsedMillis CAN_timer;
-const int CAN_timeout_ms = 100;
+extern elapsedMillis R2DTimer;
 
-#define DC_THRESHOLD 4328
+elapsedMillis CANTimer;
+const int CANTimeoutMS = 100;
+
+// #define DC_THRESHOLD 4328
+#define DC_THRESHOLD 500
 
 // Initialize CAN messages
 /**
@@ -85,6 +86,7 @@ const int CAN_timeout_ms = 100;
  *
  */
 void initCanMessages() {
+#if DATA_DISPLAY > 1
     Nact_filtered.id = BAMO_COMMAND_ID;
     Nact_filtered.len = 3;
     Nact_filtered.buf[0] = 0x3D;
@@ -145,29 +147,77 @@ void initCanMessages() {
     I_con_eff_msg.buf[1] = 0xC5;
     I_con_eff_msg.buf[2] = 0x64;
 
-    request_rpm.id = BAMO_COMMAND_ID;
-    request_rpm.len = 3;
-    request_rpm.buf[0] = 0x3D;
-    request_rpm.buf[1] = 0xCE;
-    request_rpm.buf[2] = 0x64;
 
-    request_powerStage_temp.id = BAMO_COMMAND_ID;
-    request_powerStage_temp.len = 3;
-    request_powerStage_temp.buf[0] = 0x3D;
-    request_powerStage_temp.buf[1] = 0x4A;
-    request_powerStage_temp.buf[0] = 0x64;
+    rpmRequest.id = BAMO_COMMAND_ID;
+    rpmRequest.len = 3;
+    rpmRequest.buf[0] = 0x3D;
+    rpmRequest.buf[1] = 0xCE;
+    rpmRequest.buf[2] = 0x64;
 
-    request_current.id = BAMO_COMMAND_ID;
-    request_current.len = 3;
-    request_current.buf[0] = 0x3D;
-    request_current.buf[1] = 0x20;
-    request_current.buf[2] = 0x64;
+    powerStageTempRequest.id = BAMO_COMMAND_ID;
+    powerStageTempRequest.len = 3;
+    powerStageTempRequest.buf[0] = 0x3D;
+    powerStageTempRequest.buf[1] = 0x4A;
+    powerStageTempRequest.buf[0] = 0x64;
 
-    request_motor_temp.id = BAMO_COMMAND_ID;
-    request_motor_temp.len = 3;
-    request_motor_temp.buf[0] = 0x3D;
-    request_motor_temp.buf[1] = 0x49;
-    request_motor_temp.buf[2] = 0x64;
+    currentRequest.id = BAMO_COMMAND_ID;
+    currentRequest.len = 3;
+    currentRequest.buf[0] = 0x3D;
+    currentRequest.buf[1] = 0x20;
+    currentRequest.buf[2] = 0x64;
+
+    motorTempRequest.id = BAMO_COMMAND_ID;
+    motorTempRequest.len = 3;
+    motorTempRequest.buf[0] = 0x3D;
+    motorTempRequest.buf[1] = 0x49;
+    motorTempRequest.buf[2] = 0x64;
+
+    DCVoltageResponse.id = BAMO_RESPONSE_ID;
+    DCVoltageResponse.len = 4;
+    DCVoltageResponse.buf[0] = 0xEB;
+#endif
+    // APPS Message
+    torqueRequest.id = BAMO_COMMAND_ID;
+    torqueRequest.len = 3;
+    torqueRequest.buf[0] = 0x90;
+
+    enableResponse.id = BAMO_RESPONSE_ID;
+    enableResponse.len = 4;
+    enableResponse.buf[0] = 0xE8;
+    enableResponse.buf[1] = 0x01;
+    enableResponse.buf[2] = 0x00;
+    enableResponse.buf[3] = 0x00;
+
+    clearErrors.id = BAMO_COMMAND_ID;
+    clearErrors.len = 3;
+    clearErrors.buf[0] = 0x8E;
+    clearErrors.buf[1] = 0x44;
+    clearErrors.buf[2] = 0x4D;
+
+    noDisable.id = BAMO_COMMAND_ID;
+    noDisable.len = 3;
+    noDisable.buf[0] = 0x51;
+    noDisable.buf[1] = 0x00;
+    noDisable.buf[2] = 0x00;
+
+    BTBStatus.id = BAMO_COMMAND_ID;
+    BTBStatus.len = 3;
+    BTBStatus.buf[0] = 0x3D;
+    BTBStatus.buf[1] = 0xE2;
+    BTBStatus.buf[2] = 0x00;
+
+    BTBResponse.id = BAMO_RESPONSE_ID;
+    BTBResponse.len = 4;
+    BTBResponse.buf[0] = 0xE2;
+    BTBResponse.buf[1] = 0x01;
+    BTBResponse.buf[2] = 0x00;
+    BTBResponse.buf[3] = 0x00;
+
+    transmissionRequestEnable.id = BAMO_COMMAND_ID;
+    transmissionRequestEnable.len = 3;
+    transmissionRequestEnable.buf[0] = 0x3D;
+    transmissionRequestEnable.buf[1] = 0xE8;
+    transmissionRequestEnable.buf[2] = 0x00;
 
     statusRequest.id = BAMO_COMMAND_ID;
     statusRequest.len = 3;
@@ -175,57 +225,12 @@ void initCanMessages() {
     statusRequest.buf[1] = 0x40;
     statusRequest.buf[2] = 0x00;
 
-    status_report.id = BAMO_RESPONSE_ID;
-    status_report.len = 3;
-    status_report.buf[0] = 0x40;
-
-    BTB_status.id = BAMO_COMMAND_ID;
-    BTB_status.len = 3;
-    BTB_status.buf[0] = 0x3D;
-    BTB_status.buf[1] = 0xE2;
-    BTB_status.buf[2] = 0x00;
-
-    BTB_response.id = BAMO_RESPONSE_ID;
-    BTB_response.len = 4;
-    BTB_response.buf[0] = 0xE2;
-    BTB_response.buf[1] = 0x01;
-    BTB_response.buf[2] = 0x00;
-    BTB_response.buf[3] = 0x00;
 
     disable.id = BAMO_COMMAND_ID;
     disable.len = 3;
     disable.buf[0] = 0x51;
     disable.buf[1] = 0x04;
     disable.buf[2] = 0x00;
-
-    transmission_request_enable.id = BAMO_COMMAND_ID;
-    transmission_request_enable.len = 3;
-    transmission_request_enable.buf[0] = 0x3D;
-    transmission_request_enable.buf[1] = 0xE8;
-    transmission_request_enable.buf[2] = 0x00;
-
-    enable_response.id = BAMO_RESPONSE_ID;
-    enable_response.len = 4;
-    enable_response.buf[0] = 0xE8;
-    enable_response.buf[1] = 0x01;
-    enable_response.buf[2] = 0x00;
-    enable_response.buf[3] = 0x00;
-
-    no_disable.id = BAMO_COMMAND_ID;
-    no_disable.len = 3;
-    no_disable.buf[0] = 0x51;
-    no_disable.buf[1] = 0x00;
-    no_disable.buf[2] = 0x00;
-
-    torque_request.id = BAMO_COMMAND_ID;
-    torque_request.len = 3;
-    torque_request.buf[0] = 0x90;
-
-    clear_errors.id = BAMO_COMMAND_ID;
-    clear_errors.len = 3;
-    clear_errors.buf[0] = 0x8E;
-    clear_errors.buf[1] = 0x44;
-    clear_errors.buf[2] = 0x4D;
 
     actualSpeedRequest.id = BAMO_COMMAND_ID;
     actualSpeedRequest.len = 3;
@@ -238,36 +243,32 @@ void initCanMessages() {
     DCVoltageRequest.buf[0] = 0x3D;
     DCVoltageRequest.buf[1] = 0xEB;
     DCVoltageRequest.buf[2] = 0x64;
-
-    dc_bus_voltage_response.id = BAMO_RESPONSE_ID;
-    dc_bus_voltage_response.len = 4;
-    dc_bus_voltage_response.buf[0] = 0xEB;
 }
 
 void sendMsg(int value_bamo) {
     uint8_t byte1 = (value_bamo >> 8) & 0xFF;  // MSB
     uint8_t byte2 = value_bamo & 0xFF;         // LSB
 
-    torque_request.buf[1] = byte2;
-    torque_request.buf[2] = byte1;
+    torqueRequest.buf[1] = byte2;
+    torqueRequest.buf[2] = byte1;
 
-    can1.write(torque_request);
+    can1.write(torqueRequest);
 }
 
 void initBamocarD3() {
-    can1.write(clear_errors);
+    can1.write(clearErrors);
 
-    while (not transmissionEnabled and CAN_timer > CAN_timeout_ms) {
-        can1.write(transmission_request_enable);
-        CAN_timer = 0;
+    while (not transmissionEnabled and CANTimer > CANTimeoutMS) {
+        can1.write(transmissionRequestEnable);
+        CANTimer = 0;
     }
 
-    while (not BTBReady and CAN_timer > CAN_timeout_ms) {
-        can1.write(BTB_status);
-        CAN_timer = 0;
+    while (not BTBReady and CANTimer > CANTimeoutMS) {
+        can1.write(BTBStatus);
+        CANTimer = 0;
     }
 
-    can1.write(no_disable);
+    can1.write(noDisable);
 }
 
 void REGIDHandler(const CAN_message_t& msg) {
@@ -327,6 +328,9 @@ void REGIDHandler(const CAN_message_t& msg) {
         case REGID_DC_VOLTAGE: {
             long dc_voltage = 0;
             dc_voltage = (msg.buf[2] << 8) | msg.buf[1];
+#ifdef CAN_DEBUG
+            LOG("DC Voltage: %d\n", dc_voltage);
+#endif
             R2D = (dc_voltage >= DC_THRESHOLD);
             break;
         }
@@ -364,6 +368,9 @@ void canSniffer(const CAN_message_t& msg) {
 
     switch (msg.id) {
         case C3_ID:
+#ifdef R2D_DEBUG
+            INFO("Braking signal received\n");
+#endif  // R2D_DEBUG
             R2DTimer = 0;
             break;
 
@@ -373,19 +380,22 @@ void canSniffer(const CAN_message_t& msg) {
 
         case BAMO_RESPONSE_ID:
             if (msg.len == 4) {
-                BTBReady = (msg.buf[0] == BTB_response.buf[0] and msg.buf[1] == BTB_response.buf[1] and msg.buf[2] == BTB_response.buf[2] and msg.buf[3] == BTB_response.buf[3]);
+                BTBReady = (msg.buf[0] == BTBResponse.buf[0] and msg.buf[1] == BTBResponse.buf[1] and msg.buf[2] == BTBResponse.buf[2] and msg.buf[3] == BTBResponse.buf[3]);
                 if (BTBReady)
                     Serial.println("BTB ready");
+                else
+                    REGIDHandler(msg);
                 break;
             }
             if (msg.len == 3) {
-                transmissionEnabled = (msg.buf[0] == enable_response.buf[0] and msg.buf[1] == enable_response.buf[1] and msg.buf[2] == enable_response.buf[2]);
+                transmissionEnabled = (msg.buf[0] == enableResponse.buf[0] and msg.buf[1] == enableResponse.buf[1] and msg.buf[2] == enableResponse.buf[2]);
                 if (transmissionEnabled)
                     Serial.println("Transmission enabled");
                 break;
             }
 
             break;
+
         case BMS_ID:
             current = ((msg.buf[1] << 8) | msg.buf[0]) / 10;
             Ibat = current;
@@ -411,9 +421,9 @@ void canSetup() {
     can1.enableFIFOInterrupt();
     can1.setFIFOFilter(REJECT_ALL);
     can1.setFIFOFilter(0, C3_ID, STD);
-    can1.setFIFOFilter(1, BAMO_RESPONSE_ID, STD);
-    can1.setFIFOFilter(2, R2D_ID, STD);
-    can1.setFIFOFilter(3, BMS_ID, STD);
+    can1.setFIFOFilter(1, R2D_ID, STD);
+    can1.setFIFOFilter(2, BMS_ID, STD);
+    can1.setFIFOFilter(3, BAMO_RESPONSE_ID, STD);
     can1.onReceive(canSniffer);
 
     initCanMessages();
