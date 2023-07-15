@@ -3,6 +3,7 @@
 
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
+
 CAN_message_t disable;
 CAN_message_t BTBStatus;
 CAN_message_t noDisable;
@@ -34,6 +35,7 @@ CAN_message_t I_actual_filtered_msg;
 CAN_message_t Tpeak_msg;
 CAN_message_t Imax_peak_msg;
 CAN_message_t I_con_eff_msg;
+
 #endif
 
 int Ibat;
@@ -62,6 +64,7 @@ extern int speedInt;
 extern int packVoltage;
 extern int lowTemp;
 extern int avgTemp;
+
 
 extern int powerStageTemp;
 extern int motorTemp;
@@ -144,6 +147,7 @@ void initCanMessages() {
     I_con_eff_msg.buf[1] = 0xC5;
     I_con_eff_msg.buf[2] = 0x64;
 
+
     rpmRequest.id = BAMO_COMMAND_ID;
     rpmRequest.len = 3;
     rpmRequest.buf[0] = 0x3D;
@@ -220,6 +224,7 @@ void initCanMessages() {
     statusRequest.buf[0] = 0x3D;
     statusRequest.buf[1] = 0x40;
     statusRequest.buf[2] = 0x00;
+
 
     disable.id = BAMO_COMMAND_ID;
     disable.len = 3;
@@ -388,6 +393,7 @@ void canSniffer(const CAN_message_t& msg) {
                     Serial.println("Transmission enabled");
                 break;
             }
+
             break;
 
         case BMS_ID:

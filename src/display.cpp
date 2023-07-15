@@ -23,6 +23,7 @@ int packVoltage = 0;
 int powerStageTemp = 0;
 int avgTemp = 0;
 
+
 int mapSensorValueToSwitchNumber(int sensorValue) {
     int rotswitchNumber = 0;
 

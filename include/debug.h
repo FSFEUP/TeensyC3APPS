@@ -35,6 +35,7 @@
 #define ERROR(...) Serial.printf("[ERROR] " __VA_ARGS__)
 
 // uncomment this line to enable debug messages
+
 // #define APPS_DEBUG
 // #define CAN_DEBUG
 #define DISPLAY_DEBUG

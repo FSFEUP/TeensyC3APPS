@@ -44,6 +44,7 @@ enum status {
 };
 
 status R2DStatus;
+
 Bounce r2dButton = Bounce();
 
 elapsedMillis R2DTimer;
