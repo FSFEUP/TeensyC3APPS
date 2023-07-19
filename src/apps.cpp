@@ -63,11 +63,12 @@ int convertToBamocarScale(int apps1, int apps2, int atenuation_factor) {
     torque_val = torque_val * BAMOCAR_MAX / torque_max;
     torque_val = (BAMOCAR_MAX - torque_val) * atenuation_factor;
 
-    if (apps1 < 55)
+    if (apps1 < 126)
         torque_val = BAMOCAR_MAX;
 
     return torque_val >= BAMOCAR_MAX ? BAMOCAR_MAX : torque_val;
 }
+
 int readApps() {
     int v_apps1 = analogRead(APPS_1_PIN);
     int v_apps2 = analogRead(APPS_2_PIN);
