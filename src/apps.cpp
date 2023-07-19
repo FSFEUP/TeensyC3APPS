@@ -63,15 +63,12 @@ int convertToBamocarScale(int apps1, int apps2, int atenuation_factor) {
     torque_val = torque_val * BAMOCAR_MAX / torque_max;
     torque_val = (BAMOCAR_MAX - torque_val) * atenuation_factor;
 
-<<<<<<< HEAD
-    if(apps1<55) torque_val = BAMOCAR_MAX;
-=======
-    if (apps1 < 55)
+    if (apps1 < 126)
         torque_val = BAMOCAR_MAX;
->>>>>>> main
 
     return torque_val >= BAMOCAR_MAX ? BAMOCAR_MAX : torque_val;
 }
+
 int readApps() {
     int v_apps1 = analogRead(APPS_1_PIN);
     int v_apps2 = analogRead(APPS_2_PIN);
@@ -89,24 +86,14 @@ int readApps() {
     bool plausible = plausibility(v_apps1, v_apps2);
 
     if (!plausible and APPS_IMPLAUSIBILITY_TIMER > APPS_IMPLAUSIBLE_TIMEOUT_MS) {
-<<<<<<< HEAD
-        Serial.println("\tImplausible");
-=======
 #ifdef APPS_DEBUG
         ERROR("APPS Implausible\n");
 #endif  // APPS_DEBUG
->>>>>>> main
         return -1;
     }
 
     if (plausible)
         APPS_IMPLAUSIBILITY_TIMER = 0;
-<<<<<<< HEAD
-
-    Serial.print("\tPlausible");
-    int bamocar_value = convert_to_bamocar_scale(v_apps1, v_apps2, BAMOCAR_ATTENUATION_FACTOR);
-=======
->>>>>>> main
 
     int bamocar_value = convertToBamocarScale(v_apps1, v_apps2, BAMOCAR_ATTENUATION_FACTOR);
 
