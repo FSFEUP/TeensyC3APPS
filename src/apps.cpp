@@ -1,4 +1,5 @@
 #include "apps.h"
+#include "debug.h"
 
 #include <Arduino.h>
 #include <elapsedMillis.h>
@@ -16,14 +17,14 @@ int average(int* buffer, int n) {
     return sum / n;
 }
 
-void buffer_insert(int* buffer, int n, int value) {
+void bufferInsert(int* buffer, int n, int value) {
     for (int i = 0; i < n - 1; i++) {
         buffer[i] = buffer[i + 1];
     }
     buffer[n - 1] = value;
 }
 
-int transform_apps_2(int apps2) {
+int scaleApps2(int apps2) {
     return apps2 + APPS_LINEAR_OFFSET;
 }
 
@@ -43,15 +44,15 @@ bool plausibility(int v_apps1, int v_apps2) {
     if (v_apps2 <= APPS2_DEAD_THRESHOLD)
         return v_apps1 >= APPS_1_LOWER_BOUND && v_apps1 <= APPS2_DEADZONE_EQUIVALENT + APPS_MAX_ERROR_ABS;
 
-    int v2_expected = transform_apps_2(v_apps2);
+    int v2_expected = scaleApps2(v_apps2);
     int plausibility_value = abs(v2_expected - v_apps1) * 100 / v_apps1;
 
     return (plausibility_value < APPS_MAX_ERROR_PERCENT);
 }
 
-int convert_to_bamocar_scale(int apps1, int apps2, int atenuation_factor) {
-    int torque_val = transform_apps_2(apps2);
-    int torque_max = transform_apps_2(APPS_INITIAL_TRIGGER);
+int convertToBamocarScale(int apps1, int apps2, int atenuation_factor) {
+    int torque_val = scaleApps2(apps2);
+    int torque_max = scaleApps2(APPS_INITIAL_TRIGGER);
 
     if (torque_val > torque_max)
         torque_val = torque_max;
@@ -62,39 +63,56 @@ int convert_to_bamocar_scale(int apps1, int apps2, int atenuation_factor) {
     torque_val = torque_val * BAMOCAR_MAX / torque_max;
     torque_val = (BAMOCAR_MAX - torque_val) * atenuation_factor;
 
+<<<<<<< HEAD
     if(apps1<55) torque_val = BAMOCAR_MAX;
+=======
+    if (apps1 < 55)
+        torque_val = BAMOCAR_MAX;
+>>>>>>> main
 
     return torque_val >= BAMOCAR_MAX ? BAMOCAR_MAX : torque_val;
 }
-int read_apps() {
+int readApps() {
     int v_apps1 = analogRead(APPS_1_PIN);
     int v_apps2 = analogRead(APPS_2_PIN);
 
-    buffer_insert(avgBuffer1, AVG_SAMPLES, v_apps1);
-    buffer_insert(avgBuffer2, AVG_SAMPLES, v_apps2);
+    bufferInsert(avgBuffer1, AVG_SAMPLES, v_apps1);
+    bufferInsert(avgBuffer2, AVG_SAMPLES, v_apps2);
 
     v_apps1 = average(avgBuffer1, AVG_SAMPLES);
     v_apps2 = average(avgBuffer2, AVG_SAMPLES);
 
-    Serial.print(v_apps1);
-    Serial.print("\t");
-    Serial.print(v_apps2);
+#ifdef APPS_DEBUG
+    INFO("APPS1: %d\tAPPS2: %d\t", v_apps1, v_apps2);
+#endif  // APPS_DEBUG
 
     bool plausible = plausibility(v_apps1, v_apps2);
 
     if (!plausible and APPS_IMPLAUSIBILITY_TIMER > APPS_IMPLAUSIBLE_TIMEOUT_MS) {
+<<<<<<< HEAD
         Serial.println("\tImplausible");
+=======
+#ifdef APPS_DEBUG
+        ERROR("APPS Implausible\n");
+#endif  // APPS_DEBUG
+>>>>>>> main
         return -1;
     }
 
     if (plausible)
         APPS_IMPLAUSIBILITY_TIMER = 0;
+<<<<<<< HEAD
 
     Serial.print("\tPlausible");
     int bamocar_value = convert_to_bamocar_scale(v_apps1, v_apps2, BAMOCAR_ATTENUATION_FACTOR);
+=======
+>>>>>>> main
 
-    Serial.print("\tBamocar Value: ");
-    Serial.println(bamocar_value);
+    int bamocar_value = convertToBamocarScale(v_apps1, v_apps2, BAMOCAR_ATTENUATION_FACTOR);
+
+#ifdef APPS_DEBUG
+    INFO("Plausible\t Torque Request:%d\n", bamocar_value);
+#endif  // APPS_DEBUG
 
     return bamocar_value;
 }

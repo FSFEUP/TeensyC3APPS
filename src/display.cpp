@@ -1,28 +1,44 @@
 #include "display.h"
+#include "apps.h"
 
 #include <EasyNextionLibrary.h>
+#include <FlexCAN_T4.h>
 
 #define NEXTION_PORT Serial1
 
 EasyNex myNex(NEXTION_PORT);
 
+int rpm = 0;
+int soc = 0;
+int current = 0;
 int speedInt = 0;
-int tempInt = 0;
-int socInt = 1002;
-int current_page = 0;
 int switchPin = 14;
+int ACCurrent = 0;
+int motorTemp = 0;
+int lowTemp = 0;
 int sensorValue = 0;
+int highTemp = 0;
+int currentPage = 0;
+int packVoltage = 0;
+int powerStageTemp = 0;
 
-void setup_display() {
-    myNex.begin(9600);
-    // Serial.begin(38400);
-    pinMode(switchPin, INPUT);
-    myNex.writeNum("n0.val", speedInt);
-    myNex.writeNum("x1.val", tempInt);
-    myNex.writeNum("x0.val", socInt);
+int mapSensorValueToSwitchNumber(int sensorValue) {
+    int rotswitchNumber = 0;
+
+    float posicao = sensorValue;
+
+    posicao /= 93;
+
+    rotswitchNumber = round(posicao);
+    return rotswitchNumber;
 }
 
-void control_display() {
+void displaySetup() {
+    myNex.begin(9600);
+    pinMode(switchPin, INPUT);
+}
+
+void displayUpdate() {
     myNex.NextionListen();
 
     int sensorValue = analogRead(switchPin);
@@ -36,44 +52,15 @@ void control_display() {
 
     myNex.writeStr("t3.txt", mode);
 
-    // Increment speed, temperature, and SOC on page 0
-    /*
-    speedInt++;
-    if (speedInt == 201) {
-      speedInt = 0;
-    }
-
-    tempInt++;
-    if (tempInt == 1002) {
-      tempInt = 0;
-    }
-
-    socInt--;
-    if (socInt == 0) {
-      socInt = 1002;
-    }
-
-    if(speedInt > 40 && speedInt < 90){
-      myNex.writeNum("t0.pco", 63488);
-      myNex.writeStr("t0.txt", "NOK");
-    } else{
-      myNex.writeNum("t0.pco", 1032);
-      myNex.writeStr("t0.txt", "OK");
-    }
-    */
-    // Ler os dados da BMS e atualizamos no display
     myNex.writeNum("n0.val", speedInt);
-    myNex.writeNum("x1.val", tempInt);
-    myNex.writeNum("x0.val", socInt);
-}
-
-int mapSensorValueToSwitchNumber(int sensorValue) {
-    int rotswitchNumber = 0;
-
-    float posicao = sensorValue;
-
-    posicao /= 93;
-
-    rotswitchNumber = round(posicao);
-    return rotswitchNumber;
+    myNex.writeNum("x0.val", soc * 10);
+    myNex.writeNum("x1.val", highTemp * 10);
+    myNex.writeNum("x2.val", packVoltage);
+    myNex.writeNum("x3.val", current);
+    myNex.writeNum("x4.val", motorTemp);
+    myNex.writeNum("x5.val", powerStageTemp);
+    myNex.writeNum("x7.val", ACCurrent);
+    myNex.writeNum("x8.val", rpm);
+    myNex.writeNum("x9.val", highTemp);
+    myNex.writeNum("x10.val", lowTemp);
 }

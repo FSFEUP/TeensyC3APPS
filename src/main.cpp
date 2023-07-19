@@ -1,12 +1,11 @@
 #include <Arduino.h>
-#include <FlexCAN_T4.h>
-
 #include <Bounce2.h>
-
+#include <FlexCAN_T4.h>
 #include <elapsedMillis.h>
 
 #include "apps.h"
 #include "can.h"
+#include "debug.h"
 #include "display.h"
 
 #define buzzerPin 4
@@ -19,42 +18,43 @@
 
 #define STARTUP_DELAY_MS 10000
 
-#define BAMOCAR_ATTENUATION_FACTOR 1
 #define APPS_READ_PERIOD_MS 20
+#define BAMOCAR_ATTENUATION_FACTOR 1
 
-volatile bool BTB_ready = false;
-volatile bool transmission_enabled = false;
 volatile bool disabled = false;
-volatile bool r2d_override = false;
+volatile bool BTBReady = false;
+volatile bool transmissionEnabled = false;
+
+volatile bool R2D = false;
+volatile bool R2DOverride = false;
 
 extern FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
-extern CAN_message_t status_request;
-extern CAN_message_t status_report;
-
-extern CAN_message_t torque_request;
-
-extern CAN_message_t BTB_status;
-extern CAN_message_t BTB_response;
+extern CAN_message_t statusRequest;
 
 extern CAN_message_t disable;
-extern CAN_message_t no_disable;
 
-extern CAN_message_t transmission_request_enable;
-extern CAN_message_t enable_response;
+extern CAN_message_t DCVoltageRequest;
+extern CAN_message_t actualSpeedRequest;
 
 enum status {
     IDLE,    // waiting for r2d && ATS off
     DRIVING  // r2d pressed && ATS on
 };
 
-status r2d_status;
-elapsedMillis r2d_timer;
+status R2DStatus;
+Bounce r2dButton = Bounce();
 
-elapsedMillis APPS_TIMER;
-Bounce r2d_button = Bounce();
+elapsedMillis R2DTimer;
+elapsedMillis APPSTimer;
 
-void play_r2d_sound();
+elapsedMicros mainLoopPeriod;
+
+void playR2DSound() {
+    digitalWrite(buzzerPin, HIGH);
+    delay(1000);
+    digitalWrite(buzzerPin, LOW);
+}
 
 void setup() {
     Serial.begin(9600);
@@ -63,15 +63,8 @@ void setup() {
 }
 
 void loop() {
-    if (APPS_TIMER > APPS_READ_PERIOD_MS) {
-        (void)read_apps();
-        APPS_TIMER = 0;
+    if (APPSTimer > APPS_READ_PERIOD_MS) {
+        (void)readApps();
+        APPSTimer = 0;
     }
-}
-
-void play_r2d_sound() {
-    digitalWrite(buzzerPin, HIGH);  // Turn off the buzzer for the other half of the period
-    delay(1000);
-    digitalWrite(buzzerPin, LOW);
-    delay(1000);
 }
