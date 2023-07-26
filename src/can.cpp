@@ -68,7 +68,7 @@ extern int motorTemp;
 extern int rpm;
 extern int ACCurrent;
 
-uint16_t brakeValue;
+extern volatile uint16_t brakeValue;
 
 extern elapsedMillis R2DTimer;
 

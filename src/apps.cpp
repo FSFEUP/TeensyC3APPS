@@ -4,10 +4,10 @@
 #include <Arduino.h>
 #include <elapsedMillis.h>
 
-elapsedMillis APPS_IMPLAUSIBILITY_TIMER;
-elapsedMillis APPS_BRAKE_PLAUSIBILITY_TIMER;
+elapsedMillis appsImplausibilityTimer;
+elapsedMillis appsBrakePlausibilityTimer;
 
-extern volatile uint16_t brakeValue;
+volatile uint16_t brakeValue;
 bool APPsTimeout = false;
 
 int avgBuffer1[AVG_SAMPLES] = {0};
@@ -89,7 +89,7 @@ int readApps() {
 
     bool plausible = plausibility(v_apps1, v_apps2);
 
-    if (!plausible and APPS_IMPLAUSIBILITY_TIMER > APPS_IMPLAUSIBLE_TIMEOUT_MS) {
+    if (!plausible and appsImplausibilityTimer > APPS_IMPLAUSIBLE_TIMEOUT_MS) {
 #ifdef APPS_DEBUG
         ERROR("APPS Implausible\n");
 #endif  // APPS_DEBUG
@@ -97,34 +97,38 @@ int readApps() {
     }
 
     if (plausible)
-        APPS_IMPLAUSIBILITY_TIMER = 0;
+        appsImplausibilityTimer = 0;
 
-    int bamocar_value = convertToBamocarScale(v_apps1, v_apps2, BAMOCAR_ATTENUATION_FACTOR);
+    int bamocarValue = convertToBamocarScale(v_apps1, v_apps2, BAMOCAR_ATTENUATION_FACTOR);
 
 #ifdef APPS_DEBUG
-    INFO("Plausible\t Torque Request:%d\n", bamocar_value);
+    INFO("Plausible\t Torque Request:%d\t", bamocarValue);
 #endif  // APPS_DEBUG
 
     if (APPsTimeout) {
-        if (bamocar_value == 0)
+        LOG("APPS Blocked\n");
+        if (bamocarValue == 0) {
             APPsTimeout = false;
-        else
+            LOG("APPS Available\n");
+        } else
             return 0;
     }
 
-    float cmp = (bamocar_value / BAMOCAR_MAX) * 100.0;
+    float pedalTravelPercent = ((float)bamocarValue / BAMOCAR_MAX) * 100.0;
 
-    if (brakeValue >= 170 && cmp >= 25.0) {
-        if (APPS_BRAKE_PLAUSIBILITY_TIMER > APPS_BRAKE_PLAUSIBILITY_TIMEOUT_MS) {
 #ifdef APPS_DEBUG
-            ERROR("APPS and Brake Implausible\n");
+    INFO("Travel \%: %.2f\tBrake Val: %d\tBrake Timer: ", pedalTravelPercent, brakeValue);
+    Serial.println(appsBrakePlausibilityTimer);
 #endif  // APPS_DEBUG
+
+    if (brakeValue >= 170 && pedalTravelPercent >= 25.0) {
+        if (appsBrakePlausibilityTimer > APPS_BRAKE_PLAUSIBILITY_TIMEOUT_MS) {
+            ERROR("APPS and Brake Implausible\n");
             APPsTimeout = true;
             return 0;
-        } else {
-            APPS_BRAKE_PLAUSIBILITY_TIMER = 0;
         }
-    }
+    } else
+        appsBrakePlausibilityTimer = 0;
 
-    return bamocar_value;
+    return bamocarValue;
 }

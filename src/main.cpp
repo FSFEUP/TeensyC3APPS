@@ -28,8 +28,6 @@ volatile bool transmissionEnabled = false;
 volatile bool R2D = false;
 volatile bool R2DOverride = false;
 
-volatile uint16_t brakeValue = 0;
-
 int VALUE_apps = 0;
 
 extern FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
@@ -64,6 +62,7 @@ void setup() {
     Serial.begin(9600);
     pinMode(APPS_1_PIN, INPUT);
     pinMode(APPS_2_PIN, INPUT);
+    canSetup();
 }
 
 void loop() {
