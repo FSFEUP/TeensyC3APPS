@@ -7,7 +7,7 @@
 elapsedMillis APPS_IMPLAUSIBILITY_TIMER;
 elapsedMillis APPS_BRAKE_PLAUSIBILITY_TIMER;
 
-volatile uint16_t brake_value = 0;
+extern volatile uint16_t brake_value = 0;
 bool APPsTimeout = false;
 
 int avgBuffer1[AVG_SAMPLES] = {0};
@@ -96,10 +96,13 @@ int readApps() {
         return -1;
     }
 
-    if (plausible)
-        APPS_IMPLAUSIBILITY_TIMER = 0;
+    if (plausible) APPS_IMPLAUSIBILITY_TIMER = 0;
 
     int bamocar_value = convertToBamocarScale(v_apps1, v_apps2, BAMOCAR_ATTENUATION_FACTOR);
+
+    #ifdef APPS_DEBUG
+        INFO("Plausible\t Torque Request:%d\n", bamocar_value);
+    #endif  // APPS_DEBUG
 
     if (APPsTimeout) {
         if (bamocar_value == 0)
@@ -110,7 +113,7 @@ int readApps() {
 
     float cmp = (bamocar_value / BAMOCAR_MAX) * 100.0;
 
-    if (brake_value >= 170 && cmp >= 25) {
+    if (brake_value >= 170 && cmp >= 25.0) {
         if (APPS_BRAKE_PLAUSIBILITY_TIMER > APPS_BRAKE_PLAUSIBILITY_TIMEOUT_MS) {
 #ifdef APPS_DEBUG
             ERROR("APPS and Brake Implausible\n");
@@ -121,10 +124,6 @@ int readApps() {
             APPS_BRAKE_PLAUSIBILITY_TIMER = 0;
         }
     }
-
-#ifdef APPS_DEBUG
-    INFO("Plausible\t Torque Request:%d\n", bamocar_value);
-#endif  // APPS_DEBUG
 
     return bamocar_value;
 }
