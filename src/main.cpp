@@ -25,6 +25,8 @@ volatile bool disabled = false;
 volatile bool BTBReady = false;
 volatile bool transmissionEnabled = false;
 
+int VALUE_apps = 0;
+
 volatile bool R2D = false;
 volatile bool R2DOverride = false;
 
@@ -36,6 +38,7 @@ extern CAN_message_t disable;
 
 extern CAN_message_t DCVoltageRequest;
 extern CAN_message_t actualSpeedRequest;
+
 
 enum status {
     IDLE,    // waiting for r2d && ATS off
@@ -127,7 +130,6 @@ void loop() {
             if (APPSTimer > APPS_READ_PERIOD_MS) {
                 APPSTimer = 0;
                 int apps_value = readApps();
-
                 if (apps_value >= 0)
                     sendMsg(apps_value);
                 else
