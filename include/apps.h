@@ -29,6 +29,8 @@
 #define BAMOCAR_MAX 32760
 #define BAMOCAR_ATTENUATION_FACTOR 1
 
+#define APPS_BRAKE_PLAUSIBILITY_TIMEOUT_MS 500
+
 int readApps();
 
 #endif  // _APPS_H_

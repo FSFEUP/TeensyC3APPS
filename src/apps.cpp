@@ -5,6 +5,10 @@
 #include <elapsedMillis.h>
 
 elapsedMillis APPS_IMPLAUSIBILITY_TIMER;
+elapsedMillis APPS_BRAKE_PLAUSIBILITY_TIMER;
+
+extern volatile uint16_t brakeValue;
+bool APPsTimeout = false;
 
 int avgBuffer1[AVG_SAMPLES] = {0};
 int avgBuffer2[AVG_SAMPLES] = {0};
@@ -100,6 +104,27 @@ int readApps() {
 #ifdef APPS_DEBUG
     INFO("Plausible\t Torque Request:%d\n", bamocar_value);
 #endif  // APPS_DEBUG
+
+    if (APPsTimeout) {
+        if (bamocar_value == 0)
+            APPsTimeout = false;
+        else
+            return 0;
+    }
+
+    float cmp = (bamocar_value / BAMOCAR_MAX) * 100.0;
+
+    if (brakeValue >= 170 && cmp >= 25.0) {
+        if (APPS_BRAKE_PLAUSIBILITY_TIMER > APPS_BRAKE_PLAUSIBILITY_TIMEOUT_MS) {
+#ifdef APPS_DEBUG
+            ERROR("APPS and Brake Implausible\n");
+#endif  // APPS_DEBUG
+            APPsTimeout = true;
+            return 0;
+        } else {
+            APPS_BRAKE_PLAUSIBILITY_TIMER = 0;
+        }
+    }
 
     return bamocar_value;
 }

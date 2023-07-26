@@ -68,6 +68,8 @@ extern int motorTemp;
 extern int rpm;
 extern int ACCurrent;
 
+uint16_t brakeValue;
+
 extern elapsedMillis R2DTimer;
 
 elapsedMillis CANTimer;
@@ -365,7 +367,9 @@ void canSniffer(const CAN_message_t& msg) {
 #ifdef R2D_DEBUG
             INFO("Braking signal received\n");
 #endif  // R2D_DEBUG
-            R2DTimer = 0;
+            brakeValue = (msg.buf[2] << 8) | msg.buf[1];
+            if (brakeValue > 165)
+                R2DTimer = 0;
             break;
 
         case R2D_ID:
