@@ -8,7 +8,7 @@
 #include "debug.h"
 #include "display.h"
 
-#define buzzerPin 4
+#define buzzerPin 4  //! trocar para pino 2 no shield novo
 
 #define R2D_PIN 32
 #define R2D_TIMEOUT 500
