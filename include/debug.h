@@ -37,7 +37,7 @@
 // uncomment this line to enable debug messages
 // #define APPS_DEBUG
 // #define CAN_DEBUG
-#define DISPLAY_DEBUG
+// #define DISPLAY_DEBUG
 // #define MAIN_DEBUG
 // #define R2D_DEBUG
 
