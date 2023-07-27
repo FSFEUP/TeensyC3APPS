@@ -93,48 +93,63 @@ void write() {
 
         // N act (filt) - 0xA8
         csv.addField(Nact);
+        Serial.printf("N act filtered - %d \n",Nact);
 
         // Vout - 0x8A
         csv.addField(Vout);
+        Serial.printf("Vout - %d \n",Vout);
 
         // Iq cmd - 0x26
         csv.addField(Iq_cmd);
+        Serial.printf("Iq command - %d \n",Iq_cmd);
 
         // Iq actual - 0x27
         csv.addField(Iq_actual);
+        Serial.printf("Iq actual - %d \n",Iq_actual);
 
         // M out - 0xA0
         csv.addField(Mout);
+        Serial.printf("M out - %d \n",Mout);
 
         // I lim inuse - 0x48
         csv.addField(I_lim_inuse);
+        Serial.printf("I lim inuse - %d \n",I_lim_inuse);
 
         // I act (filt) - 0x5F
         csv.addField(I_actual_filtered);
+        Serial.printf("I actual filtered - %d \n",I_actual_filtered);
 
         // T-peak - 0xF0
         csv.addField(Tpeak);
+        Serial.printf("T-peak - %d \n",Tpeak);
 
         // Imax pk - 0xC4
         csv.addField(Imax_peak);
+        Serial.printf("I max peak - %d \n",Imax_peak);
 
         // I con eff - 0xC5
         csv.addField(I_con_eff);
+        Serial.printf("I con eff - %d \n",I_con_eff);
 
         // T-motor - 0x49
         csv.addField(motorTemp);
+        Serial.printf("T-motor - %d \n",motorTemp);
 
         // T-igbt - 0x4A
         csv.addField(powerStageTemp);
+        Serial.printf("T-igbt - %d \n",powerStageTemp);
 
         // SoC
         csv.addField(soc);
+        Serial.printf("SoC - %d \n",soc);
 
         // V bat
         csv.addField(packVoltage);
+        Serial.printf("V bat - %d \n",packVoltage);
 
         // I bat
         csv.addField(current);
+        Serial.printf("I bat - %d \n",current);
 
         csv.addLine();
 
