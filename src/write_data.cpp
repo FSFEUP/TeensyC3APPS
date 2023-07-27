@@ -41,6 +41,8 @@ CSVFile csv;
 
 int t = 0;
 
+elapsedMillis writeTIMER;
+
 #define PIN_SD_CS 44                  //! Não sei se está certo, coloquei para remover os erros de compilação
 #define SD_CARD_SPEED SD_SCK_MHZ(50)  //! Same aqui, foi o copilot que escreveu
 
@@ -79,110 +81,70 @@ void setup_csv() {
     can1.write(I_con_eff_msg);
 }
 
-void initSdFile(const char *FILENAME = "data.csv") {
-    if (sd.exists(FILENAME) && !sd.remove(FILENAME)) {
-        Serial.println("Failed init remove file");
-        return;
-    }
-    // Important note!
-    // You should use flag O_RDWR even if you use CSV File
-    // only for writting.
-    if (!csv.open(FILENAME, O_RDWR | O_CREAT)) {
-        Serial.println("Failed open file");
-    }
-}
 
 void write() {
-    // Data in CSV file is stored in lines.
-    // Each line have some (or zero) fields.
-    // First you should add line and next
-    // add fields. After you can add next line.
+    if(writeTIMER > 100){
+        
+        if (!csv.open("data.csv", O_RDWR | O_CREAT)) {
+            Serial.println("Failed open file");
+        }
 
-    // Each line is ended by end line character '\n',
-    // (UNIX style - without '\r').
-    // You shouldn't use "println" method (and similars).
-    // The fields are separated by delimiter ';'.
-    // You can change this character in source file.
-    // Your CSV file shouldn't contain this characters.
+        csv.addField(t);
 
-    // Important note!
-    // You should use flag O_RDWR for initialize CSV File even if you use CSV File
-    // only for writting.
+        // N act (filt) - 0xA8
+        csv.addField(Nact);
 
-    initSdFile();
+        // Vout - 0x8A
+        csv.addField(Vout);
 
-    // At the begin of file we don't need
-    // add new line.
+        // Iq cmd - 0x26
+        csv.addField(Iq_cmd);
 
-    // 2. Number field with non-fixed size.
-    //    Use this field if you don't need
-    //    edit field's value later.
-    //    Support only positive integers.
-    //    It is function designed for write
-    //    line numbers.
+        // Iq actual - 0x27
+        csv.addField(Iq_actual);
 
-    csv.addField(t);
+        // M out - 0xA0
+        csv.addField(Mout);
 
-    // N act (filt) - 0xA8
-    csv.addField(Nact);
+        // I lim inuse - 0x48
+        csv.addField(I_lim_inuse);
 
-    // Vout - 0x8A
-    csv.addField(Vout);
+        // I act (filt) - 0x5F
+        csv.addField(I_actual_filtered);
 
-    // Iq cmd - 0x26
-    csv.addField(Iq_cmd);
+        // T-peak - 0xF0
+        csv.addField(Tpeak);
 
-    // Iq actual - 0x27
-    csv.addField(Iq_actual);
+        // Imax pk - 0xC4
+        csv.addField(Imax_peak);
 
-    // M out - 0xA0
-    csv.addField(Mout);
+        // I con eff - 0xC5
+        csv.addField(I_con_eff);
 
-    // I lim inuse - 0x48
-    csv.addField(I_lim_inuse);
+        // T-motor - 0x49
+        csv.addField(motorTemp);
 
-    // I act (filt) - 0x5F
-    csv.addField(I_actual_filtered);
+        // T-igbt - 0x4A
+        csv.addField(powerStageTemp);
 
-    // T-peak - 0xF0
-    csv.addField(Tpeak);
+        // SoC
+        csv.addField(soc);
 
-    // Imax pk - 0xC4
-    csv.addField(Imax_peak);
+        // V bat
+        csv.addField(packVoltage);
 
-    // I con eff - 0xC5
-    csv.addField(I_con_eff);
+        // I bat
+        csv.addField(current);
 
-    // T-motor - 0x49
-    csv.addField(motorTemp);
+        csv.addLine();
 
-    // T-igbt - 0x4A
-    csv.addField(powerStageTemp);
+        // We don't add empty line at the end of file.
+        // CSV file shouldn't end by '\n' char.
 
-    // SoC
-    csv.addField(soc);
+        // Don't forget close the file.
+        csv.close();
 
-    // V bat
-    csv.addField(packVoltage);
+        t++;
 
-    // I bat
-    csv.addField(current);
-
-    csv.addLine();
-
-    // We don't add empty line at the end of file.
-    // CSV file shouldn't end by '\n' char.
-
-    // Don't forget close the file.
-    csv.close();
-
-    t++;
-
-    // After this operations your CSV file should look like this
-    // ('\0' is null character):
-
-    /*0;65535;3444\n
-     */
-
-    delay(100);
+    }
 }
