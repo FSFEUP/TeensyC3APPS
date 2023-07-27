@@ -9,7 +9,7 @@
 #include "display.h"
 #include "write_data.h"
 
-#define buzzerPin 4
+#define buzzerPin 4  //! trocar para pino 2 no shield novo
 
 #define R2D_PIN 32
 #define R2D_TIMEOUT 500
@@ -57,7 +57,6 @@ void playR2DSound() {
     delay(2000);
     digitalWrite(buzzerPin, LOW);
 }
-
 void setup() {
   Serial.begin(9600);
   pinMode(APPS_1_PIN, INPUT);
