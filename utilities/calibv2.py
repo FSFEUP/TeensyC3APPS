@@ -16,10 +16,9 @@ def import_new_raw_data(in_file, out_file):
         apps1_values = [line[0] for line in data]
         apps2_values = [line[1] for line in data]
         compression_values = [line[2] for line in data]
-        # adjust for measuing offset
-        compression_values = [val - min(compression_values) for val in compression_values]
+        # adjust for measuring offset
+        # compression_values = [val - min(compression_values) for val in compression_values]
         return apps1_values, apps2_values, compression_values
-
 
 # define a 2d plot function that saves the plot to a png file and does not block the program
 def plot_2d_data_nonblocking(x_data, y_data, x_label, y_label, title):
@@ -75,8 +74,8 @@ def process_interpolation_results(apps1_vals, apps2_vals):
     # compress input arrays into a single array and round the values to the unit
     sensor_data = [[round(apps1_vals[index]), round(apps2_vals[index])] for index in range(len(apps1_vals))]
     sensor_data = sorted(list(set(tuple(x) for x in sensor_data)))
-    apps_1_deadzone_vals = [vals for vals in sensor_data if vals[0] >= 1022]
-    apps_2_deadzone_vals = [vals for vals in sensor_data if vals[1] <= 1]
+    apps_1_deadzone_vals = [vals for vals in sensor_data if vals[0] >= 788]
+    apps_2_deadzone_vals = [vals for vals in sensor_data if vals[1] <= 231]
     apps_1_deadozone_interval = (
         min([vals[1] for vals in apps_1_deadzone_vals]),
         max([vals[1] for vals in apps_1_deadzone_vals]),
