@@ -104,10 +104,6 @@ int readApps() {
 
     int bamocarValue = convertToBamocarScale(v_apps1, v_apps2);
 
-#ifdef APPS_DEBUG
-    INFO("Plausible\t Torque Request:%d\t", bamocarValue);
-#endif  // APPS_DEBUG
-
     if (APPsTimeout) {
         LOG("APPS Blocked\n");
         if (bamocarValue == 0) {
@@ -119,11 +115,6 @@ int readApps() {
 
     float pedalTravelPercent = ((float)bamocarValue / BAMOCAR_MAX) * 100.0;
 
-#ifdef APPS_DEBUG
-    INFO("Travel \%: %.2f\tBrake Val: %d\tBrake Timer: ", pedalTravelPercent, brakeValue);
-    Serial.println(appsBrakePlausibilityTimer);
-#endif  // APPS_DEBUG
-
     if (brakeValue >= 170 && pedalTravelPercent >= 25.0) {
         if (appsBrakePlausibilityTimer > APPS_BRAKE_PLAUSIBILITY_TIMEOUT_MS) {
             ERROR("APPS and Brake Implausible\n");
@@ -132,6 +123,12 @@ int readApps() {
         }
     } else
         appsBrakePlausibilityTimer = 0;
+
+#ifdef APPS_DEBUG
+    INFO("Plausible\t Torque Request:%d\t", bamocarValue);
+    INFO("Travel \%: %.2f\tBrake Val: %d\tBrake Timer: ", pedalTravelPercent, brakeValue);
+    Serial.println(appsBrakePlausibilityTimer);
+#endif  // APPS_DEBUG
 
     return bamocarValue;
 }
