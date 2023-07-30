@@ -54,23 +54,26 @@ bool plausibility(int v_apps1, int v_apps2) {
     return (plausibility_value < APPS_MAX_ERROR_PERCENT);
 }
 
-int convertToBamocarScale(int apps1, int apps2, int atenuation_factor) {
-    int torque_val = scaleApps2(apps2);
-    int torque_max = scaleApps2(APPS_INITIAL_TRIGGER);
-
-    if (torque_val > torque_max)
-        torque_val = torque_max;
+int convertToBamocarScale(int apps1, int apps2) {
+    int torqueVal = 0;
 
     if (apps2 <= APPS2_DEAD_THRESHOLD)
-        torque_val = apps1;
+        torqueVal = apps1;
+    else
+        torqueVal = scaleApps2(apps2);
 
-    torque_val = torque_val * BAMOCAR_MAX / torque_max;
-    torque_val = (BAMOCAR_MAX - torque_val) * atenuation_factor;
+    int bamoMax = BAMOCAR_MAX;
+    int bamoMin = BAMOCAR_MIN;
+    int appsMax = APPS_MAX;
+    int appsMin = APPS_MIN;
 
-    if (apps1 < 126)
-        torque_val = BAMOCAR_MAX;
+    if (torqueVal > appsMax)
+        torqueVal = appsMax;
 
-    return torque_val >= BAMOCAR_MAX ? BAMOCAR_MAX : torque_val;
+    // maps sensor value to bamocar range
+    torqueVal = bamoMax - map(torqueVal, appsMin, appsMax, bamoMin, bamoMax);
+
+    return torqueVal >= BAMOCAR_MAX ? BAMOCAR_MAX : torqueVal;
 }
 
 int readApps() {
@@ -99,7 +102,7 @@ int readApps() {
     if (plausible)
         appsImplausibilityTimer = 0;
 
-    int bamocarValue = convertToBamocarScale(v_apps1, v_apps2, BAMOCAR_ATTENUATION_FACTOR);
+    int bamocarValue = convertToBamocarScale(v_apps1, v_apps2);
 
 #ifdef APPS_DEBUG
     INFO("Plausible\t Torque Request:%d\t", bamocarValue);
