@@ -71,7 +71,7 @@ int convertToBamocarScale(int apps1, int apps2) {
         torqueVal = appsMax;
 
     // maps sensor value to bamocar range
-    torqueVal = bamoMax - map(torqueVal, appsMin, appsMax, bamoMin, bamoMax);
+    torqueVal = map(torqueVal, appsMin, appsMax, bamoMin, bamoMax);
 
     return torqueVal >= BAMOCAR_MAX ? BAMOCAR_MAX : torqueVal;
 }
