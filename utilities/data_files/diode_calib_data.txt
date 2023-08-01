@@ -1,426 +1,901 @@
-[INFO] APPS1: 453	APPS2: 322	[INFO] Travel : 68.93
-[INFO] APPS1: 518	APPS2: 388	[INFO] Travel : 54.89
-[INFO] APPS1: 536	APPS2: 406	[INFO] Travel : 51.07
-[INFO] APPS1: 551	APPS2: 421	[INFO] Travel : 47.87
-[INFO] APPS1: 562	APPS2: 433	[INFO] Travel : 45.32
-[INFO] APPS1: 572	APPS2: 443	[INFO] Travel : 43.19
-[INFO] APPS1: 582	APPS2: 453	[INFO] Travel : 41.07
-[INFO] APPS1: 593	APPS2: 464	[INFO] Travel : 38.72
-[INFO] APPS1: 609	APPS2: 480	[INFO] Travel : 35.32
-[INFO] APPS1: 631	APPS2: 503	[INFO] Travel : 30.42
-[INFO] APPS1: 661	APPS2: 533	[INFO] Travel : 24.04
-[INFO] APPS1: 695	APPS2: 568	[INFO] Travel : 16.60
-[INFO] APPS1: 724	APPS2: 608	[INFO] Travel : 8.09
-[INFO] APPS1: 749	APPS2: 649	[INFO] Travel : 0.00
-[INFO] APPS1: 769	APPS2: 686	[INFO] Travel : 0.00
-[INFO] APPS1: 781	APPS2: 716	[INFO] Travel : 0.00
-[INFO] APPS1: 786	APPS2: 740	[INFO] Travel : 0.00
-[INFO] APPS1: 786	APPS2: 756	[INFO] Travel : 0.00
-[INFO] APPS1: 788	APPS2: 766	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 770	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 770	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 770	[INFO] Travel : 0.00
-[INFO] APPS1: 782	APPS2: 769	[INFO] Travel : 0.00
-[INFO] APPS1: 765	APPS2: 765	[INFO] Travel : 0.00
-[INFO] APPS1: 763	APPS2: 756	[INFO] Travel : 0.00
-[INFO] APPS1: 704	APPS2: 744	[INFO] Travel : 0.00
-[INFO] APPS1: 704	APPS2: 727	[INFO] Travel : 0.00
-[INFO] APPS1: 701	APPS2: 707	[INFO] Travel : 0.00
-[INFO] APPS1: 702	APPS2: 683	[INFO] Travel : 0.00
-[INFO] APPS1: 706	APPS2: 656	[INFO] Travel : 0.00
-[INFO] APPS1: 688	APPS2: 627	[INFO] Travel : 4.04
-[INFO] APPS1: 720	APPS2: 595	[INFO] Travel : 10.85
-[INFO] APPS1: 689	APPS2: 562	[INFO] Travel : 17.87
-[INFO] APPS1: 656	APPS2: 528	[INFO] Travel : 25.11
-[INFO] APPS1: 621	APPS2: 493	[INFO] Travel : 32.55
-[INFO] APPS1: 585	APPS2: 457	[INFO] Travel : 40.21
-[INFO] APPS1: 550	APPS2: 422	[INFO] Travel : 47.66
-[INFO] APPS1: 514	APPS2: 385	[INFO] Travel : 55.53
-[INFO] APPS1: 476	APPS2: 346	[INFO] Travel : 63.83
-[INFO] APPS1: 434	APPS2: 310	[INFO] Travel : 71.49
-[INFO] APPS1: 393	APPS2: 281	[INFO] Travel : 77.66
-[INFO] APPS1: 356	APPS2: 257	[INFO] Travel : 82.77
-[INFO] APPS1: 326	APPS2: 241	[INFO] Travel : 86.17
-[INFO] APPS1: 303	APPS2: 232	[INFO] Travel : 88.09
-[INFO] APPS1: 288	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 281	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 279	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 279	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 279	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 279	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 279	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 280	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 281	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 283	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 288	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 296	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 308	APPS2: 231	[INFO] Travel : 98.30
-[INFO] APPS1: 325	APPS2: 234	[INFO] Travel : 87.66
-[INFO] APPS1: 346	APPS2: 242	[INFO] Travel : 85.96
-[INFO] APPS1: 370	APPS2: 255	[INFO] Travel : 83.19
-[INFO] APPS1: 395	APPS2: 271	[INFO] Travel : 79.79
-[INFO] APPS1: 419	APPS2: 289	[INFO] Travel : 75.96
-[INFO] APPS1: 441	APPS2: 310	[INFO] Travel : 71.49
-[INFO] APPS1: 461	APPS2: 330	[INFO] Travel : 67.23
-[INFO] APPS1: 478	APPS2: 347	[INFO] Travel : 63.62
-[INFO] APPS1: 491	APPS2: 361	[INFO] Travel : 60.64
-[INFO] APPS1: 504	APPS2: 373	[INFO] Travel : 58.09
-[INFO] APPS1: 517	APPS2: 387	[INFO] Travel : 55.11
-[INFO] APPS1: 533	APPS2: 404	[INFO] Travel : 51.49
-[INFO] APPS1: 551	APPS2: 422	[INFO] Travel : 47.66
-[INFO] APPS1: 570	APPS2: 441	[INFO] Travel : 43.62
-[INFO] APPS1: 589	APPS2: 460	[INFO] Travel : 39.58
-[INFO] APPS1: 606	APPS2: 478	[INFO] Travel : 35.74
-[INFO] APPS1: 621	APPS2: 493	[INFO] Travel : 32.55
-[INFO] APPS1: 631	APPS2: 503	[INFO] Travel : 30.42
-[INFO] APPS1: 637	APPS2: 509	[INFO] Travel : 29.15
-[INFO] APPS1: 641	APPS2: 513	[INFO] Travel : 28.30
-[INFO] APPS1: 646	APPS2: 518	[INFO] Travel : 27.23
-[INFO] APPS1: 656	APPS2: 528	[INFO] Travel : 25.11
-[INFO] APPS1: 674	APPS2: 546	[INFO] Travel : 21.28
-[INFO] APPS1: 699	APPS2: 571	[INFO] Travel : 15.96
-[INFO] APPS1: 723	APPS2: 602	[INFO] Travel : 9.36
-[INFO] APPS1: 747	APPS2: 635	[INFO] Travel : 2.34
-[INFO] APPS1: 768	APPS2: 669	[INFO] Travel : 0.00
-[INFO] APPS1: 783	APPS2: 698	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 720	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 737	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 749	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 758	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 764	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 768	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 770	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 770	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 772	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 772	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 772	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 772	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 772	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 772	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 772	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 772	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 772	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 772	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 772	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 770	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 770	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 769	[INFO] Travel : 0.00
-[INFO] APPS1: 717	APPS2: 764	[INFO] Travel : 0.00
-[INFO] APPS1: 709	APPS2: 755	[INFO] Travel : 0.00
-[INFO] APPS1: 709	APPS2: 744	[INFO] Travel : 0.00
-[INFO] APPS1: 705	APPS2: 730	[INFO] Travel : 0.00
-[INFO] APPS1: 704	APPS2: 712	[INFO] Travel : 0.00
-[INFO] APPS1: 699	APPS2: 691	[INFO] Travel : 0.00
-[INFO] APPS1: 762	APPS2: 668	[INFO] Travel : 0.00
-[INFO] APPS1: 756	APPS2: 645	[INFO] Travel : 0.21
-[INFO] APPS1: 738	APPS2: 620	[INFO] Travel : 5.53
-[INFO] APPS1: 719	APPS2: 593	[INFO] Travel : 11.28
-[INFO] APPS1: 692	APPS2: 565	[INFO] Travel : 17.23
-[INFO] APPS1: 664	APPS2: 537	[INFO] Travel : 23.19
-[INFO] APPS1: 634	APPS2: 506	[INFO] Travel : 29.79
-[INFO] APPS1: 602	APPS2: 474	[INFO] Travel : 36.60
-[INFO] APPS1: 570	APPS2: 441	[INFO] Travel : 43.62
-[INFO] APPS1: 536	APPS2: 407	[INFO] Travel : 50.85
-[INFO] APPS1: 502	APPS2: 372	[INFO] Travel : 58.30
-[INFO] APPS1: 467	APPS2: 337	[INFO] Travel : 65.74
-[INFO] APPS1: 434	APPS2: 305	[INFO] Travel : 72.55
-[INFO] APPS1: 401	APPS2: 280	[INFO] Travel : 77.87
-[INFO] APPS1: 368	APPS2: 259	[INFO] Travel : 82.34
-[INFO] APPS1: 338	APPS2: 244	[INFO] Travel : 85.53
-[INFO] APPS1: 315	APPS2: 234	[INFO] Travel : 87.66
-[INFO] APPS1: 298	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 286	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 280	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 278	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 279	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 279	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 279	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 280	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 283	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 287	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 294	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 306	APPS2: 231	[INFO] Travel : 98.72
-[INFO] APPS1: 322	APPS2: 233	[INFO] Travel : 87.87
-[INFO] APPS1: 341	APPS2: 239	[INFO] Travel : 86.60
-[INFO] APPS1: 362	APPS2: 249	[INFO] Travel : 84.47
-[INFO] APPS1: 384	APPS2: 261	[INFO] Travel : 81.91
-[INFO] APPS1: 406	APPS2: 276	[INFO] Travel : 78.72
-[INFO] APPS1: 426	APPS2: 294	[INFO] Travel : 74.89
-[INFO] APPS1: 443	APPS2: 311	[INFO] Travel : 71.28
-[INFO] APPS1: 457	APPS2: 325	[INFO] Travel : 68.30
-[INFO] APPS1: 470	APPS2: 338	[INFO] Travel : 65.53
-[INFO] APPS1: 483	APPS2: 351	[INFO] Travel : 62.77
-[INFO] APPS1: 497	APPS2: 366	[INFO] Travel : 59.58
-[INFO] APPS1: 513	APPS2: 382	[INFO] Travel : 56.17
-[INFO] APPS1: 531	APPS2: 401	[INFO] Travel : 52.13
-[INFO] APPS1: 551	APPS2: 421	[INFO] Travel : 47.87
-[INFO] APPS1: 569	APPS2: 440	[INFO] Travel : 43.83
-[INFO] APPS1: 585	APPS2: 456	[INFO] Travel : 40.42
-[INFO] APPS1: 597	APPS2: 468	[INFO] Travel : 37.87
-[INFO] APPS1: 606	APPS2: 477	[INFO] Travel : 35.96
-[INFO] APPS1: 614	APPS2: 485	[INFO] Travel : 34.26
-[INFO] APPS1: 623	APPS2: 494	[INFO] Travel : 32.34
-[INFO] APPS1: 635	APPS2: 506	[INFO] Travel : 29.79
-[INFO] APPS1: 652	APPS2: 523	[INFO] Travel : 26.17
-[INFO] APPS1: 676	APPS2: 547	[INFO] Travel : 21.07
-[INFO] APPS1: 704	APPS2: 575	[INFO] Travel : 15.11
-[INFO] APPS1: 700	APPS2: 606	[INFO] Travel : 8.51
-[INFO] APPS1: 723	APPS2: 636	[INFO] Travel : 2.13
-[INFO] APPS1: 741	APPS2: 665	[INFO] Travel : 0.00
-[INFO] APPS1: 753	APPS2: 690	[INFO] Travel : 0.00
-[INFO] APPS1: 759	APPS2: 710	[INFO] Travel : 0.00
-[INFO] APPS1: 760	APPS2: 727	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 740	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 751	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 759	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 764	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 768	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 770	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 770	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 770	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 770	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 769	[INFO] Travel : 0.00
-[INFO] APPS1: 750	APPS2: 766	[INFO] Travel : 0.00
-[INFO] APPS1: 729	APPS2: 757	[INFO] Travel : 0.00
-[INFO] APPS1: 729	APPS2: 743	[INFO] Travel : 0.00
-[INFO] APPS1: 728	APPS2: 724	[INFO] Travel : 0.00
-[INFO] APPS1: 724	APPS2: 702	[INFO] Travel : 0.00
-[INFO] APPS1: 714	APPS2: 675	[INFO] Travel : 0.00
-[INFO] APPS1: 738	APPS2: 645	[INFO] Travel : 0.21
-[INFO] APPS1: 737	APPS2: 614	[INFO] Travel : 6.81
-[INFO] APPS1: 710	APPS2: 583	[INFO] Travel : 13.40
-[INFO] APPS1: 677	APPS2: 550	[INFO] Travel : 20.42
-[INFO] APPS1: 640	APPS2: 512	[INFO] Travel : 28.51
-[INFO] APPS1: 601	APPS2: 472	[INFO] Travel : 37.02
-[INFO] APPS1: 560	APPS2: 431	[INFO] Travel : 45.74
-[INFO] APPS1: 519	APPS2: 389	[INFO] Travel : 54.68
-[INFO] APPS1: 477	APPS2: 346	[INFO] Travel : 63.83
-[INFO] APPS1: 435	APPS2: 309	[INFO] Travel : 71.70
-[INFO] APPS1: 395	APPS2: 278	[INFO] Travel : 78.30
-[INFO] APPS1: 358	APPS2: 256	[INFO] Travel : 82.98
-[INFO] APPS1: 329	APPS2: 241	[INFO] Travel : 86.17
-[INFO] APPS1: 307	APPS2: 233	[INFO] Travel : 87.87
-[INFO] APPS1: 291	APPS2: 230	[INFO] Travel : 100.00
-[INFO] APPS1: 282	APPS2: 230	[INFO] Travel : 100.00
-[INFO] APPS1: 278	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 279	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 279	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 280	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 282	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 288	APPS2: 231	[INFO] Travel : 100.00
-[INFO] APPS1: 298	APPS2: 230	[INFO] Travel : 100.00
-[INFO] APPS1: 313	APPS2: 232	[INFO] Travel : 88.09
-[INFO] APPS1: 333	APPS2: 238	[INFO] Travel : 86.81
-[INFO] APPS1: 357	APPS2: 249	[INFO] Travel : 84.47
-[INFO] APPS1: 383	APPS2: 264	[INFO] Travel : 81.28
-[INFO] APPS1: 409	APPS2: 282	[INFO] Travel : 77.45
-[INFO] APPS1: 434	APPS2: 302	[INFO] Travel : 73.19
-[INFO] APPS1: 456	APPS2: 325	[INFO] Travel : 68.30
-[INFO] APPS1: 477	APPS2: 346	[INFO] Travel : 63.83
-[INFO] APPS1: 497	APPS2: 367	[INFO] Travel : 59.36
-[INFO] APPS1: 517	APPS2: 387	[INFO] Travel : 55.11
-[INFO] APPS1: 537	APPS2: 408	[INFO] Travel : 50.64
-[INFO] APPS1: 557	APPS2: 428	[INFO] Travel : 46.38
-[INFO] APPS1: 575	APPS2: 446	[INFO] Travel : 42.55
-[INFO] APPS1: 592	APPS2: 463	[INFO] Travel : 38.93
-[INFO] APPS1: 605	APPS2: 477	[INFO] Travel : 35.96
-[INFO] APPS1: 617	APPS2: 489	[INFO] Travel : 33.40
-[INFO] APPS1: 629	APPS2: 501	[INFO] Travel : 30.85
-[INFO] APPS1: 644	APPS2: 516	[INFO] Travel : 27.66
-[INFO] APPS1: 664	APPS2: 536	[INFO] Travel : 23.40
-[INFO] APPS1: 689	APPS2: 562	[INFO] Travel : 17.87
-[INFO] APPS1: 716	APPS2: 591	[INFO] Travel : 11.70
-[INFO] APPS1: 740	APPS2: 624	[INFO] Travel : 4.68
-[INFO] APPS1: 762	APPS2: 657	[INFO] Travel : 0.00
-[INFO] APPS1: 778	APPS2: 689	[INFO] Travel : 0.00
-[INFO] APPS1: 787	APPS2: 715	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 736	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 751	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 761	[INFO] Travel : 0.00
-[INFO] APPS1: 789	APPS2: 767	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 770	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 772	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 772	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 772	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 772	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
-[INFO] APPS1: 790	APPS2: 771	[INFO] Travel : 0.00
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 248	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 248	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 248	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 248	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 248	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 248	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 248	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 248	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 248	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 248	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 248	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 248	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 248	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 248	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 248	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 248	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 254	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 258	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 265	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 273	APPS2: 230	[INFO] Plausible	 Torque Request:197	[INFO] Travel : 0.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 281	APPS2: 230	[INFO] Plausible	 Torque Request:721	[INFO] Travel : 2.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 289	APPS2: 230	[INFO] Plausible	 Torque Request:1245	[INFO] Travel : 3.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 296	APPS2: 230	[INFO] Plausible	 Torque Request:1704	[INFO] Travel : 5.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 301	APPS2: 229	[INFO] Plausible	 Torque Request:2031	[INFO] Travel : 6.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 302	APPS2: 230	[INFO] Plausible	 Torque Request:2097	[INFO] Travel : 6.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 303	APPS2: 230	[INFO] Plausible	 Torque Request:2162	[INFO] Travel : 6.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 303	APPS2: 230	[INFO] Plausible	 Torque Request:2162	[INFO] Travel : 6.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 302	APPS2: 230	[INFO] Plausible	 Torque Request:2097	[INFO] Travel : 6.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 302	APPS2: 230	[INFO] Plausible	 Torque Request:2097	[INFO] Travel : 6.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 302	APPS2: 230	[INFO] Plausible	 Torque Request:2097	[INFO] Travel : 6.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 302	APPS2: 230	[INFO] Plausible	 Torque Request:2097	[INFO] Travel : 6.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 302	APPS2: 230	[INFO] Plausible	 Torque Request:2097	[INFO] Travel : 6.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 302	APPS2: 230	[INFO] Plausible	 Torque Request:2097	[INFO] Travel : 6.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 302	APPS2: 230	[INFO] Plausible	 Torque Request:2097	[INFO] Travel : 6.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 301	APPS2: 230	[INFO] Plausible	 Torque Request:2031	[INFO] Travel : 6.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 301	APPS2: 230	[INFO] Plausible	 Torque Request:2031	[INFO] Travel : 6.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 300	APPS2: 230	[INFO] Plausible	 Torque Request:1966	[INFO] Travel : 6.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 298	APPS2: 230	[INFO] Plausible	 Torque Request:1835	[INFO] Travel : 5.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 296	APPS2: 229	[INFO] Plausible	 Torque Request:1704	[INFO] Travel : 5.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 293	APPS2: 229	[INFO] Plausible	 Torque Request:1507	[INFO] Travel : 4.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 288	APPS2: 229	[INFO] Plausible	 Torque Request:1179	[INFO] Travel : 3.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 281	APPS2: 229	[INFO] Plausible	 Torque Request:721	[INFO] Travel : 2.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 274	APPS2: 229	[INFO] Plausible	 Torque Request:262	[INFO] Travel : 0.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 267	APPS2: 229	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 261	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 256	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 253	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 229	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 253	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 256	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 262	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 274	APPS2: 230	[INFO] Plausible	 Torque Request:262	[INFO] Travel : 0.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 289	APPS2: 230	[INFO] Plausible	 Torque Request:1245	[INFO] Travel : 3.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 307	APPS2: 230	[INFO] Plausible	 Torque Request:2424	[INFO] Travel : 7.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 328	APPS2: 233	[INFO] Plausible	 Torque Request:5700	[INFO] Travel : 17.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 348	APPS2: 239	[INFO] Plausible	 Torque Request:6093	[INFO] Travel : 18.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 366	APPS2: 246	[INFO] Plausible	 Torque Request:6552	[INFO] Travel : 20.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 382	APPS2: 255	[INFO] Plausible	 Torque Request:7142	[INFO] Travel : 21.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 394	APPS2: 266	[INFO] Plausible	 Torque Request:7862	[INFO] Travel : 24.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 406	APPS2: 277	[INFO] Plausible	 Torque Request:8583	[INFO] Travel : 26.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 417	APPS2: 288	[INFO] Plausible	 Torque Request:9304	[INFO] Travel : 28.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 428	APPS2: 299	[INFO] Plausible	 Torque Request:10025	[INFO] Travel : 30.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 439	APPS2: 310	[INFO] Plausible	 Torque Request:10745	[INFO] Travel : 32.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 450	APPS2: 321	[INFO] Plausible	 Torque Request:11466	[INFO] Travel : 35.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 462	APPS2: 333	[INFO] Plausible	 Torque Request:12252	[INFO] Travel : 37.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 481	APPS2: 351	[INFO] Plausible	 Torque Request:13432	[INFO] Travel : 41.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 488	APPS2: 358	[INFO] Plausible	 Torque Request:13890	[INFO] Travel : 42.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 493	APPS2: 363	[INFO] Plausible	 Torque Request:14218	[INFO] Travel : 43.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 497	APPS2: 367	[INFO] Plausible	 Torque Request:14480	[INFO] Travel : 44.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 502	APPS2: 372	[INFO] Plausible	 Torque Request:14808	[INFO] Travel : 45.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 510	APPS2: 380	[INFO] Plausible	 Torque Request:15332	[INFO] Travel : 46.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 519	APPS2: 390	[INFO] Plausible	 Torque Request:15987	[INFO] Travel : 48.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 530	APPS2: 401	[INFO] Plausible	 Torque Request:16708	[INFO] Travel : 51.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 541	APPS2: 412	[INFO] Plausible	 Torque Request:17428	[INFO] Travel : 53.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 550	APPS2: 421	[INFO] Plausible	 Torque Request:18018	[INFO] Travel : 55.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 556	APPS2: 427	[INFO] Plausible	 Torque Request:18411	[INFO] Travel : 56.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 560	APPS2: 431	[INFO] Plausible	 Torque Request:18673	[INFO] Travel : 57.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 562	APPS2: 432	[INFO] Plausible	 Torque Request:18739	[INFO] Travel : 57.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 562	APPS2: 433	[INFO] Plausible	 Torque Request:18804	[INFO] Travel : 57.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 562	APPS2: 433	[INFO] Plausible	 Torque Request:18804	[INFO] Travel : 57.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 563	APPS2: 434	[INFO] Plausible	 Torque Request:18870	[INFO] Travel : 57.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 566	APPS2: 437	[INFO] Plausible	 Torque Request:19066	[INFO] Travel : 58.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 572	APPS2: 443	[INFO] Plausible	 Torque Request:19459	[INFO] Travel : 59.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 579	APPS2: 450	[INFO] Plausible	 Torque Request:19918	[INFO] Travel : 60.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 588	APPS2: 459	[INFO] Plausible	 Torque Request:20508	[INFO] Travel : 62.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 598	APPS2: 468	[INFO] Plausible	 Torque Request:21097	[INFO] Travel : 64.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 608	APPS2: 478	[INFO] Plausible	 Torque Request:21753	[INFO] Travel : 66.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 617	APPS2: 487	[INFO] Plausible	 Torque Request:22342	[INFO] Travel : 68.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 624	APPS2: 493	[INFO] Plausible	 Torque Request:22735	[INFO] Travel : 69.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 628	APPS2: 498	[INFO] Plausible	 Torque Request:23063	[INFO] Travel : 70.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 632	APPS2: 501	[INFO] Plausible	 Torque Request:23260	[INFO] Travel : 71.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 636	APPS2: 505	[INFO] Plausible	 Torque Request:23522	[INFO] Travel : 71.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 641	APPS2: 510	[INFO] Plausible	 Torque Request:23849	[INFO] Travel : 72.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 648	APPS2: 517	[INFO] Plausible	 Torque Request:24308	[INFO] Travel : 74.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 660	APPS2: 529	[INFO] Plausible	 Torque Request:25094	[INFO] Travel : 76.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 677	APPS2: 546	[INFO] Plausible	 Torque Request:26208	[INFO] Travel : 80.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 698	APPS2: 567	[INFO] Plausible	 Torque Request:27584	[INFO] Travel : 84.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 722	APPS2: 591	[INFO] Plausible	 Torque Request:29156	[INFO] Travel : 89.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 744	APPS2: 616	[INFO] Plausible	 Torque Request:30794	[INFO] Travel : 94.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 762	APPS2: 641	[INFO] Plausible	 Torque Request:32432	[INFO] Travel : 99.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 777	APPS2: 664	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 786	APPS2: 684	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 702	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 717	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 727	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 735	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 740	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 743	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 743	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 743	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 743	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 744	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 744	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 744	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 744	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 744	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 744	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 744	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 743	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 743	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 743	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 743	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 743	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 742	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 742	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 742	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 742	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 742	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 741	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 740	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 739	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 736	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 732	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 727	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 721	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 713	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 707	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 700	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 696	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 692	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 690	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 690	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 689	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 689	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 687	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 685	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 681	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 676	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 670	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 787	APPS2: 663	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 784	APPS2: 656	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 779	APPS2: 647	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 772	APPS2: 639	[INFO] Plausible	 Torque Request:32301	[INFO] Travel : 98.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 765	APPS2: 631	[INFO] Plausible	 Torque Request:31777	[INFO] Travel : 97.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 757	APPS2: 624	[INFO] Plausible	 Torque Request:31319	[INFO] Travel : 95.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 751	APPS2: 618	[INFO] Plausible	 Torque Request:30925	[INFO] Travel : 94.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 745	APPS2: 612	[INFO] Plausible	 Torque Request:30532	[INFO] Travel : 93.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 740	APPS2: 607	[INFO] Plausible	 Torque Request:30205	[INFO] Travel : 92.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 737	APPS2: 604	[INFO] Plausible	 Torque Request:30008	[INFO] Travel : 91.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 734	APPS2: 601	[INFO] Plausible	 Torque Request:29812	[INFO] Travel : 91.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 731	APPS2: 598	[INFO] Plausible	 Torque Request:29615	[INFO] Travel : 90.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 727	APPS2: 595	[INFO] Plausible	 Torque Request:29418	[INFO] Travel : 89.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 723	APPS2: 590	[INFO] Plausible	 Torque Request:29091	[INFO] Travel : 88.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 717	APPS2: 584	[INFO] Plausible	 Torque Request:28698	[INFO] Travel : 87.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 708	APPS2: 576	[INFO] Plausible	 Torque Request:28174	[INFO] Travel : 86.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 698	APPS2: 565	[INFO] Plausible	 Torque Request:27453	[INFO] Travel : 83.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 684	APPS2: 552	[INFO] Plausible	 Torque Request:26601	[INFO] Travel : 81.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 669	APPS2: 537	[INFO] Plausible	 Torque Request:25618	[INFO] Travel : 78.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 653	APPS2: 521	[INFO] Plausible	 Torque Request:24570	[INFO] Travel : 75.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 637	APPS2: 505	[INFO] Plausible	 Torque Request:23522	[INFO] Travel : 71.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 621	APPS2: 489	[INFO] Plausible	 Torque Request:22473	[INFO] Travel : 68.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 605	APPS2: 474	[INFO] Plausible	 Torque Request:21491	[INFO] Travel : 65.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 591	APPS2: 459	[INFO] Plausible	 Torque Request:20508	[INFO] Travel : 62.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 577	APPS2: 446	[INFO] Plausible	 Torque Request:19656	[INFO] Travel : 60.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 565	APPS2: 434	[INFO] Plausible	 Torque Request:18870	[INFO] Travel : 57.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 553	APPS2: 422	[INFO] Plausible	 Torque Request:18084	[INFO] Travel : 55.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 543	APPS2: 412	[INFO] Plausible	 Torque Request:17428	[INFO] Travel : 53.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 535	APPS2: 404	[INFO] Plausible	 Torque Request:16904	[INFO] Travel : 51.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 529	APPS2: 398	[INFO] Plausible	 Torque Request:16511	[INFO] Travel : 50.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 524	APPS2: 393	[INFO] Plausible	 Torque Request:16183	[INFO] Travel : 49.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 520	APPS2: 390	[INFO] Plausible	 Torque Request:15987	[INFO] Travel : 48.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 517	APPS2: 387	[INFO] Plausible	 Torque Request:15790	[INFO] Travel : 48.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 514	APPS2: 383	[INFO] Plausible	 Torque Request:15528	[INFO] Travel : 47.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 509	APPS2: 378	[INFO] Plausible	 Torque Request:15201	[INFO] Travel : 46.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 501	APPS2: 371	[INFO] Plausible	 Torque Request:14742	[INFO] Travel : 45.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 491	APPS2: 360	[INFO] Plausible	 Torque Request:14021	[INFO] Travel : 42.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 477	APPS2: 346	[INFO] Plausible	 Torque Request:13104	[INFO] Travel : 40.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 461	APPS2: 330	[INFO] Plausible	 Torque Request:12056	[INFO] Travel : 36.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 442	APPS2: 311	[INFO] Plausible	 Torque Request:10811	[INFO] Travel : 33.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 421	APPS2: 291	[INFO] Plausible	 Torque Request:9500	[INFO] Travel : 29.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 401	APPS2: 272	[INFO] Plausible	 Torque Request:8256	[INFO] Travel : 25.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 380	APPS2: 231	[INFO] Plausible	 Torque Request:7207	[INFO] Travel : 22.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 360	APPS2: 219	[INFO] Plausible	 Torque Request:5897	[INFO] Travel : 18.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 340	APPS2: 211	[INFO] Plausible	 Torque Request:4586	[INFO] Travel : 14.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 321	APPS2: 206	[INFO] Plausible	 Torque Request:3342	[INFO] Travel : 10.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 305	APPS2: 205	[INFO] Plausible	 Torque Request:2293	[INFO] Travel : 7.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 290	APPS2: 205	[ERROR] APPS Implausible
+[INFO] APPS1: 278	APPS2: 230	[INFO] Plausible	 Torque Request:524	[INFO] Travel : 1.60	Brake Val: 0	Brake Timer: 42
+[INFO] APPS1: 268	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 262	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 258	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 255	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 254	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 253	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 253	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 253	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 253	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 253	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 253	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 254	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 258	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 265	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 276	APPS2: 230	[INFO] Plausible	 Torque Request:393	[INFO] Travel : 1.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 289	APPS2: 229	[INFO] Plausible	 Torque Request:1245	[INFO] Travel : 3.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 305	APPS2: 229	[INFO] Plausible	 Torque Request:2293	[INFO] Travel : 7.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 320	APPS2: 230	[INFO] Plausible	 Torque Request:3276	[INFO] Travel : 10.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 334	APPS2: 230	[INFO] Plausible	 Torque Request:4193	[INFO] Travel : 12.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 345	APPS2: 231	[INFO] Plausible	 Torque Request:4914	[INFO] Travel : 15.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 353	APPS2: 233	[INFO] Plausible	 Torque Request:5700	[INFO] Travel : 17.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 361	APPS2: 238	[INFO] Plausible	 Torque Request:6028	[INFO] Travel : 18.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 371	APPS2: 245	[INFO] Plausible	 Torque Request:6486	[INFO] Travel : 19.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 383	APPS2: 256	[INFO] Plausible	 Torque Request:7207	[INFO] Travel : 22.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 398	APPS2: 272	[INFO] Plausible	 Torque Request:8256	[INFO] Travel : 25.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 417	APPS2: 290	[INFO] Plausible	 Torque Request:9435	[INFO] Travel : 28.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 437	APPS2: 310	[INFO] Plausible	 Torque Request:10745	[INFO] Travel : 32.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 458	APPS2: 331	[INFO] Plausible	 Torque Request:12121	[INFO] Travel : 37.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 478	APPS2: 350	[INFO] Plausible	 Torque Request:13366	[INFO] Travel : 40.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 495	APPS2: 367	[INFO] Plausible	 Torque Request:14480	[INFO] Travel : 44.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 510	APPS2: 382	[INFO] Plausible	 Torque Request:15463	[INFO] Travel : 47.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 523	APPS2: 395	[INFO] Plausible	 Torque Request:16314	[INFO] Travel : 49.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 536	APPS2: 408	[INFO] Plausible	 Torque Request:17166	[INFO] Travel : 52.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 551	APPS2: 422	[INFO] Plausible	 Torque Request:18084	[INFO] Travel : 55.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 567	APPS2: 438	[INFO] Plausible	 Torque Request:19132	[INFO] Travel : 58.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 586	APPS2: 457	[INFO] Plausible	 Torque Request:20377	[INFO] Travel : 62.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 608	APPS2: 478	[INFO] Plausible	 Torque Request:21753	[INFO] Travel : 66.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 631	APPS2: 501	[INFO] Plausible	 Torque Request:23260	[INFO] Travel : 71.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 679	APPS2: 548	[INFO] Plausible	 Torque Request:26339	[INFO] Travel : 80.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 699	APPS2: 569	[INFO] Plausible	 Torque Request:27715	[INFO] Travel : 84.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 717	APPS2: 587	[INFO] Plausible	 Torque Request:28894	[INFO] Travel : 88.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 733	APPS2: 602	[INFO] Plausible	 Torque Request:29877	[INFO] Travel : 91.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 746	APPS2: 615	[INFO] Plausible	 Torque Request:30729	[INFO] Travel : 93.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 759	APPS2: 628	[INFO] Plausible	 Torque Request:31581	[INFO] Travel : 96.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 769	APPS2: 642	[INFO] Plausible	 Torque Request:32498	[INFO] Travel : 99.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 777	APPS2: 658	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 784	APPS2: 675	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 788	APPS2: 694	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 711	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 725	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 735	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 742	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 745	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 745	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 745	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 745	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 745	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 745	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 745	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 745	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 745	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 744	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 744	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 744	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 744	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 743	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 743	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 743	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 743	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 742	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 742	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 742	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 742	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 741	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 740	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 739	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 738	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 736	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 734	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 731	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 729	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 726	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 724	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 722	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 719	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 717	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 715	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 713	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 710	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 708	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 705	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 702	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 699	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 696	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 693	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 692	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 690	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 689	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 688	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 686	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 683	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 679	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 673	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 788	APPS2: 666	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 783	APPS2: 656	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 775	APPS2: 645	[INFO] Plausible	 Torque Request:32694	[INFO] Travel : 99.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 766	APPS2: 633	[INFO] Plausible	 Torque Request:31908	[INFO] Travel : 97.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 753	APPS2: 620	[INFO] Plausible	 Torque Request:31056	[INFO] Travel : 94.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 739	APPS2: 606	[INFO] Plausible	 Torque Request:30139	[INFO] Travel : 92.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 724	APPS2: 591	[INFO] Plausible	 Torque Request:29156	[INFO] Travel : 89.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 710	APPS2: 577	[INFO] Plausible	 Torque Request:28239	[INFO] Travel : 86.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 696	APPS2: 563	[INFO] Plausible	 Torque Request:27322	[INFO] Travel : 83.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 683	APPS2: 550	[INFO] Plausible	 Torque Request:26470	[INFO] Travel : 80.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 671	APPS2: 538	[INFO] Plausible	 Torque Request:25684	[INFO] Travel : 78.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 660	APPS2: 527	[INFO] Plausible	 Torque Request:24963	[INFO] Travel : 76.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 650	APPS2: 517	[INFO] Plausible	 Torque Request:24308	[INFO] Travel : 74.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 641	APPS2: 508	[INFO] Plausible	 Torque Request:23718	[INFO] Travel : 72.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 634	APPS2: 501	[INFO] Plausible	 Torque Request:23260	[INFO] Travel : 71.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 627	APPS2: 494	[INFO] Plausible	 Torque Request:22801	[INFO] Travel : 69.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 621	APPS2: 488	[INFO] Plausible	 Torque Request:22408	[INFO] Travel : 68.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 615	APPS2: 482	[INFO] Plausible	 Torque Request:22015	[INFO] Travel : 67.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 610	APPS2: 477	[INFO] Plausible	 Torque Request:21687	[INFO] Travel : 66.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 605	APPS2: 472	[INFO] Plausible	 Torque Request:21360	[INFO] Travel : 65.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 600	APPS2: 467	[INFO] Plausible	 Torque Request:21032	[INFO] Travel : 64.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 596	APPS2: 463	[INFO] Plausible	 Torque Request:20770	[INFO] Travel : 63.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 593	APPS2: 460	[INFO] Plausible	 Torque Request:20573	[INFO] Travel : 62.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 590	APPS2: 457	[INFO] Plausible	 Torque Request:20377	[INFO] Travel : 62.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 588	APPS2: 456	[INFO] Plausible	 Torque Request:20311	[INFO] Travel : 62.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 587	APPS2: 454	[INFO] Plausible	 Torque Request:20180	[INFO] Travel : 61.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 586	APPS2: 453	[INFO] Plausible	 Torque Request:20115	[INFO] Travel : 61.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 585	APPS2: 453	[INFO] Plausible	 Torque Request:20115	[INFO] Travel : 61.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 585	APPS2: 452	[INFO] Plausible	 Torque Request:20049	[INFO] Travel : 61.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 584	APPS2: 452	[INFO] Plausible	 Torque Request:20049	[INFO] Travel : 61.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 584	APPS2: 451	[INFO] Plausible	 Torque Request:19984	[INFO] Travel : 61.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 583	APPS2: 451	[INFO] Plausible	 Torque Request:19984	[INFO] Travel : 61.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 582	APPS2: 450	[INFO] Plausible	 Torque Request:19918	[INFO] Travel : 60.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 582	APPS2: 449	[INFO] Plausible	 Torque Request:19853	[INFO] Travel : 60.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 581	APPS2: 448	[INFO] Plausible	 Torque Request:19787	[INFO] Travel : 60.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 580	APPS2: 447	[INFO] Plausible	 Torque Request:19722	[INFO] Travel : 60.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 578	APPS2: 446	[INFO] Plausible	 Torque Request:19656	[INFO] Travel : 60.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 577	APPS2: 445	[INFO] Plausible	 Torque Request:19590	[INFO] Travel : 59.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 575	APPS2: 443	[INFO] Plausible	 Torque Request:19459	[INFO] Travel : 59.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 572	APPS2: 440	[INFO] Plausible	 Torque Request:19263	[INFO] Travel : 58.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 570	APPS2: 437	[INFO] Plausible	 Torque Request:19066	[INFO] Travel : 58.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 567	APPS2: 434	[INFO] Plausible	 Torque Request:18870	[INFO] Travel : 57.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 564	APPS2: 431	[INFO] Plausible	 Torque Request:18673	[INFO] Travel : 57.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 561	APPS2: 429	[INFO] Plausible	 Torque Request:18542	[INFO] Travel : 56.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 558	APPS2: 426	[INFO] Plausible	 Torque Request:18346	[INFO] Travel : 56.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 556	APPS2: 424	[INFO] Plausible	 Torque Request:18215	[INFO] Travel : 55.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 554	APPS2: 422	[INFO] Plausible	 Torque Request:18084	[INFO] Travel : 55.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 551	APPS2: 419	[INFO] Plausible	 Torque Request:17887	[INFO] Travel : 54.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 549	APPS2: 417	[INFO] Plausible	 Torque Request:17756	[INFO] Travel : 54.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 545	APPS2: 413	[INFO] Plausible	 Torque Request:17494	[INFO] Travel : 53.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 539	APPS2: 407	[INFO] Plausible	 Torque Request:17101	[INFO] Travel : 52.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 529	APPS2: 397	[INFO] Plausible	 Torque Request:16446	[INFO] Travel : 50.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 515	APPS2: 383	[INFO] Plausible	 Torque Request:15528	[INFO] Travel : 47.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 496	APPS2: 364	[INFO] Plausible	 Torque Request:14283	[INFO] Travel : 43.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 473	APPS2: 341	[INFO] Plausible	 Torque Request:12776	[INFO] Travel : 39.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 446	APPS2: 314	[INFO] Plausible	 Torque Request:11007	[INFO] Travel : 33.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 417	APPS2: 288	[INFO] Plausible	 Torque Request:9304	[INFO] Travel : 28.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 389	APPS2: 266	[INFO] Plausible	 Torque Request:7862	[INFO] Travel : 24.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 363	APPS2: 249	[INFO] Plausible	 Torque Request:6749	[INFO] Travel : 20.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 340	APPS2: 237	[INFO] Plausible	 Torque Request:5962	[INFO] Travel : 18.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 320	APPS2: 231	[INFO] Plausible	 Torque Request:3276	[INFO] Travel : 10.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 304	APPS2: 229	[INFO] Plausible	 Torque Request:2228	[INFO] Travel : 6.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 291	APPS2: 229	[INFO] Plausible	 Torque Request:1376	[INFO] Travel : 4.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 280	APPS2: 228	[INFO] Plausible	 Torque Request:655	[INFO] Travel : 2.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 271	APPS2: 228	[INFO] Plausible	 Torque Request:66	[INFO] Travel : 0.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 264	APPS2: 229	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 259	APPS2: 229	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 256	APPS2: 229	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 253	APPS2: 229	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 250	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 251	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 253	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 253	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 255	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 259	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 265	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 272	APPS2: 229	[INFO] Plausible	 Torque Request:131	[INFO] Travel : 0.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 279	APPS2: 230	[INFO] Plausible	 Torque Request:590	[INFO] Travel : 1.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 286	APPS2: 230	[INFO] Plausible	 Torque Request:1048	[INFO] Travel : 3.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 292	APPS2: 230	[INFO] Plausible	 Torque Request:1441	[INFO] Travel : 4.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 296	APPS2: 230	[INFO] Plausible	 Torque Request:1704	[INFO] Travel : 5.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 299	APPS2: 230	[INFO] Plausible	 Torque Request:1900	[INFO] Travel : 5.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 301	APPS2: 230	[INFO] Plausible	 Torque Request:2031	[INFO] Travel : 6.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 306	APPS2: 230	[INFO] Plausible	 Torque Request:2359	[INFO] Travel : 7.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 312	APPS2: 230	[INFO] Plausible	 Torque Request:2752	[INFO] Travel : 8.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 321	APPS2: 230	[INFO] Plausible	 Torque Request:3342	[INFO] Travel : 10.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 331	APPS2: 230	[INFO] Plausible	 Torque Request:3997	[INFO] Travel : 12.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 341	APPS2: 232	[INFO] Plausible	 Torque Request:5635	[INFO] Travel : 17.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 350	APPS2: 233	[INFO] Plausible	 Torque Request:5700	[INFO] Travel : 17.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 357	APPS2: 234	[INFO] Plausible	 Torque Request:5766	[INFO] Travel : 17.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 361	APPS2: 235	[INFO] Plausible	 Torque Request:5831	[INFO] Travel : 17.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 364	APPS2: 237	[INFO] Plausible	 Torque Request:5962	[INFO] Travel : 18.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 366	APPS2: 238	[INFO] Plausible	 Torque Request:6028	[INFO] Travel : 18.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 367	APPS2: 240	[INFO] Plausible	 Torque Request:6159	[INFO] Travel : 18.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 370	APPS2: 243	[INFO] Plausible	 Torque Request:6355	[INFO] Travel : 19.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 375	APPS2: 248	[INFO] Plausible	 Torque Request:6683	[INFO] Travel : 20.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 382	APPS2: 255	[INFO] Plausible	 Torque Request:7142	[INFO] Travel : 21.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 390	APPS2: 263	[INFO] Plausible	 Torque Request:7666	[INFO] Travel : 23.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 397	APPS2: 270	[INFO] Plausible	 Torque Request:8124	[INFO] Travel : 24.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 404	APPS2: 276	[INFO] Plausible	 Torque Request:8518	[INFO] Travel : 26.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 411	APPS2: 283	[INFO] Plausible	 Torque Request:8976	[INFO] Travel : 27.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 412	APPS2: 284	[INFO] Plausible	 Torque Request:9042	[INFO] Travel : 27.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 413	APPS2: 284	[INFO] Plausible	 Torque Request:9042	[INFO] Travel : 27.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 413	APPS2: 285	[INFO] Plausible	 Torque Request:9107	[INFO] Travel : 27.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 415	APPS2: 286	[INFO] Plausible	 Torque Request:9173	[INFO] Travel : 28.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 417	APPS2: 289	[INFO] Plausible	 Torque Request:9369	[INFO] Travel : 28.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 421	APPS2: 293	[INFO] Plausible	 Torque Request:9631	[INFO] Travel : 29.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 426	APPS2: 297	[INFO] Plausible	 Torque Request:9894	[INFO] Travel : 30.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 432	APPS2: 303	[INFO] Plausible	 Torque Request:10287	[INFO] Travel : 31.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 437	APPS2: 308	[INFO] Plausible	 Torque Request:10614	[INFO] Travel : 32.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 442	APPS2: 313	[INFO] Plausible	 Torque Request:10942	[INFO] Travel : 33.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 445	APPS2: 316	[INFO] Plausible	 Torque Request:11138	[INFO] Travel : 34.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 447	APPS2: 318	[INFO] Plausible	 Torque Request:11269	[INFO] Travel : 34.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 448	APPS2: 319	[INFO] Plausible	 Torque Request:11335	[INFO] Travel : 34.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 449	APPS2: 320	[INFO] Plausible	 Torque Request:11400	[INFO] Travel : 34.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 450	APPS2: 321	[INFO] Plausible	 Torque Request:11466	[INFO] Travel : 35.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 453	APPS2: 323	[INFO] Plausible	 Torque Request:11597	[INFO] Travel : 35.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 457	APPS2: 327	[INFO] Plausible	 Torque Request:11859	[INFO] Travel : 36.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 462	APPS2: 333	[INFO] Plausible	 Torque Request:12252	[INFO] Travel : 37.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 468	APPS2: 340	[INFO] Plausible	 Torque Request:12711	[INFO] Travel : 38.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 475	APPS2: 347	[INFO] Plausible	 Torque Request:13170	[INFO] Travel : 40.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 482	APPS2: 353	[INFO] Plausible	 Torque Request:13563	[INFO] Travel : 41.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 487	APPS2: 358	[INFO] Plausible	 Torque Request:13890	[INFO] Travel : 42.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 490	APPS2: 362	[INFO] Plausible	 Torque Request:14152	[INFO] Travel : 43.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 492	APPS2: 364	[INFO] Plausible	 Torque Request:14283	[INFO] Travel : 43.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 493	APPS2: 364	[INFO] Plausible	 Torque Request:14283	[INFO] Travel : 43.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 493	APPS2: 364	[INFO] Plausible	 Torque Request:14283	[INFO] Travel : 43.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 493	APPS2: 364	[INFO] Plausible	 Torque Request:14283	[INFO] Travel : 43.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 494	APPS2: 364	[INFO] Plausible	 Torque Request:14283	[INFO] Travel : 43.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 494	APPS2: 364	[INFO] Plausible	 Torque Request:14283	[INFO] Travel : 43.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 494	APPS2: 365	[INFO] Plausible	 Torque Request:14349	[INFO] Travel : 43.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 494	APPS2: 365	[INFO] Plausible	 Torque Request:14349	[INFO] Travel : 43.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 495	APPS2: 365	[INFO] Plausible	 Torque Request:14349	[INFO] Travel : 43.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 495	APPS2: 366	[INFO] Plausible	 Torque Request:14414	[INFO] Travel : 44.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 495	APPS2: 366	[INFO] Plausible	 Torque Request:14414	[INFO] Travel : 44.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 496	APPS2: 367	[INFO] Plausible	 Torque Request:14480	[INFO] Travel : 44.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 497	APPS2: 368	[INFO] Plausible	 Torque Request:14545	[INFO] Travel : 44.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 497	APPS2: 368	[INFO] Plausible	 Torque Request:14545	[INFO] Travel : 44.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 498	APPS2: 369	[INFO] Plausible	 Torque Request:14611	[INFO] Travel : 44.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 499	APPS2: 370	[INFO] Plausible	 Torque Request:14676	[INFO] Travel : 44.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 500	APPS2: 371	[INFO] Plausible	 Torque Request:14742	[INFO] Travel : 45.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 503	APPS2: 374	[INFO] Plausible	 Torque Request:14939	[INFO] Travel : 45.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 509	APPS2: 380	[INFO] Plausible	 Torque Request:15332	[INFO] Travel : 46.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 513	APPS2: 384	[INFO] Plausible	 Torque Request:15594	[INFO] Travel : 47.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 517	APPS2: 388	[INFO] Plausible	 Torque Request:15856	[INFO] Travel : 48.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 521	APPS2: 392	[INFO] Plausible	 Torque Request:16118	[INFO] Travel : 49.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 525	APPS2: 396	[INFO] Plausible	 Torque Request:16380	[INFO] Travel : 50.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 527	APPS2: 398	[INFO] Plausible	 Torque Request:16511	[INFO] Travel : 50.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 529	APPS2: 399	[INFO] Plausible	 Torque Request:16577	[INFO] Travel : 50.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 529	APPS2: 400	[INFO] Plausible	 Torque Request:16642	[INFO] Travel : 50.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 529	APPS2: 400	[INFO] Plausible	 Torque Request:16642	[INFO] Travel : 50.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 530	APPS2: 401	[INFO] Plausible	 Torque Request:16708	[INFO] Travel : 51.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 530	APPS2: 401	[INFO] Plausible	 Torque Request:16708	[INFO] Travel : 51.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 531	APPS2: 401	[INFO] Plausible	 Torque Request:16708	[INFO] Travel : 51.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 531	APPS2: 402	[INFO] Plausible	 Torque Request:16773	[INFO] Travel : 51.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 532	APPS2: 402	[INFO] Plausible	 Torque Request:16773	[INFO] Travel : 51.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 532	APPS2: 403	[INFO] Plausible	 Torque Request:16839	[INFO] Travel : 51.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 532	APPS2: 404	[INFO] Plausible	 Torque Request:16904	[INFO] Travel : 51.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 532	APPS2: 404	[INFO] Plausible	 Torque Request:16904	[INFO] Travel : 51.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 533	APPS2: 404	[INFO] Plausible	 Torque Request:16904	[INFO] Travel : 51.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 533	APPS2: 405	[INFO] Plausible	 Torque Request:16970	[INFO] Travel : 51.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 533	APPS2: 405	[INFO] Plausible	 Torque Request:16970	[INFO] Travel : 51.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 534	APPS2: 405	[INFO] Plausible	 Torque Request:16970	[INFO] Travel : 51.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 535	APPS2: 406	[INFO] Plausible	 Torque Request:17035	[INFO] Travel : 52.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 537	APPS2: 408	[INFO] Plausible	 Torque Request:17166	[INFO] Travel : 52.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 539	APPS2: 410	[INFO] Plausible	 Torque Request:17297	[INFO] Travel : 52.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 543	APPS2: 414	[INFO] Plausible	 Torque Request:17559	[INFO] Travel : 53.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 549	APPS2: 420	[INFO] Plausible	 Torque Request:17952	[INFO] Travel : 54.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 557	APPS2: 428	[INFO] Plausible	 Torque Request:18477	[INFO] Travel : 56.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 567	APPS2: 438	[INFO] Plausible	 Torque Request:19132	[INFO] Travel : 58.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 579	APPS2: 450	[INFO] Plausible	 Torque Request:19918	[INFO] Travel : 60.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 592	APPS2: 462	[INFO] Plausible	 Torque Request:20704	[INFO] Travel : 63.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 604	APPS2: 473	[INFO] Plausible	 Torque Request:21425	[INFO] Travel : 65.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 613	APPS2: 482	[INFO] Plausible	 Torque Request:22015	[INFO] Travel : 67.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 620	APPS2: 489	[INFO] Plausible	 Torque Request:22473	[INFO] Travel : 68.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 625	APPS2: 494	[INFO] Plausible	 Torque Request:22801	[INFO] Travel : 69.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 627	APPS2: 496	[INFO] Plausible	 Torque Request:22932	[INFO] Travel : 70.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 629	APPS2: 497	[INFO] Plausible	 Torque Request:22998	[INFO] Travel : 70.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 631	APPS2: 500	[INFO] Plausible	 Torque Request:23194	[INFO] Travel : 70.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 636	APPS2: 505	[INFO] Plausible	 Torque Request:23522	[INFO] Travel : 71.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 643	APPS2: 512	[INFO] Plausible	 Torque Request:23980	[INFO] Travel : 73.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 669	APPS2: 537	[INFO] Plausible	 Torque Request:25618	[INFO] Travel : 78.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 684	APPS2: 553	[INFO] Plausible	 Torque Request:26667	[INFO] Travel : 81.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 701	APPS2: 570	[INFO] Plausible	 Torque Request:27780	[INFO] Travel : 84.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 716	APPS2: 585	[INFO] Plausible	 Torque Request:28763	[INFO] Travel : 87.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 730	APPS2: 598	[INFO] Plausible	 Torque Request:29615	[INFO] Travel : 90.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 740	APPS2: 609	[INFO] Plausible	 Torque Request:30336	[INFO] Travel : 92.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 748	APPS2: 617	[INFO] Plausible	 Torque Request:30860	[INFO] Travel : 94.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 755	APPS2: 624	[INFO] Plausible	 Torque Request:31319	[INFO] Travel : 95.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 763	APPS2: 632	[INFO] Plausible	 Torque Request:31843	[INFO] Travel : 97.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 770	APPS2: 642	[INFO] Plausible	 Torque Request:32498	[INFO] Travel : 99.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 777	APPS2: 656	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 782	APPS2: 675	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 787	APPS2: 694	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 712	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 728	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 739	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 746	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 747	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 747	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 747	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 747	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 747	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 747	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 747	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 746	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 746	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 746	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 746	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 746	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 746	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 745	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 745	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 745	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 745	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 745	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 744	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 744	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 744	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 744	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 743	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 743	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 742	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 742	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 742	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 741	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 740	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 739	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 738	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 736	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 734	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 731	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 728	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 725	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 722	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 719	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 716	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 714	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 711	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 710	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 708	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 706	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 704	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 702	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 700	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 697	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 696	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 694	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 693	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 692	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 691	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 691	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 690	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 690	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 689	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 689	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 688	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 687	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 686	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 685	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 684	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 682	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 679	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 676	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 791	APPS2: 672	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 790	APPS2: 667	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 789	APPS2: 663	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 788	APPS2: 658	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 786	APPS2: 654	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 785	APPS2: 652	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 784	APPS2: 650	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 783	APPS2: 649	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 782	APPS2: 648	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 780	APPS2: 646	[INFO] Plausible	 Torque Request:32760	[INFO] Travel : 100.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 778	APPS2: 644	[INFO] Plausible	 Torque Request:32629	[INFO] Travel : 99.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 774	APPS2: 640	[INFO] Plausible	 Torque Request:32367	[INFO] Travel : 98.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 768	APPS2: 634	[INFO] Plausible	 Torque Request:31974	[INFO] Travel : 97.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 759	APPS2: 625	[INFO] Plausible	 Torque Request:31384	[INFO] Travel : 95.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 748	APPS2: 614	[INFO] Plausible	 Torque Request:30663	[INFO] Travel : 93.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 735	APPS2: 600	[INFO] Plausible	 Torque Request:29746	[INFO] Travel : 90.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 719	APPS2: 585	[INFO] Plausible	 Torque Request:28763	[INFO] Travel : 87.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 703	APPS2: 569	[INFO] Plausible	 Torque Request:27715	[INFO] Travel : 84.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 687	APPS2: 553	[INFO] Plausible	 Torque Request:26667	[INFO] Travel : 81.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 671	APPS2: 537	[INFO] Plausible	 Torque Request:25618	[INFO] Travel : 78.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 657	APPS2: 524	[INFO] Plausible	 Torque Request:24767	[INFO] Travel : 75.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 645	APPS2: 512	[INFO] Plausible	 Torque Request:23980	[INFO] Travel : 73.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 636	APPS2: 503	[INFO] Plausible	 Torque Request:23391	[INFO] Travel : 71.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 629	APPS2: 496	[INFO] Plausible	 Torque Request:22932	[INFO] Travel : 70.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 624	APPS2: 491	[INFO] Plausible	 Torque Request:22604	[INFO] Travel : 69.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 621	APPS2: 488	[INFO] Plausible	 Torque Request:22408	[INFO] Travel : 68.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 619	APPS2: 486	[INFO] Plausible	 Torque Request:22277	[INFO] Travel : 68.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 617	APPS2: 484	[INFO] Plausible	 Torque Request:22146	[INFO] Travel : 67.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 614	APPS2: 482	[INFO] Plausible	 Torque Request:22015	[INFO] Travel : 67.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 611	APPS2: 478	[INFO] Plausible	 Torque Request:21753	[INFO] Travel : 66.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 605	APPS2: 473	[INFO] Plausible	 Torque Request:21425	[INFO] Travel : 65.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 597	APPS2: 465	[INFO] Plausible	 Torque Request:20901	[INFO] Travel : 63.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 586	APPS2: 454	[INFO] Plausible	 Torque Request:20180	[INFO] Travel : 61.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 572	APPS2: 441	[INFO] Plausible	 Torque Request:19328	[INFO] Travel : 59.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 556	APPS2: 424	[INFO] Plausible	 Torque Request:18215	[INFO] Travel : 55.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 536	APPS2: 405	[INFO] Plausible	 Torque Request:16970	[INFO] Travel : 51.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 515	APPS2: 383	[INFO] Plausible	 Torque Request:15528	[INFO] Travel : 47.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 491	APPS2: 360	[INFO] Plausible	 Torque Request:14021	[INFO] Travel : 42.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 467	APPS2: 334	[INFO] Plausible	 Torque Request:12318	[INFO] Travel : 37.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 441	APPS2: 309	[INFO] Plausible	 Torque Request:10680	[INFO] Travel : 32.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 413	APPS2: 285	[INFO] Plausible	 Torque Request:9107	[INFO] Travel : 27.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 382	APPS2: 264	[INFO] Plausible	 Torque Request:7731	[INFO] Travel : 23.60	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 350	APPS2: 248	[INFO] Plausible	 Torque Request:6683	[INFO] Travel : 20.40	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 320	APPS2: 237	[INFO] Plausible	 Torque Request:5962	[INFO] Travel : 18.20	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 295	APPS2: 231	[INFO] Plausible	 Torque Request:1638	[INFO] Travel : 5.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 274	APPS2: 228	[INFO] Plausible	 Torque Request:262	[INFO] Travel : 0.80	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 259	APPS2: 228	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 252	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 229	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 229	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21
+[INFO] APPS1: 249	APPS2: 230	[INFO] Plausible	 Torque Request:0	[INFO] Travel : 0.00	Brake Val: 0	Brake Timer: 21

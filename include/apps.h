@@ -5,7 +5,7 @@
 #define APPS_2_PIN 40
 
 #define APPS_1_UPPER_BOUND 800
-#define APPS_1_LOWER_BOUND 270
+#define APPS_1_LOWER_BOUND 240
 
 #define APPS_2_UPPER_BOUND 785
 #define APPS_2_LOWER_BOUND 220
@@ -19,7 +19,7 @@
 #define APPS_LINEAR_OFFSET 124
 
 #define APPS_MAX 770
-#define APPS_MIN 300
+#define APPS_MIN 270
 #define BAMOCAR_MAX 32760
 #define BAMOCAR_MIN 0
 
