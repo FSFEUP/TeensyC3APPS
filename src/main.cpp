@@ -6,7 +6,6 @@
 #include "apps.h"
 #include "can.h"
 #include "debug.h"
-#include "display.h"
 
 #define buzzerPin 4  //! trocar para pino 2 no shield novo
 
@@ -18,7 +17,7 @@
 
 #define STARTUP_DELAY_MS 10000
 
-#define APPS_READ_PERIOD_MS 20
+#define APPS_READ_PERIOD_MS 50
 #define BAMOCAR_ATTENUATION_FACTOR 1
 
 volatile bool disabled = false;
