@@ -73,11 +73,12 @@ void setup() {
 
     can1.write(disable);
     can1.write(statusRequest);
-    can1.write(actualSpeedRequest);
     can1.write(DCVoltageRequest);
 
+#if DATA_DISPLAY > 0
+    // can1.write(actualSpeedRequest);
     displaySetup();
-
+#endif
 #ifdef MAIN_DEBUG
     LOG("Setup complete, Waiting for R2D\n");
 #endif
