@@ -52,7 +52,7 @@ int I_actual_filtered;
 extern volatile bool BTBReady;
 extern volatile bool transmissionEnabled;
 extern volatile bool disabled;
-extern volatile bool R2D;
+extern volatile bool TSOn;
 extern volatile bool R2DOverride;
 
 extern int highTemp;
@@ -75,7 +75,7 @@ extern elapsedMillis R2DTimer;
 elapsedMillis CANTimer;
 const int CANTimeoutMS = 100;
 
-#define DC_THRESHOLD 4328 //Threshold for DC voltage to be considered present for R2D 
+#define DC_THRESHOLD 4328  // Threshold for DC voltage to be considered present for R2D
 // #define DC_THRESHOLD 500
 
 // Initialize CAN messages
@@ -243,7 +243,7 @@ void initCanMessages() {
     DCVoltageRequest.buf[2] = 0x64;
 }
 
-void sendMsg(int value_bamo) {
+void sendTorqueVal(int value_bamo) {
     uint8_t byte1 = (value_bamo >> 8) & 0xFF;  // MSB
     uint8_t byte2 = value_bamo & 0xFF;         // LSB
 
@@ -329,7 +329,7 @@ void REGIDHandler(const CAN_message_t& msg) {
 #ifdef CAN_DEBUG
             LOG("DC Voltage: %d\n", dc_voltage);
 #endif
-            R2D = (dc_voltage >= DC_THRESHOLD);
+            TSOn = (dc_voltage >= DC_THRESHOLD);
             break;
         }
 

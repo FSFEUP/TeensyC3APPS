@@ -30,7 +30,7 @@
 #define ADC_MAX 65536
 
 void canSetup();
-void sendMsg(int value_bamo);
+void sendTorqueVal(int value_bamo);
 void initBamocarD3();
 
 #endif
