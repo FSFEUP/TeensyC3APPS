@@ -75,8 +75,8 @@ extern elapsedMillis R2DTimer;
 elapsedMillis CANTimer;
 const int CANTimeoutMS = 100;
 
-// #define DC_THRESHOLD 4328
-#define DC_THRESHOLD 500
+#define DC_THRESHOLD 4328 //Threshold for DC voltage to be considered present for R2D 
+// #define DC_THRESHOLD 500
 
 // Initialize CAN messages
 /**
@@ -173,6 +173,14 @@ void initCanMessages() {
     DCVoltageResponse.len = 4;
     DCVoltageResponse.buf[0] = 0xEB;
 #endif
+
+#if DATA_DISPLAY > 0
+    actualSpeedRequest.id = BAMO_COMMAND_ID;
+    actualSpeedRequest.len = 3;
+    actualSpeedRequest.buf[0] = 0x3D;
+    actualSpeedRequest.buf[1] = 0x30;
+    actualSpeedRequest.buf[2] = 0x64;
+#endif
     // APPS Message
     torqueRequest.id = BAMO_COMMAND_ID;
     torqueRequest.len = 3;
@@ -227,12 +235,6 @@ void initCanMessages() {
     disable.buf[0] = 0x51;
     disable.buf[1] = 0x04;
     disable.buf[2] = 0x00;
-
-    actualSpeedRequest.id = BAMO_COMMAND_ID;
-    actualSpeedRequest.len = 3;
-    actualSpeedRequest.buf[0] = 0x3D;
-    actualSpeedRequest.buf[1] = 0x30;
-    actualSpeedRequest.buf[2] = 0x64;
 
     DCVoltageRequest.id = BAMO_COMMAND_ID;
     DCVoltageRequest.len = 3;
