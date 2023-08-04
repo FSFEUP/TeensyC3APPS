@@ -58,6 +58,8 @@ void setup() {
     Serial.begin(9600);
     pinMode(APPS_1_PIN, INPUT);
     pinMode(APPS_2_PIN, INPUT);
+
+    canSetup();
 }
 
 void loop() {

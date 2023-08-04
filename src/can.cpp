@@ -372,36 +372,36 @@ void canSniffer(const CAN_message_t& msg) {
                 R2DTimer = 0;
             break;
 
-        case R2D_ID:
-            R2DOverride = true;
-            break;
+        // case R2D_ID:
+        //     R2DOverride = true;
+        //     break;
 
-        case BAMO_RESPONSE_ID:
-            if (msg.len == 4) {
-                BTBReady = (msg.buf[0] == BTBResponse.buf[0] and msg.buf[1] == BTBResponse.buf[1] and msg.buf[2] == BTBResponse.buf[2] and msg.buf[3] == BTBResponse.buf[3]);
-                if (BTBReady)
-                    Serial.println("BTB ready");
-                else
-                    REGIDHandler(msg);
-                break;
-            }
-            if (msg.len == 3) {
-                transmissionEnabled = (msg.buf[0] == enableResponse.buf[0] and msg.buf[1] == enableResponse.buf[1] and msg.buf[2] == enableResponse.buf[2]);
-                if (transmissionEnabled)
-                    Serial.println("Transmission enabled");
-                break;
-            }
-            break;
+        // case BAMO_RESPONSE_ID:
+        //     if (msg.len == 4) {
+        //         BTBReady = (msg.buf[0] == BTBResponse.buf[0] and msg.buf[1] == BTBResponse.buf[1] and msg.buf[2] == BTBResponse.buf[2] and msg.buf[3] == BTBResponse.buf[3]);
+        //         if (BTBReady)
+        //             Serial.println("BTB ready");
+        //         else
+        //             REGIDHandler(msg);
+        //         break;
+        //     }
+        //     if (msg.len == 3) {
+        //         transmissionEnabled = (msg.buf[0] == enableResponse.buf[0] and msg.buf[1] == enableResponse.buf[1] and msg.buf[2] == enableResponse.buf[2]);
+        //         if (transmissionEnabled)
+        //             Serial.println("Transmission enabled");
+        //         break;
+        //     }
+        //     break;
 
-        case BMS_ID:
-            current = ((msg.buf[1] << 8) | msg.buf[0]) / 10;
-            Ibat = current;
-            soc = msg.buf[2] / 2;
-            lowTemp = msg.buf[3];
-            highTemp = msg.buf[4];
-            packVoltage = ((msg.buf[6] << 8) | msg.buf[5]) / 10;
-            Vbat = packVoltage;
-            break;
+        // case BMS_ID:
+        //     current = ((msg.buf[1] << 8) | msg.buf[0]) / 10;
+        //     Ibat = current;
+        //     soc = msg.buf[2] / 2;
+        //     lowTemp = msg.buf[3];
+        //     highTemp = msg.buf[4];
+        //     packVoltage = ((msg.buf[6] << 8) | msg.buf[5]) / 10;
+        //     Vbat = packVoltage;
+        //     break;
 
         default:
             break;
@@ -420,5 +420,5 @@ void canSetup() {
     can1.setFIFOFilter(3, BAMO_RESPONSE_ID, STD);
     can1.onReceive(canSniffer);
 
-    initCanMessages();
+    // initCanMessages();
 }
