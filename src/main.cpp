@@ -25,7 +25,7 @@ volatile bool disabled = false;
 volatile bool BTBReady = false;
 volatile bool transmissionEnabled = false;
 
-volatile bool R2D = false;
+volatile bool TSOn = false;
 volatile bool R2DOverride = false;
 
 extern FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
@@ -106,7 +106,7 @@ void loop() {
             Serial.println(R2DTimer);
 #endif
 
-            if ((r2dButton.fell() and R2D and R2DTimer < R2D_TIMEOUT) or R2DOverride) {
+            if ((r2dButton.fell() and TSOn and R2DTimer < R2D_TIMEOUT) or R2DOverride) {
 #ifdef R2D_DEBUG
                 LOG("R2D OK, Switching to drive mode\n");
 #endif
@@ -118,7 +118,7 @@ void loop() {
             break;
 
         case DRIVING:
-            if (not R2D and not R2DOverride) {
+            if (not TSOn and not R2DOverride) {
                 R2DStatus = IDLE;
                 can1.write(disable);
                 break;
@@ -129,9 +129,9 @@ void loop() {
                 int apps_value = readApps();
 
                 if (apps_value >= 0)
-                    sendMsg(apps_value);
+                    sendTorqueVal(apps_value);
                 else
-                    sendMsg(0);
+                    sendTorqueVal(0);
                 break;
             }
             break;
