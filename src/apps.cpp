@@ -71,7 +71,7 @@ int convertToBamocarScale(int apps1, int apps2) {
         torqueVal = appsMax;
     if (torqueVal < appsMin)
         torqueVal = appsMin;
-        
+
     // maps sensor value to bamocar range
     torqueVal = map(torqueVal, appsMin, appsMax, bamoMin, bamoMax);
 
@@ -126,7 +126,7 @@ int readApps() {
     Serial.println(appsBrakePlausibilityTimer);
 #endif  // APPS_DEBUG
 
-    if (brakeValue >= 170 && pedalTravelPercent >= 25.0) {
+    if (brakeValue >= BRAKE_BLOCK_THRESHOLD && pedalTravelPercent >= 25.0) {
         if (appsBrakePlausibilityTimer > APPS_BRAKE_PLAUSIBILITY_TIMEOUT_MS) {
             ERROR("APPS and Brake Implausible\n");
             APPsTimeout = true;
