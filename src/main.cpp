@@ -101,7 +101,7 @@ void loop() {
             r2dButton.update();
 
 #ifdef R2D_DEBUG
-            LOG("R2D Button: %d\tR2D: %s", r2dButton.read(), R2D ? "MAINS OK" : "MAINS OFF");
+            LOG("R2D Button: %d\tR2D: %s", r2dButton.read(), TSOn ? "MAINS OK" : "MAINS OFF");
             Serial.print("\tR2D Timer: ");
             Serial.println(R2DTimer);
 #endif
