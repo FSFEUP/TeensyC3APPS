@@ -76,7 +76,6 @@ elapsedMillis CANTimer;
 const int CANTimeoutMS = 100;
 
 #define DC_THRESHOLD 4328  // Threshold for DC voltage to be considered present for R2D
-// #define DC_THRESHOLD 500
 
 // Initialize CAN messages
 /**
