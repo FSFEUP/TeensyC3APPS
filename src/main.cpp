@@ -88,10 +88,8 @@ void loop() {
     if (mainLoopPeriod < 10)
         return;
 
-#if DATA_DISPLAY > 0
-        displayUpdate();
-#endif
-
+    //control_modes();
+    
     switch (R2DStatus) {
         case IDLE:
             r2dButton.update();
@@ -134,4 +132,5 @@ void loop() {
             ERROR("Invalid r2d_status");
             break;
     }
+    
 }

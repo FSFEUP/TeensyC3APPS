@@ -113,23 +113,11 @@ void displaySetup() {
 void displayUpdate() {
     myNex.NextionListen();
 
-    int wheel_Value = analogRead(switchPin);
-    int dash_value = analogRead(dashPin);
-    // Map the sensor value to the switch position
-    int switchPosition_wheel = mapSensorValueToSwitchNumber(wheel_Value);
-    int switchPosition_dash = mapSensorValueToSwitchNumber(dash_value);
-    
-    if(switchPosition_wheel != actual_mode_wheel){
-        actual_mode_wheel = switchPosition_wheel;
-        //set_modes_ACramp(actual_mode_wheel);
-    } 
-    
-    if(switchPosition_dash != actual_mode_dash){
-        actual_mode_dash = switchPosition_dash;
-        set_powerMODES(actual_mode_dash);
-    } 
+    int sensorValue = analogRead(switchPin);
 
-    char mode[12];
+    int switchPosition_wheel = mapSensorValueToSwitchNumber(sensorValue);
+
+    char mode[28];
 
     sprintf(mode, "MODE %d", switchPosition_wheel);
 
@@ -148,3 +136,23 @@ void displayUpdate() {
     myNex.writeNum("x10.val", lowTemp);
 }
 
+void control_modes() {
+    Serial.printf("Mode: %d \n",actual_mode_dash);
+
+    int wheel_Value = analogRead(switchPin);
+    int dash_value = analogRead(dashPin);
+    // Map the sensor value to the switch position
+    int switchPosition_wheel = mapSensorValueToSwitchNumber(wheel_Value);
+    int switchPosition_dash = mapSensorValueToSwitchNumber(dash_value);
+    
+    if(switchPosition_wheel != actual_mode_wheel){
+        actual_mode_wheel = switchPosition_wheel;
+        //set_modes_ACramp(actual_mode_wheel);
+    } 
+    
+    if(switchPosition_dash != actual_mode_dash){
+        actual_mode_dash = switchPosition_dash;
+        set_powerMODES(actual_mode_dash);
+        Serial.printf("Switched to Mode: %d \n",actual_mode_dash);
+    } 
+}
