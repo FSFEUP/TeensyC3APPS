@@ -77,6 +77,7 @@ void setup() {
   can1.write(DCVoltageRequest);
 
   displaySetup();
+  setup_csv();
 
 #ifdef MAIN_DEBUG
     LOG("Setup complete, Waiting for R2D\n");
@@ -87,9 +88,7 @@ void loop() {
     if (mainLoopPeriod < 10)
         return;
 
-#ifdef DATA_LOGGING
-    write()
-#endif
+    write();
 
 #if DATA_DISPLAY > 0
         displayUpdate();

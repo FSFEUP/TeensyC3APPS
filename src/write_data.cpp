@@ -69,7 +69,7 @@ void setup_csv() {
         Serial.println("SD card begin error");
         return;
     }
-    can1.write(Nact_filtered);
+    can1.write(Nact_filtered); 
     can1.write(Vout_msg);
     can1.write(Iq_cmd_msg);
     can1.write(Iq_actual_msg);
@@ -83,8 +83,13 @@ void setup_csv() {
 
 
 void write() {
+
     if(writeTIMER > 100){
         
+        if (sd.exists("data.csv") && !sd.remove("data.csv")){
+            Serial.println("Failed init remove file");
+            return;
+        }
         if (!csv.open("data.csv", O_RDWR | O_CREAT)) {
             Serial.println("Failed open file");
         }

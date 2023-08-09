@@ -16,7 +16,6 @@ CAN_message_t DCVoltageRequest;
 CAN_message_t actualSpeedRequest;
 CAN_message_t transmissionRequestEnable;
 
-#if DATA_DISPLAY > 0
 
 CAN_message_t DCVoltageResponse;
 
@@ -36,7 +35,6 @@ CAN_message_t Tpeak_msg;
 CAN_message_t Imax_peak_msg;
 CAN_message_t I_con_eff_msg;
 
-#endif
 
 int Ibat;
 int Vbat;
@@ -88,7 +86,6 @@ const int CANTimeoutMS = 100;
  *
  */
 void initCanMessages() {
-#if DATA_DISPLAY > 1
     Nact_filtered.id = BAMO_COMMAND_ID;
     Nact_filtered.len = 3;
     Nact_filtered.buf[0] = 0x3D;
@@ -177,7 +174,7 @@ void initCanMessages() {
     DCVoltageResponse.id = BAMO_RESPONSE_ID;
     DCVoltageResponse.len = 4;
     DCVoltageResponse.buf[0] = 0xEB;
-#endif
+
     // APPS Message
     torqueRequest.id = BAMO_COMMAND_ID;
     torqueRequest.len = 3;
