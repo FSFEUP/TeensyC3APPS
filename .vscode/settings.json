@@ -4,6 +4,8 @@
     },
     "python.formatting.provider": "none",
     "files.associations": {
-        "*.tpp": "cpp"
+        "*.tpp": "cpp",
+        "*.tcc": "cpp",
+        "cstdio": "cpp"
     }
 }
