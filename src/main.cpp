@@ -88,10 +88,6 @@ void loop() {
     if (mainLoopPeriod < 10)
         return;
 
-#ifdef DATA_LOGGING
-    write()
-#endif
-
 #if DATA_DISPLAY > 0
         displayUpdate();
 #endif
@@ -113,7 +109,6 @@ void loop() {
                 playR2DSound();
                 initBamocarD3();
                 R2DStatus = DRIVING;
-                break;
             }
             break;
 
@@ -132,7 +127,6 @@ void loop() {
                     sendTorqueVal(apps_value);
                 else
                     sendTorqueVal(0);
-                break;
             }
             break;
 

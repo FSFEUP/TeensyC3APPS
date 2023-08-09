@@ -36,8 +36,6 @@ CAN_message_t Imax_peak_msg;
 CAN_message_t I_con_eff_msg;
 #endif
 
-int Ibat;
-int Vbat;
 int Mout;
 int Nact;
 int Vout;
@@ -396,12 +394,10 @@ void canSniffer(const CAN_message_t& msg) {
 
         case BMS_ID:
             current = ((msg.buf[1] << 8) | msg.buf[0]) / 10;
-            Ibat = current;
             soc = msg.buf[2] / 2;
             lowTemp = msg.buf[3];
             highTemp = msg.buf[4];
             packVoltage = ((msg.buf[6] << 8) | msg.buf[5]) / 10;
-            Vbat = packVoltage;
             break;
 
         default:

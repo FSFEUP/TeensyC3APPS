@@ -33,6 +33,7 @@ int actual_mode_dash;
 std::vector<int> N_lim_values = {4915, 10813, 32767, 19005, 32767, 19005};
 std::vector<int> i_con_eff_values = {2087, 14909, 14909, 14909, 14909, 14909};
 std::vector<int> i_max_peak_values = {836, 5598, 5598, 5598, 5598, 5598};
+
 /*
 std::vector<int> ACramp_values = {5470, 10939, 16409, 21879, 27348,32818, 38288, 43758, 49227, 54697, 60167, 65636};
 
@@ -66,16 +67,19 @@ void set_powerMODES(int pos){
     uint8_t byte2_I_maxPK = i_max_peak_values[pos] & 0xFF;
 
     Nlim_sent.id = 0x201;
+    Nlim_sent.len = 3;
     Nlim_sent.buf[0] = 0x34;
     Nlim_sent.buf[1] = byte1_Nlim;
     Nlim_sent.buf[2] = byte2_Nlim;
 
     I_con_eff_sent.id = 0x201;
+    I_con_eff_sent.len = 3;
     I_con_eff_sent.buf[0] = 0xc5;
     I_con_eff_sent.buf[1] = byte1_I_con_eff;
     I_con_eff_sent.buf[2] = byte2_I_con_eff;
     
     I_max_peak_sent.id = 0x201;
+    I_max_peak_sent.len = 3;
     I_max_peak_sent.buf[0] = 0xc4;
     I_max_peak_sent.buf[1] = byte1_I_maxPK;
     I_max_peak_sent.buf[2] = byte2_I_maxPK;
