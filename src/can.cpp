@@ -12,13 +12,10 @@ CAN_message_t statusRequest;
 CAN_message_t torqueRequest;
 CAN_message_t enableResponse;
 CAN_message_t DCVoltageRequest;
-CAN_message_t actualSpeedRequest;
 CAN_message_t transmissionRequestEnable;
 
 #if DATA_DISPLAY > 0
-
-CAN_message_t DCVoltageResponse;
-
+CAN_message_t actualSpeedRequest;
 CAN_message_t motorTempRequest;
 CAN_message_t currentRequest;
 CAN_message_t powerStageTempRequest;
@@ -325,7 +322,7 @@ void REGIDHandler(const CAN_message_t& msg) {
         case REGID_DC_VOLTAGE: {
             long dc_voltage = 0;
             dc_voltage = (msg.buf[2] << 8) | msg.buf[1];
-#ifdef CAN_DEBUG
+#ifdef DC_DEBUG
             LOG("DC Voltage: %d\n", dc_voltage);
 #endif
             TSOn = (dc_voltage >= DC_THRESHOLD);

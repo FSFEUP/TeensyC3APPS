@@ -31,11 +31,9 @@ volatile bool R2DOverride = false;
 extern FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 
 extern CAN_message_t statusRequest;
-
 extern CAN_message_t disable;
-
 extern CAN_message_t DCVoltageRequest;
-extern CAN_message_t actualSpeedRequest;
+extern CAN_message_t transmissionRequestEnable;
 
 enum status {
     IDLE,    // waiting for r2d && ATS off
@@ -72,7 +70,6 @@ void setup() {
     delay(STARTUP_DELAY_MS);
 
     can1.write(disable);
-    can1.write(statusRequest);
     can1.write(DCVoltageRequest);
 
 #if DATA_DISPLAY > 0
@@ -88,12 +85,8 @@ void loop() {
     if (mainLoopPeriod < 10)
         return;
 
-#ifdef DATA_LOGGING
-    write()
-#endif
-
 #if DATA_DISPLAY > 0
-        displayUpdate();
+    displayUpdate();
 #endif
 
     switch (R2DStatus) {
