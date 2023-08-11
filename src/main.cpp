@@ -75,6 +75,8 @@ void setup() {
     can1.write(statusRequest);
     can1.write(DCVoltageRequest);
 
+    
+
 #if DATA_DISPLAY > 0
     // can1.write(actualSpeedRequest);
     displaySetup();
@@ -88,8 +90,9 @@ void loop() {
     if (mainLoopPeriod < 10)
         return;
 
-    //control_modes();
+    control_modes();
     
+    /*
     switch (R2DStatus) {
         case IDLE:
             r2dButton.update();
@@ -132,5 +135,7 @@ void loop() {
             ERROR("Invalid r2d_status");
             break;
     }
+    */
+   delay(1000);
     
 }

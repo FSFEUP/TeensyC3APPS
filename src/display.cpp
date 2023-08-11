@@ -30,9 +30,9 @@ int powerStageTemp = 0;
 int actual_mode_wheel;
 int actual_mode_dash;
 
-std::vector<int> N_lim_values = {4915, 10813, 32767, 19005, 32767, 19005};
-std::vector<int> i_con_eff_values = {2087, 14909, 14909, 14909, 14909, 14909};
-std::vector<int> i_max_peak_values = {836, 5598, 5598, 5598, 5598, 5598};
+std::vector<int> N_lim_values = {4915, 10813, 32767, 19005, 32767, 19005,0,0,0,0,0,0};
+std::vector<int> i_con_eff_values = {2088, 14909, 14909, 14909, 14909, 14909,0,0,0,0,0,0};
+std::vector<int> i_max_peak_values = {836, 5598, 5598, 5598, 5598, 5598,0,0,0,0,0,0};
 
 /*
 std::vector<int> ACramp_values = {5470, 10939, 16409, 21879, 27348,32818, 38288, 43758, 49227, 54697, 60167, 65636};
@@ -69,24 +69,26 @@ void set_powerMODES(int pos){
     Nlim_sent.id = 0x201;
     Nlim_sent.len = 3;
     Nlim_sent.buf[0] = 0x34;
-    Nlim_sent.buf[1] = byte1_Nlim;
-    Nlim_sent.buf[2] = byte2_Nlim;
+    Nlim_sent.buf[1] = byte2_Nlim;
+    Nlim_sent.buf[2] = byte1_Nlim;
 
     I_con_eff_sent.id = 0x201;
     I_con_eff_sent.len = 3;
-    I_con_eff_sent.buf[0] = 0xc5;
-    I_con_eff_sent.buf[1] = byte1_I_con_eff;
-    I_con_eff_sent.buf[2] = byte2_I_con_eff;
+    I_con_eff_sent.buf[0] = 0xC5;
+    I_con_eff_sent.buf[1] = byte2_I_con_eff;
+    I_con_eff_sent.buf[2] = byte1_I_con_eff;
     
     I_max_peak_sent.id = 0x201;
     I_max_peak_sent.len = 3;
-    I_max_peak_sent.buf[0] = 0xc4;
-    I_max_peak_sent.buf[1] = byte1_I_maxPK;
-    I_max_peak_sent.buf[2] = byte2_I_maxPK;
+    I_max_peak_sent.buf[0] = 0xC4;
+    I_max_peak_sent.buf[1] = byte2_I_maxPK;
+    I_max_peak_sent.buf[2] = byte1_I_maxPK;
 
-    can1.write(Nlim_sent);
+    can1.write(I_max_peak_sent); 
     can1.write(I_con_eff_sent);
-    can1.write(I_max_peak_sent);    
+    can1.write(Nlim_sent);  
+
+    Serial.print("mode set!"); 
 
 }
 
@@ -101,14 +103,58 @@ int mapSensorValueToSwitchNumber(int sensorValue) {
     return rotswitchNumber;
 }
 
+int mapSensorDashToSwitchNumber(int sensorValue) {
+    int rotswtichNumber = 0;
+
+    float posicao = sensorValue;
+
+    posicao = (posicao - 225) / 48;
+
+    rotswtichNumber = round(posicao);
+    if(rotswtichNumber < 0) return 0;
+    if(rotswtichNumber > 5) return rotswtichNumber-1;
+    return rotswtichNumber;
+}
+
 void displaySetup() {
     myNex.begin(9600);
     pinMode(switchPin, INPUT);
     pinMode(dashPin, INPUT);
 
-    actual_mode_wheel = analogRead(switchPin);
-    actual_mode_dash = analogRead(dashPin);
+    int sensor1 = analogRead(switchPin);
+    actual_mode_wheel = mapSensorValueToSwitchNumber(sensor1);
+    
+    int sensor2 = analogRead(dashPin);
+    actual_mode_dash = mapSensorDashToSwitchNumber(sensor2);
 }
+
+void control_modes() {
+    int initial_pos_dash = mapSensorDashToSwitchNumber(actual_mode_dash);
+    int initial_pos_wheel = mapSensorValueToSwitchNumber(actual_mode_wheel);
+
+    int wheel_Value = analogRead(switchPin);
+    int dash_value = analogRead(dashPin);
+
+    // Map the sensor value to the switch position
+    int switchPosition_wheel = mapSensorValueToSwitchNumber(wheel_Value);
+    int switchPosition_dash = mapSensorDashToSwitchNumber(dash_value);
+    
+    
+    if(switchPosition_wheel != actual_mode_wheel){
+        actual_mode_wheel = wheel_Value;
+        int switchPosition_wheel = mapSensorValueToSwitchNumber(wheel_Value);
+
+    } 
+    
+    if(switchPosition_dash != actual_mode_dash){
+        actual_mode_dash = dash_value;
+        int switchPosition_dash = mapSensorDashToSwitchNumber(dash_value);
+        set_powerMODES(switchPosition_dash);
+
+    } 
+    
+}
+
 
 void displayUpdate() {
     myNex.NextionListen();
@@ -136,23 +182,3 @@ void displayUpdate() {
     myNex.writeNum("x10.val", lowTemp);
 }
 
-void control_modes() {
-    Serial.printf("Mode: %d \n",actual_mode_dash);
-
-    int wheel_Value = analogRead(switchPin);
-    int dash_value = analogRead(dashPin);
-    // Map the sensor value to the switch position
-    int switchPosition_wheel = mapSensorValueToSwitchNumber(wheel_Value);
-    int switchPosition_dash = mapSensorValueToSwitchNumber(dash_value);
-    
-    if(switchPosition_wheel != actual_mode_wheel){
-        actual_mode_wheel = switchPosition_wheel;
-        //set_modes_ACramp(actual_mode_wheel);
-    } 
-    
-    if(switchPosition_dash != actual_mode_dash){
-        actual_mode_dash = switchPosition_dash;
-        set_powerMODES(actual_mode_dash);
-        Serial.printf("Switched to Mode: %d \n",actual_mode_dash);
-    } 
-}

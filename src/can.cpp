@@ -14,6 +14,7 @@ CAN_message_t enableResponse;
 CAN_message_t DCVoltageRequest;
 CAN_message_t actualSpeedRequest;
 CAN_message_t transmissionRequestEnable;
+CAN_message_t requestICONEFF;
 
 #if DATA_DISPLAY > 0
 
@@ -238,6 +239,12 @@ void initCanMessages() {
     DCVoltageRequest.buf[0] = 0x3D;
     DCVoltageRequest.buf[1] = 0xEB;
     DCVoltageRequest.buf[2] = 0x64;
+
+    requestICONEFF.id = BAMO_COMMAND_ID;
+    requestICONEFF.len = 3;
+    requestICONEFF.buf[0] = 0x3D;
+    requestICONEFF.buf[1] = 0xC5;
+    requestICONEFF.buf[2] = 0x64;
 }
 
 void sendTorqueVal(int value_bamo) {
@@ -267,6 +274,7 @@ void initBamocarD3() {
 }
 
 void REGIDHandler(const CAN_message_t& msg) {
+    uint16_t value;
     switch (msg.buf[0]) {
         case REGID_NACT:
             Nact = (msg.buf[2] << 8) | msg.buf[1];
@@ -306,6 +314,8 @@ void REGIDHandler(const CAN_message_t& msg) {
 
         case REGID_I_CON_EFF:
             I_con_eff = (msg.buf[2] << 8) | msg.buf[1];
+            Serial.printf("Value received: %x \n",I_con_eff);
+
             break;
 
         case REGID_ACTUAL_SPEED: {
@@ -344,7 +354,6 @@ void REGIDHandler(const CAN_message_t& msg) {
             motorTemp = (msg.buf[2] << 8) | msg.buf[1];
             motorTemp = motorTemp * 0.0194 - 160;
             break;
-
         default:
             break;
     }
