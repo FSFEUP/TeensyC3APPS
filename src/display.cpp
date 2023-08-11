@@ -39,28 +39,28 @@ void displaySetup() {
 }
 
 void displayUpdate() {
-    myNex.NextionListen();
+    //myNex.NextionListen();
 
-    int sensorValue = analogRead(switchPin);
+    // int sensorValue = analogRead(switchPin);
 
     // Map the sensor value to the switch position
-    int switchPosition = mapSensorValueToSwitchNumber(sensorValue);
+    // int switchPosition = mapSensorValueToSwitchNumber(sensorValue);
 
-    char mode[28];
+    // char mode[28];
 
-    sprintf(mode, "MODE %d", switchPosition);
+    // sprintf(mode, "MODE %d", switchPosition);
 
-    myNex.writeStr("t3.txt", mode);
+    // myNex.writeStr("t3.txt", mode);
 
     myNex.writeNum("n0.val", speedInt);
     myNex.writeNum("x0.val", soc);
     myNex.writeNum("x1.val", highTemp * 10);
-    myNex.writeNum("x2.val", packVoltage);
-    myNex.writeNum("x3.val", current);
-    myNex.writeNum("x4.val", motorTemp);
-    myNex.writeNum("x5.val", powerStageTemp);
-    myNex.writeNum("x7.val", ACCurrent);
-    myNex.writeNum("x8.val", rpm);
-    myNex.writeNum("x9.val", highTemp);
-    myNex.writeNum("x10.val", lowTemp);
+    // myNex.writeNum("x2.val", packVoltage);
+    // myNex.writeNum("x3.val", current);
+    // myNex.writeNum("x4.val", motorTemp);
+    // myNex.writeNum("x5.val", powerStageTemp);
+    // myNex.writeNum("x7.val", ACCurrent);
+    // myNex.writeNum("x8.val", rpm);
+    // myNex.writeNum("x9.val", highTemp);
+    // myNex.writeNum("x10.val", lowTemp);
 }

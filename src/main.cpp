@@ -47,6 +47,8 @@ elapsedMillis APPSTimer;
 
 elapsedMicros mainLoopPeriod;
 
+int displayLoopingTimer;
+
 void playR2DSound() {
     digitalWrite(buzzerPin, HIGH);
     delay(1000);
@@ -84,8 +86,13 @@ void loop() {
     if (mainLoopPeriod < 10)
         return;
 
+    displayLoopingTimer++;
+
 #if DATA_DISPLAY > 0
-    displayUpdate();
+    if (displayLoopingTimer > 15) {
+        displayLoopingTimer = 0;
+        displayUpdate();
+    }
 #endif
 
     switch (R2DStatus) {
