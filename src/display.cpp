@@ -53,7 +53,7 @@ void displayUpdate() {
     myNex.writeStr("t3.txt", mode);
 
     myNex.writeNum("n0.val", speedInt);
-    myNex.writeNum("x0.val", soc * 10);
+    myNex.writeNum("x0.val", soc);
     myNex.writeNum("x1.val", highTemp * 10);
     myNex.writeNum("x2.val", packVoltage);
     myNex.writeNum("x3.val", current);

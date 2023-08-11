@@ -394,7 +394,7 @@ void canSniffer(const CAN_message_t& msg) {
         case BMS_ID:
             current = ((msg.buf[1] << 8) | msg.buf[0]) / 10;
             Ibat = current;
-            soc = msg.buf[2] / 2;
+            soc = msg.buf[2] * 5;
             lowTemp = msg.buf[3];
             highTemp = msg.buf[4];
             packVoltage = ((msg.buf[6] << 8) | msg.buf[5]) / 10;
