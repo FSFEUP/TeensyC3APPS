@@ -36,14 +36,14 @@
 
 // uncomment this line to enable debug messages
 // #define APPS_DEBUG
-#define CAN_DEBUG
+// #define CAN_DEBUG
 // #define DISPLAY_DEBUG
 #define MAIN_DEBUG
 // #define R2D_DEBUG
 // #define DC_DEBUG
 
 // uncomment these lines to enable aditional data display and data logging
-#define DATA_DISPLAY 0
+#define DATA_DISPLAY 1
 // #define DATA_LOGGING
 
 #endif  // _LOG_H_
