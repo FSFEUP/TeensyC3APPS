@@ -251,6 +251,22 @@ void sendTorqueVal(int value_bamo) {
 
     can1.write(torqueRequest);
 }
+void sendAPPS(int val1, int val2) {
+    uint8_t byte1 = (val1 >> 8) & 0xFF;  // MSB
+    uint8_t byte2 = val1 & 0xFF;         // LSB
+    uint8_t byte3 = (val2 >> 8) & 0xFF;  // MSB
+    uint8_t byte4 = val2 & 0xFF;         // LSB
+
+    CAN_message_t msg;
+    msg.id = 0x111;
+    msg.len = 2;
+    msg.buf[0] = byte2;
+    msg.buf[1] = byte1;
+    msg.buf[2] = byte4;
+    msg.buf[3] = byte3;
+
+    can1.write(msg);
+}
 
 void initBamocarD3() {
     can1.write(clearErrors);
