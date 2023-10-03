@@ -259,7 +259,7 @@ void sendAPPS(int val1, int val2) {
 
     CAN_message_t msg;
     msg.id = 0x111;
-    msg.len = 2;
+    msg.len = 4;
     msg.buf[0] = byte2;
     msg.buf[1] = byte1;
     msg.buf[2] = byte4;
