@@ -21,6 +21,8 @@
 #define APPS_READ_PERIOD_MS 20
 #define BAMOCAR_ATTENUATION_FACTOR 1
 
+int current_BMS = 0;
+
 volatile bool disabled = false;
 volatile bool BTBReady = false;
 volatile bool transmissionEnabled = false;
@@ -37,6 +39,10 @@ extern CAN_message_t disable;
 extern CAN_message_t DCVoltageRequest;
 extern CAN_message_t actualSpeedRequest;
 
+uint8_t current_byte1; // MSB
+uint8_t current_byte2;        // LSB
+CAN_message_t current_msg;
+
 enum status {
     IDLE,    // waiting for r2d && ATS off
     DRIVING  // r2d pressed && ATS on
@@ -47,6 +53,7 @@ Bounce r2dButton = Bounce();
 
 elapsedMillis R2DTimer;
 elapsedMillis APPSTimer;
+elapsedMillis CURRENTtimer;
 
 elapsedMicros mainLoopPeriod;
 
@@ -112,6 +119,7 @@ void loop() {
 #endif
                 playR2DSound();
                 initBamocarD3();
+                request_dataLOG_messages();
                 R2DStatus = DRIVING;
                 break;
             }
@@ -134,8 +142,29 @@ void loop() {
                     sendTorqueVal(0);
                 break;
             }
-            break;
 
+            if(CURRENTtimer > 20) {
+                CURRENTtimer = 0;
+                
+                current_byte1 = (current_BMS >> 8) & 0xFF;  // MSB
+                current_byte2 = current_BMS & 0xFF;         // LSB
+
+                current_msg.id = 0x201;
+                current_msg.len = 3;
+                current_msg.buf[0] = 0xfb;
+                current_msg.buf[1] = current_byte2;
+                current_msg.buf[2] = current_byte1;
+                can1.write(current_msg);
+            }
+
+            //Serial.printf("Message ID: %x\n",current_msg.id);
+            //Serial.printf("Message length: %d\n", current_msg.len);
+            //Serial.printf("Message data: ");
+            //for (int i = 0; i < current_msg.len; i++)
+                //Serial.printf("%x ", current_msg.buf[i]);
+            //Serial.println();
+
+            break;
         default:
             ERROR("Invalid r2d_status");
             break;

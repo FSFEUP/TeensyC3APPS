@@ -15,26 +15,10 @@ CAN_message_t DCVoltageRequest;
 CAN_message_t actualSpeedRequest;
 CAN_message_t transmissionRequestEnable;
 
-#if DATA_DISPLAY > 0
-
-CAN_message_t DCVoltageResponse;
-
-CAN_message_t motorTempRequest;
-CAN_message_t currentRequest;
-CAN_message_t powerStageTempRequest;
 CAN_message_t rpmRequest;
-
-CAN_message_t Nact_filtered;
-CAN_message_t Vout_msg;
-CAN_message_t Iq_cmd_msg;
-CAN_message_t Iq_actual_msg;
-CAN_message_t Mout_msg;
-CAN_message_t I_lim_inuse_msg;
-CAN_message_t I_actual_filtered_msg;
-CAN_message_t Tpeak_msg;
-CAN_message_t Imax_peak_msg;
-CAN_message_t I_con_eff_msg;
-#endif
+CAN_message_t currentMOTOR;
+CAN_message_t tempMOTOR;
+CAN_message_t tempBAMO;
 
 int Ibat;
 int Vbat;
@@ -62,6 +46,8 @@ extern int speedInt;
 extern int packVoltage;
 extern int lowTemp;
 
+extern int current_BMS;
+
 extern int powerStageTemp;
 extern int motorTemp;
 
@@ -83,103 +69,6 @@ const int CANTimeoutMS = 100;
  *
  */
 void initCanMessages() {
-#if DATA_DISPLAY > 1
-    Nact_filtered.id = BAMO_COMMAND_ID;
-    Nact_filtered.len = 3;
-    Nact_filtered.buf[0] = 0x3D;
-    Nact_filtered.buf[1] = 0xA8;
-    Nact_filtered.buf[2] = 0x64;
-
-    Vout_msg.id = BAMO_COMMAND_ID;
-    Vout_msg.len = 3;
-    Vout_msg.buf[0] = 0x3D;
-    Vout_msg.buf[1] = 0x8A;
-    Vout_msg.buf[2] = 0x64;
-
-    Iq_cmd_msg.id = BAMO_COMMAND_ID;
-    Iq_cmd_msg.len = 3;
-    Iq_cmd_msg.buf[0] = 0x3D;
-    Iq_cmd_msg.buf[1] = 0x26;
-    Iq_cmd_msg.buf[2] = 0x64;
-
-    Iq_actual_msg.id = BAMO_COMMAND_ID;
-    Iq_actual_msg.len = 3;
-    Iq_actual_msg.buf[0] = 0x3D;
-    Iq_actual_msg.buf[1] = 0x27;
-    Iq_actual_msg.buf[2] = 0x64;
-
-    Mout_msg.id = BAMO_COMMAND_ID;
-    Mout_msg.len = 3;
-    Mout_msg.buf[0] = 0x3D;
-    Mout_msg.buf[1] = 0xA0;
-    Mout_msg.buf[2] = 0x64;
-
-    I_lim_inuse_msg.id = BAMO_COMMAND_ID;
-    I_lim_inuse_msg.len = 3;
-    I_lim_inuse_msg.buf[0] = 0x3D;
-    I_lim_inuse_msg.buf[1] = 0x48;
-    I_lim_inuse_msg.buf[2] = 0x64;
-
-    I_actual_filtered_msg.id = BAMO_COMMAND_ID;
-    I_actual_filtered_msg.len = 3;
-    I_actual_filtered_msg.buf[0] = 0x3D;
-    I_actual_filtered_msg.buf[1] = 0x5F;
-    I_actual_filtered_msg.buf[2] = 0x64;
-
-    Tpeak_msg.id = BAMO_COMMAND_ID;
-    Tpeak_msg.len = 3;
-    Tpeak_msg.buf[0] = 0x3D;
-    Tpeak_msg.buf[1] = 0xF0;
-    Tpeak_msg.buf[2] = 0x64;
-
-    Imax_peak_msg.id = BAMO_COMMAND_ID;
-    Imax_peak_msg.len = 3;
-    Imax_peak_msg.buf[0] = 0x3D;
-    Imax_peak_msg.buf[1] = 0xC4;
-    Imax_peak_msg.buf[2] = 0x64;
-
-    I_con_eff_msg.id = BAMO_COMMAND_ID;
-    I_con_eff_msg.len = 3;
-    I_con_eff_msg.buf[0] = 0x3D;
-    I_con_eff_msg.buf[1] = 0xC5;
-    I_con_eff_msg.buf[2] = 0x64;
-
-    rpmRequest.id = BAMO_COMMAND_ID;
-    rpmRequest.len = 3;
-    rpmRequest.buf[0] = 0x3D;
-    rpmRequest.buf[1] = 0xCE;
-    rpmRequest.buf[2] = 0x64;
-
-    powerStageTempRequest.id = BAMO_COMMAND_ID;
-    powerStageTempRequest.len = 3;
-    powerStageTempRequest.buf[0] = 0x3D;
-    powerStageTempRequest.buf[1] = 0x4A;
-    powerStageTempRequest.buf[0] = 0x64;
-
-    currentRequest.id = BAMO_COMMAND_ID;
-    currentRequest.len = 3;
-    currentRequest.buf[0] = 0x3D;
-    currentRequest.buf[1] = 0x20;
-    currentRequest.buf[2] = 0x64;
-
-    motorTempRequest.id = BAMO_COMMAND_ID;
-    motorTempRequest.len = 3;
-    motorTempRequest.buf[0] = 0x3D;
-    motorTempRequest.buf[1] = 0x49;
-    motorTempRequest.buf[2] = 0x64;
-
-    DCVoltageResponse.id = BAMO_RESPONSE_ID;
-    DCVoltageResponse.len = 4;
-    DCVoltageResponse.buf[0] = 0xEB;
-#endif
-
-#if DATA_DISPLAY > 0
-    actualSpeedRequest.id = BAMO_COMMAND_ID;
-    actualSpeedRequest.len = 3;
-    actualSpeedRequest.buf[0] = 0x3D;
-    actualSpeedRequest.buf[1] = 0x30;
-    actualSpeedRequest.buf[2] = 0x64;
-#endif
     // APPS Message
     torqueRequest.id = BAMO_COMMAND_ID;
     torqueRequest.len = 3;
@@ -242,6 +131,32 @@ void initCanMessages() {
     DCVoltageRequest.buf[2] = 0x64;
 }
 
+void request_dataLOG_messages() {
+    rpmRequest.id = BAMO_COMMAND_ID;
+    rpmRequest.len = 3;
+    rpmRequest.buf[0] = 0x30;
+    rpmRequest.buf[1] = 0xCE;
+    rpmRequest.buf[2] = 0x0A;
+    
+    currentMOTOR.id = BAMO_COMMAND_ID;
+    currentMOTOR.len = 3;
+    currentMOTOR.buf[0] = 0x3D;
+    currentMOTOR.buf[1] = 0x5f;
+    currentMOTOR.buf[2] = 0x32;
+    
+    tempMOTOR.id = BAMO_COMMAND_ID;
+    tempMOTOR.len = 3;
+    tempMOTOR.buf[0] = 0x3D;
+    tempMOTOR.buf[1] = 0x49;
+    tempMOTOR.buf[2] = 0x32;
+    
+    tempBAMO.id = BAMO_COMMAND_ID;
+    tempBAMO.len = 3;
+    tempBAMO.buf[0] = 0x3D;
+    tempBAMO.buf[1] = 0x4A;
+    tempBAMO.buf[2] = 0x32;
+}
+
 void sendTorqueVal(int value_bamo) {
     uint8_t byte1 = (value_bamo >> 8) & 0xFF;  // MSB
     uint8_t byte2 = value_bamo & 0xFF;         // LSB
@@ -286,10 +201,6 @@ void initBamocarD3() {
 
 void REGIDHandler(const CAN_message_t& msg) {
     switch (msg.buf[0]) {
-        case REGID_NACT:
-            Nact = (msg.buf[2] << 8) | msg.buf[1];
-            break;
-
         case REGID_VOUT:
             Vout = (msg.buf[2] << 8) | msg.buf[1];
             break;
@@ -380,6 +291,14 @@ void canSniffer(const CAN_message_t& msg) {
 #endif  // CAN_DEBUG
 
     switch (msg.id) {
+        case 0x666:
+            current_BMS = ((msg.buf[1] << 8) | msg.buf[0]);
+            //Serial.printf("Message data received: ");
+            //for (int i = 0; i < 2; i++)
+                //Serial.printf("%x ", msg.buf[i]);
+            //Serial.println();
+            break;
+
         case C3_ID:
 #ifdef R2D_DEBUG
             INFO("Braking signal received\n");

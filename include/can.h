@@ -32,5 +32,6 @@
 void canSetup();
 void sendTorqueVal(int value_bamo);
 void initBamocarD3();
+void request_dataLOG_messages();
 void sendAPPS(int val1, int val2);
 #endif
