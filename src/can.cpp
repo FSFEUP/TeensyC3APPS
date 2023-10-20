@@ -134,7 +134,7 @@ void initCanMessages() {
 void request_dataLOG_messages() {
     rpmRequest.id = BAMO_COMMAND_ID;
     rpmRequest.len = 3;
-    rpmRequest.buf[0] = 0x30;
+    rpmRequest.buf[0] = 0x3D;
     rpmRequest.buf[1] = 0xCE;
     rpmRequest.buf[2] = 0x0A;
     
@@ -142,19 +142,19 @@ void request_dataLOG_messages() {
     currentMOTOR.len = 3;
     currentMOTOR.buf[0] = 0x3D;
     currentMOTOR.buf[1] = 0x5f;
-    currentMOTOR.buf[2] = 0x32;
+    currentMOTOR.buf[2] = 0x0A;
     
     tempMOTOR.id = BAMO_COMMAND_ID;
     tempMOTOR.len = 3;
     tempMOTOR.buf[0] = 0x3D;
     tempMOTOR.buf[1] = 0x49;
-    tempMOTOR.buf[2] = 0x32;
+    tempMOTOR.buf[2] = 0x0A;
     
     tempBAMO.id = BAMO_COMMAND_ID;
     tempBAMO.len = 3;
     tempBAMO.buf[0] = 0x3D;
     tempBAMO.buf[1] = 0x4A;
-    tempBAMO.buf[2] = 0x32;
+    tempBAMO.buf[2] = 0x0A;
 }
 
 void sendTorqueVal(int value_bamo) {
@@ -201,6 +201,7 @@ void initBamocarD3() {
 
 void REGIDHandler(const CAN_message_t& msg) {
     switch (msg.buf[0]) {
+        /*
         case REGID_VOUT:
             Vout = (msg.buf[2] << 8) | msg.buf[1];
             break;
@@ -248,6 +249,7 @@ void REGIDHandler(const CAN_message_t& msg) {
             speedInt = (int)speed;
             break;
         }
+        */
 
         case REGID_DC_VOLTAGE: {
             long dc_voltage = 0;
@@ -258,7 +260,7 @@ void REGIDHandler(const CAN_message_t& msg) {
             TSOn = (dc_voltage >= DC_THRESHOLD);
             break;
         }
-
+        /*
         case REGID_IGBT:
             powerStageTemp = (msg.buf[2] << 8) | msg.buf[1];
             powerStageTemp = (int)(powerStageTemp / 103.969 - 158.29);
@@ -273,6 +275,7 @@ void REGIDHandler(const CAN_message_t& msg) {
             motorTemp = (msg.buf[2] << 8) | msg.buf[1];
             motorTemp = motorTemp * 0.0194 - 160;
             break;
+        */
 
         default:
             break;
@@ -327,16 +330,6 @@ void canSniffer(const CAN_message_t& msg) {
                     Serial.println("Transmission enabled");
                 break;
             }
-            break;
-
-        case BMS_ID:
-            current = ((msg.buf[1] << 8) | msg.buf[0]) / 10;
-            Ibat = current;
-            soc = msg.buf[2] / 2;
-            lowTemp = msg.buf[3];
-            highTemp = msg.buf[4];
-            packVoltage = ((msg.buf[6] << 8) | msg.buf[5]) / 10;
-            Vbat = packVoltage;
             break;
 
         default:

@@ -143,7 +143,7 @@ void loop() {
                 break;
             }
 
-            if(CURRENTtimer > 20) {
+            if(CURRENTtimer > 8) {
                 CURRENTtimer = 0;
                 
                 current_byte1 = (current_BMS >> 8) & 0xFF;  // MSB
