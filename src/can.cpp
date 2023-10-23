@@ -16,6 +16,7 @@ CAN_message_t actualSpeedRequest;
 CAN_message_t transmissionRequestEnable;
 
 CAN_message_t rpmRequest;
+CAN_message_t speedRequest;
 CAN_message_t currentMOTOR;
 CAN_message_t tempMOTOR;
 CAN_message_t tempBAMO;
@@ -138,6 +139,13 @@ void request_dataLOG_messages() {
     rpmRequest.buf[1] = 0xCE;
     rpmRequest.buf[2] = 0x0A;
     can1.write(rpmRequest);
+
+    speedRequest.id = BAMO_COMMAND_ID;
+    speedRequest.len = 3;
+    speedRequest.buf[0] = 0x3D;
+    speedRequest.buf[1] = 0x30;
+    speedRequest.buf[2] = 0x0A;
+    can1.write(speedRequest);
     
     currentMOTOR.id = BAMO_COMMAND_ID;
     currentMOTOR.len = 3;
@@ -149,7 +157,7 @@ void request_dataLOG_messages() {
     tempMOTOR.id = BAMO_COMMAND_ID;
     tempMOTOR.len = 3;
     tempMOTOR.buf[0] = 0x3D;
-    tempMOTOR.buf[1] = 0x49;
+    tempMOTOR.buf[1] = 0xa3;
     tempMOTOR.buf[2] = 0x0A;
     can1.write(tempMOTOR);
     
