@@ -137,24 +137,28 @@ void request_dataLOG_messages() {
     rpmRequest.buf[0] = 0x3D;
     rpmRequest.buf[1] = 0xCE;
     rpmRequest.buf[2] = 0x0A;
+    can1.write(rpmRequest);
     
     currentMOTOR.id = BAMO_COMMAND_ID;
     currentMOTOR.len = 3;
     currentMOTOR.buf[0] = 0x3D;
     currentMOTOR.buf[1] = 0x5f;
     currentMOTOR.buf[2] = 0x0A;
+    can1.write(currentMOTOR);
     
     tempMOTOR.id = BAMO_COMMAND_ID;
     tempMOTOR.len = 3;
     tempMOTOR.buf[0] = 0x3D;
     tempMOTOR.buf[1] = 0x49;
     tempMOTOR.buf[2] = 0x0A;
+    can1.write(tempMOTOR);
     
     tempBAMO.id = BAMO_COMMAND_ID;
     tempBAMO.len = 3;
     tempBAMO.buf[0] = 0x3D;
     tempBAMO.buf[1] = 0x4A;
     tempBAMO.buf[2] = 0x0A;
+    can1.write(tempBAMO);
 }
 
 void sendTorqueVal(int value_bamo) {
@@ -260,22 +264,6 @@ void REGIDHandler(const CAN_message_t& msg) {
             TSOn = (dc_voltage >= DC_THRESHOLD);
             break;
         }
-        /*
-        case REGID_IGBT:
-            powerStageTemp = (msg.buf[2] << 8) | msg.buf[1];
-            powerStageTemp = (int)(powerStageTemp / 103.969 - 158.29);
-            break;
-
-        case REGID_AC_CURRENT:
-            ACCurrent = (msg.buf[2] << 8) | msg.buf[1];
-            ACCurrent = (ACCurrent * MAX_I) / ADC_MAX;
-            break;
-
-        case REGID_MOTOR_TEMP:
-            motorTemp = (msg.buf[2] << 8) | msg.buf[1];
-            motorTemp = motorTemp * 0.0194 - 160;
-            break;
-        */
 
         default:
             break;

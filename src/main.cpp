@@ -143,20 +143,6 @@ void loop() {
                 break;
             }
 
-            if(CURRENTtimer > 8) {
-                CURRENTtimer = 0;
-                
-                current_byte1 = (current_BMS >> 8) & 0xFF;  // MSB
-                current_byte2 = current_BMS & 0xFF;         // LSB
-
-                current_msg.id = 0x201;
-                current_msg.len = 3;
-                current_msg.buf[0] = 0xfb;
-                current_msg.buf[1] = current_byte2;
-                current_msg.buf[2] = current_byte1;
-                can1.write(current_msg);
-            }
-
             //Serial.printf("Message ID: %x\n",current_msg.id);
             //Serial.printf("Message length: %d\n", current_msg.len);
             //Serial.printf("Message data: ");
