@@ -150,10 +150,12 @@ void loop() {
                 current_byte2 = current_BMS & 0xFF;         // LSB
 
                 current_msg_lemos.id = 0x201;
-                current_msg_lemos.len = 3;
+                current_msg_lemos.len = 5;
                 current_msg_lemos.buf[0] = 0xfb;
-                current_msg_lemos.buf[1] = current_byte2;
-                current_msg_lemos.buf[2] = current_byte1;
+                current_msg_lemos.buf[1] = 0x00;
+                current_msg_lemos.buf[2] = 0x00;
+                current_msg_lemos.buf[3] = current_byte2;
+                current_msg_lemos.buf[4] = current_byte1;               
                 can1.write(current_msg_lemos);
             }
 
