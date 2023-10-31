@@ -19,6 +19,9 @@ CAN_message_t rpmRequest;
 CAN_message_t currentMOTOR;
 CAN_message_t tempMOTOR;
 CAN_message_t tempBAMO;
+CAN_message_t current_msg;
+CAN_message_t CD_msg;
+CAN_message_t CA_msg;
 
 int Ibat;
 int Vbat;
@@ -155,6 +158,28 @@ void request_dataLOG_messages() {
     tempBAMO.buf[0] = 0x3D;
     tempBAMO.buf[1] = 0x4A;
     tempBAMO.buf[2] = 0x0A;
+
+    current_msg.id = 0x201;
+    current_msg.len = 3;
+    current_msg.buf[0] = 0x3d;
+    current_msg.buf[1] = 0xfb;
+    current_msg.buf[2] = 0x0A;
+    can1.write(current_msg);
+
+    CA_msg.id = 0x201;
+    CA_msg.len = 3;
+    CA_msg.buf[0] = 0x3d;
+    CA_msg.buf[0] = 0xCA;
+    CA_msg.buf[0] = 0x0A;
+    can1.write(CA_msg);
+
+    CD_msg.id = 0x201;
+    CD_msg.len = 3;
+    CD_msg.buf[0] = 0x3d;
+    CD_msg.buf[1] = 0xCD;
+    CD_msg.buf[2] = 0x0A;
+    can1.write(CD_msg);
+
 }
 
 void sendTorqueVal(int value_bamo) {
