@@ -157,7 +157,7 @@ void request_dataLOG_messages() {
     tempMOTOR.id = BAMO_COMMAND_ID;
     tempMOTOR.len = 3;
     tempMOTOR.buf[0] = 0x3D;
-    tempMOTOR.buf[1] = 0xa3;
+    tempMOTOR.buf[1] = 0x49;
     tempMOTOR.buf[2] = 0x0A;
     can1.write(tempMOTOR);
     
