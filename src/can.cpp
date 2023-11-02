@@ -146,6 +146,7 @@ void request_dataLOG_messages() {
     currentMOTOR.buf[0] = 0x3D;
     currentMOTOR.buf[1] = 0x5f;
     currentMOTOR.buf[2] = 0x0A;
+    can1.write(currentMOTOR);
     
     tempMOTOR.id = BAMO_COMMAND_ID;
     tempMOTOR.len = 3;
@@ -320,7 +321,7 @@ void canSniffer(const CAN_message_t& msg) {
 
     switch (msg.id) {
         case 0x666:
-            current_BMS = ((msg.buf[1] << 8) | msg.buf[0]);
+            current_BMS = ((msg.buf[2] << 8) | msg.buf[1]);
             //Serial.printf("Message data received: ");
             //for (int i = 0; i < 2; i++)
                 //Serial.printf("%x ", msg.buf[i]);

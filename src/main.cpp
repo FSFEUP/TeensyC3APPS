@@ -39,8 +39,8 @@ extern CAN_message_t disable;
 extern CAN_message_t DCVoltageRequest;
 extern CAN_message_t actualSpeedRequest;
 
-uint8_t current_byte1; // MSB
-uint8_t current_byte2;        // LSB
+int8_t current_byte1; // MSB
+int8_t current_byte2;        // LSB
 CAN_message_t current_msg_lemos;
 
 enum status {
@@ -152,10 +152,10 @@ void loop() {
                 current_msg_lemos.id = 0x201;
                 current_msg_lemos.len = 5;
                 current_msg_lemos.buf[0] = 0xfb;
-                current_msg_lemos.buf[1] = 0x00;
-                current_msg_lemos.buf[2] = 0x00;
-                current_msg_lemos.buf[3] = current_byte2;
-                current_msg_lemos.buf[4] = current_byte1;               
+                current_msg_lemos.buf[1] = current_byte2;
+                current_msg_lemos.buf[2] = current_byte1;
+                current_msg_lemos.buf[3] = 0x00;
+                current_msg_lemos.buf[4] = 0x00;               
                 can1.write(current_msg_lemos);
             }
 
