@@ -143,13 +143,6 @@ void loop() {
                 break;
             }
 
-            //Serial.printf("Message ID: %x\n",current_msg.id);
-            //Serial.printf("Message length: %d\n", current_msg.len);
-            //Serial.printf("Message data: ");
-            //for (int i = 0; i < current_msg.len; i++)
-                //Serial.printf("%x ", current_msg.buf[i]);
-            //Serial.println();
-
             break;
         default:
             ERROR("Invalid r2d_status");
