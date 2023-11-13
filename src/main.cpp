@@ -21,6 +21,8 @@
 #define APPS_READ_PERIOD_MS 20
 #define BAMOCAR_ATTENUATION_FACTOR 1
 
+int current_BMS = 0;
+
 volatile bool disabled = false;
 volatile bool BTBReady = false;
 volatile bool transmissionEnabled = false;
@@ -37,6 +39,10 @@ extern CAN_message_t disable;
 extern CAN_message_t DCVoltageRequest;
 extern CAN_message_t actualSpeedRequest;
 
+uint8_t current_byte1; // MSB
+uint8_t current_byte2;        // LSB
+CAN_message_t current_msg;
+
 enum status {
     IDLE,    // waiting for r2d && ATS off
     DRIVING  // r2d pressed && ATS on
@@ -47,6 +53,7 @@ Bounce r2dButton = Bounce();
 
 elapsedMillis R2DTimer;
 elapsedMillis APPSTimer;
+elapsedMillis CURRENTtimer;
 
 elapsedMicros mainLoopPeriod;
 
@@ -112,6 +119,7 @@ void loop() {
 #endif
                 playR2DSound();
                 initBamocarD3();
+                request_dataLOG_messages();
                 R2DStatus = DRIVING;
                 break;
             }
@@ -134,8 +142,8 @@ void loop() {
                     sendTorqueVal(0);
                 break;
             }
-            break;
 
+            break;
         default:
             ERROR("Invalid r2d_status");
             break;

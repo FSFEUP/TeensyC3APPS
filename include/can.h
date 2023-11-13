@@ -4,7 +4,7 @@
 #include <FlexCAN_T4.h>
 
 #define C3_ID 0x123
-#define R2D_ID 0x666
+#define R2D_ID 0x665
 #define BMS_ID 0x675
 
 #define BAMO_COMMAND_ID 0x201
@@ -32,5 +32,6 @@
 void canSetup();
 void sendTorqueVal(int value_bamo);
 void initBamocarD3();
-
+void request_dataLOG_messages();
+void sendAPPS(int val1, int val2);
 #endif

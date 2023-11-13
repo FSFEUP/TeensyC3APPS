@@ -1,5 +1,6 @@
 #include "apps.h"
 #include "debug.h"
+#include "can.h"
 
 #include <Arduino.h>
 #include <elapsedMillis.h>
@@ -87,6 +88,7 @@ int readApps() {
 
     v_apps1 = average(avgBuffer1, AVG_SAMPLES);
     v_apps2 = average(avgBuffer2, AVG_SAMPLES);
+    sendAPPS(v_apps1,v_apps2);
 
 #ifdef APPS_DEBUG
     INFO("APPS1: %d\tAPPS2: %d\t", v_apps1, v_apps2);
