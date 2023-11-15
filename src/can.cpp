@@ -321,7 +321,7 @@ void canSniffer(const CAN_message_t& msg) {
 
     switch (msg.id) {
         case 0x666:
-            current_BMS = ((msg.buf[2] << 8) | msg.buf[1]);
+            current_BMS = ((msg.buf[1] << 8) | msg.buf[2]);
             //Serial.printf("Message data received: ");
             //for (int i = 0; i < 2; i++)
                 //Serial.printf("%x ", msg.buf[i]);
