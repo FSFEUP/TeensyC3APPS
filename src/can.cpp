@@ -20,6 +20,8 @@ CAN_message_t speedRequest;
 CAN_message_t currentMOTOR;
 CAN_message_t tempMOTOR;
 CAN_message_t tempBAMO;
+CAN_message_t VoltageMotor;
+CAN_message_t torque_motor;
 
 int Ibat;
 int Vbat;
@@ -167,6 +169,21 @@ void request_dataLOG_messages() {
     tempBAMO.buf[1] = 0x4A;
     tempBAMO.buf[2] = 0x0A;
     can1.write(tempBAMO);
+
+    torque_motor.id = BAMO_COMMAND_ID;
+    torque_motor.len = 3;
+    torque_motor.buf[0] = 0x3D;
+    torque_motor.buf[1] = 0xA0;
+    torque_motor.buf[2] = 0x0A;
+    can1.write(torque_motor);
+
+    VoltageMotor.id = BAMO_COMMAND_ID;
+    VoltageMotor.len = 3;
+    VoltageMotor.buf[0] = 0x3D;
+    VoltageMotor.buf[1] = 0x8A;
+    VoltageMotor.buf[2] = 0x0A;
+    can1.write(VoltageMotor);
+
 }
 
 void sendTorqueVal(int value_bamo) {
