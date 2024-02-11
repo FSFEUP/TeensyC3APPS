@@ -40,8 +40,6 @@ extern CAN_message_t DCVoltageRequest;
 extern CAN_message_t actualSpeedRequest;
 
 extern int speed;
-int x = ;
-int speed_value = ;
 
 uint8_t current_byte1; // MSB
 uint8_t current_byte2;        // LSB
@@ -156,9 +154,6 @@ void loop() {
                 if (apps_value >= 0)
                     sendTorqueVal(apps_value);
                 else
-                    if(speed > x) {
-                        sendMout();
-                    }
                     sendTorqueVal(0);
                 break;
             }
