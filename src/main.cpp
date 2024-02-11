@@ -39,6 +39,10 @@ extern CAN_message_t disable;
 extern CAN_message_t DCVoltageRequest;
 extern CAN_message_t actualSpeedRequest;
 
+extern int speed;
+int x = ;
+int speed_value = ;
+
 uint8_t current_byte1; // MSB
 uint8_t current_byte2;        // LSB
 CAN_message_t current_msg;
@@ -56,6 +60,19 @@ elapsedMillis APPSTimer;
 elapsedMillis CURRENTtimer;
 
 elapsedMicros mainLoopPeriod;
+
+void sendMout (int value) {
+    uint8_t byte1 = (value >> 8) & 0xFF;
+    uint8_t byte2 = value & 0xFF;
+
+    CAN_message_t msg;
+    msg.id = BAMO_COMMAND_ID;
+    msg.len = 3;
+    msg.buf[0] = 0xA0;
+    msg.buf[1] = byte2;
+    msg.buf[2] = byte1;
+    can1.write(msg);
+}
 
 void playR2DSound() {
     digitalWrite(buzzerPin, HIGH);
@@ -139,6 +156,9 @@ void loop() {
                 if (apps_value >= 0)
                     sendTorqueVal(apps_value);
                 else
+                    if(speed > x) {
+                        sendMout();
+                    }
                     sendTorqueVal(0);
                 break;
             }
@@ -149,3 +169,4 @@ void loop() {
             break;
     }
 }
+

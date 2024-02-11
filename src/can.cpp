@@ -22,6 +22,7 @@ CAN_message_t tempMOTOR;
 CAN_message_t tempBAMO;
 CAN_message_t VoltageMotor;
 CAN_message_t torque_motor;
+CAN_message_t battery_voltage;
 
 int Ibat;
 int Vbat;
@@ -48,6 +49,7 @@ extern int current;
 extern int speedInt;
 extern int packVoltage;
 extern int lowTemp;
+int speed = 0;
 
 extern int current_BMS;
 
@@ -184,6 +186,13 @@ void request_dataLOG_messages() {
     VoltageMotor.buf[2] = 0x0A;
     can1.write(VoltageMotor);
 
+    battery_voltage.id = BAMO_COMMAND_ID;
+    battery_voltage.len = 3;
+    battery_voltage.buf[0] = 0x3D;
+    battery_voltage.buf[1] = 0xeb;
+    battery_voltage.buf[2] = 0x0A;
+    can1.write(battery_voltage);
+
 }
 
 void sendTorqueVal(int value_bamo) {
@@ -279,7 +288,10 @@ void REGIDHandler(const CAN_message_t& msg) {
             break;
         }
         */
-
+        case 0x30:
+            speed = (msg.buf[2] << 8) | msg.buf[1];
+            break;
+            
         case REGID_DC_VOLTAGE: {
             long dc_voltage = 0;
             dc_voltage = (msg.buf[2] << 8) | msg.buf[1];
